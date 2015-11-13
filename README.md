@@ -8,3 +8,5 @@ AndroidRobot是专门为移动无线端测试开发的一款自动化测试工�
 5，	具有图像比较功能</br>
 6，	具有任务管理功能、流畅的自动化引擎、清晰的输出报告</br>
 
+Demo</br>
+![Demo](https://github.com/hoozheng/AndroidRobot/blob/master/demo.gif)
