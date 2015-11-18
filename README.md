@@ -37,6 +37,6 @@ AndroidRobot是专门为移动无线端测试开发的一款自动化测试工�
 ### 里程碑
 
 ### Contacts
-* Email:hoozheng@gmail.com
+* hoozheng@126.com
 * QQ:356850522
 
