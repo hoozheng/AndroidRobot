@@ -14,3 +14,15 @@ Demo
 
 ### 架构图
 ![Architecture](https://github.com/hoozheng/AndroidRobot/blob/master/architecture.PNG)
+
+### 支持平台
+* Android
+
+### 环境配置
+* Eclipse Luna Service Release 2 (4.4.2)
+  下载地址：http://www.eclipse.org/downloads/packages/eclipse-ide-eclipse-committers-442/lunasr2
+* SWT plugin
+  下载地址：http://archive.eclipse.org/eclipse/downloads/drops4/R-4.4.2-201502041700/index.php#SWT
+* JDK 1.8 x64
+  下载地址：http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
