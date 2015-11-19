@@ -44,8 +44,7 @@ AndroidRobot采用Python语言为驱动脚本，通过AndroidRobot框架分发�
  &nbsp;&nbsp;&nbsp;&nbsp;device[0].logInfo('This is Hello World!') \#Log中记录了一行文字  
       
       
-
-if __name__ == '__main__':  
+if \_\_name\_\_ == '\_\_main\_\_':  
 &nbsp;&nbsp;&nbsp;&nbsp;test()
   
   
