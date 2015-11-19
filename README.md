@@ -21,6 +21,8 @@ AndroidRobot是专门为移动无线端测试开发的一款自动化测试工�
 AndroidRobot是用Python脚本来驱动的，一个灵活性的开源框架。测试的一开始先建一个脚本，然后根据IDE的提示，编写脚本或者通过坐标录制脚本，脚本的主入口是Python的main函数。运行的时候需要在任务管理模块新建一个任务，通过任务关联脚本，我们只需要运行这个任务，可以很顺利的编辑运行自己的各种用例的组合。
 
 ### 原理介绍
+AndroidRobot采用Python语言为驱动脚本，通过AndroidRobot框架分发用户的命令至手机端去执行。如果是Native的API，框架会自动分发命令到[UiAutomator](http://android.toolib.net/tools/help/uiautomator/index.html)。如果是webview的API，Android4.4.2系统及以上我们会采用[Chromedriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started/getting-started---android)来驱动手机，Android4.4.2以下系统采用[Selendroid](http://selendroid.io/)。
+
 
 ### 架构图
 ![Architecture](https://github.com/hoozheng/AndroidRobot/blob/master/architecture.PNG)
@@ -36,6 +38,10 @@ AndroidRobot是用Python脚本来驱动的，一个灵活性的开源框架。�
 
 
 ### 里程碑
+
+### Contributor
+
+
 
 ### Contacts
 * hoozheng@126.com
