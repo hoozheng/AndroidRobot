@@ -34,6 +34,21 @@ AndroidRobot采用Python语言为驱动脚本，通过AndroidRobot框架分发�
  
 ### 我的第一个用例
 
+#_*_ coding: iso8859_1
+# Script API
+
+from com.android.python import AndroidDriver
+from org.openqa.selenium import By
+
+def test():
+    device[0].logInfo('This is Hello World!') #Log中记录了一行文字
+
+if __name__ == '__main__':
+    test()
+
+[API]()
+
+    
 ### 如何运行用例
 
 
