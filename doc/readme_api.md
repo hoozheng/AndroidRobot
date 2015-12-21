@@ -45,7 +45,82 @@ AndroidRobot API分对Native控件支持的API和对Webview控件支持的API。
 
 #####  void invoke(String pyPath, String method, Object[] args)
 调用自定义库函数<br>
-参数:String pyPath - Python脚本路径 String method - 方法名
+参数:<br>
+String pyPath - Python脚本路径 
+String method - 方法名
+
+#####  void logInfo(String log)
+记录Log日志<br>
+参数:String str - 日志文本<br>
+返回值:true - 记录成功  false - 记录失败
+
+#####  boolean longClick(int x, int y)
+长按点击坐标<br>
+参数:int x - x坐标<br>
+int y - y坐标<br>
+返回值:true - 点击成功    false - 点击失败
+
+#####  boolean longClick(String text)
+长按点击文本<br>
+参数:String text - 文本文字<br>
+返回值:true - 点击成功    false - 点击失败
+
+#####  boolean pressBack()
+模拟返回键<br>
+返回值:true - 返回成功  false - 返回失败
+
+#####  boolean pressDelete()
+模拟删除按键<br>
+返回值:true - 模拟成功  false - 模拟失败
+
+#####  boolean pressDPadCenter()
+模拟按轨迹球中点按键<br>
+返回值:true - 模拟成功  false - 模拟失败
+
+#####  boolean pressDPadDown()
+模拟按轨迹球下点按键<br>
+返回值:true - 模拟成功  false - 模拟失败
+
+#####  boolean pressDPadLeft()
+模拟按轨迹球左点按键<br>
+返回值:true - 模拟成功  false - 模拟失败
+
+#####  boolean pressDPadRight()
+模拟按轨迹球右点按键<br>
+返回值:true - 模拟成功  false - 模拟失败
+
+#####  boolean pressDPadUp()
+模拟按轨迹球上点按键<br>
+返回值:true - 模拟成功  false - 模拟失败
+
+#####  boolean pressEnter()
+模拟回车按键<br>
+返回值:true - 模拟成功  false - 模拟失败
+
+#####  boolean pressHome()
+模拟HOME按键<br>
+返回值:true - 模拟成功  false - 模拟失败
+
+#####  boolean pressKeyCode(int keyCode, int metaState)
+发送KeyCode按键<br>
+参数:
+int keyCode - 键盘KeyCode值   int metaState - 大小写(1大写  0小写)<br>
+返回值:true - 发送成功  false - 发送失败
+
+#####  boolean pressKeyWords(String str)
+根据字符发送KeyCode按键<br>
+参数:String str - 需要输入的字符串<br>
+返回值:true - 发送成功  false - 发送失败
+
+#####  boolean pressMenu()
+模拟MENU按键<br>
+返回值:true - 模拟成功  false - 模拟失败
+
+#####  boolean reboot()
+重启设备<br>
+返回值:true - 点击成功    false - 点击失败
+
+#####  
 
 ### WebView API
 #####  boolean findElementByXpath(String xpath)
