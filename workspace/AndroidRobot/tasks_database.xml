@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?><tasks>
+<task item="" loop="1" name="test" project="" solution="AndroidRobot"><case individual="1" isChecked="true" loop="1" name="HelloWorld.py" path=".\workspace\AndroidRobot\Scripts\HelloWorld.py" unit="秒"/></task></tasks>

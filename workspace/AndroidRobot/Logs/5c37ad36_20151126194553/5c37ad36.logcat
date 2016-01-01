@@ -1,0 +1,1150 @@
+--------- beginning of /dev/log/system
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+D/WifiService( 1191): uid=10109 wifi scan blocked
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+D/WifiService( 1191): uid=10109 wifi scan blocked
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+D/WifiService( 1191): uid=10109 wifi scan blocked
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+D/WifiService( 1191): uid=10109 wifi scan blocked
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+D/WifiService( 1191): uid=10109 wifi scan blocked
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+D/WifiService( 1191): uid=10109 wifi scan blocked
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+D/WifiService( 1191): uid=10109 wifi scan blocked
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+D/WifiService( 1191): uid=10109 wifi scan blocked
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+D/WifiService( 1191): uid=10109 wifi scan blocked
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+D/WifiService( 1191): uid=10109 wifi scan blocked
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:112 android.app.ActivityThread.handleReceiver:2415 
+
+D/WifiService( 1191): uid=10109 wifi scan blocked
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+D/ConnectivityService( 1191): Captive portal check NetworkInfo: type: WIFI[], state: CONNECTING/CAPTIVE_PORTAL_CHECK, reason: (unspecified), extra: "alibaba-inc", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false
+
+D/ConnectivityService( 1191): handleCaptivePortalTrackerCheck: call captivePortalCheckComplete ni=NetworkInfo: type: WIFI[], state: CONNECTING/CAPTIVE_PORTAL_CHECK, reason: (unspecified), extra: "alibaba-inc", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false
+
+D/ConnectivityService( 1191): ConnectivityChange for WIFI: CONNECTED/CONNECTED
+
+D/ConnectivityService( 1191): Setting TCP values: [1] which comes from [net.tcp.usercfg.wifi]
+
+D/ConnectivityService( 1191): Setting TCP values: [20] which comes from [net.tcp.delack.wifi]
+
+E/ConnectivityService( 1191): Unexpected mtu value: android.net.wifi.WifiStateTracker@4364a358
+
+D/Nat464Xlat( 1191): requiresClat: netType=1, hasIPv4Address=true
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+D/ConnectivityService( 1191): handleConnectivityChange: addresses changed linkProperty[1]: resetMask=0
+
+D/ConnectivityService( 1191):    car=removed=[] added=[fe80::1a59:36ff:fe16:aa5d/64,]
+
+D/Nat464Xlat( 1191): requiresClat: netType=1, hasIPv4Address=true
+
+W/BroadcastQueue( 1191): Unable to launch app com.alipay.m.portal/10344 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter.sdk.service for broadcast com.xiaomi.gamecenter.sdk.service/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=30870 uid=10010 gids={50010, 3003, 1007, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 30552:com.mipay.wallet/u0a65 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.android.fileexplorer:remote for broadcast com.android.fileexplorer/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=30890 uid=10051 gids={50051, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.market for broadcast com.xiaomi.market/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=30908 uid=10107 gids={50107, 1028, 1015, 3003}
+
+I/ActivityManager( 1191): Killing 30711:com.miui.cleanmaster/1000 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.android.thememanager for broadcast com.android.thememanager/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=30928 uid=9801 gids={49801, 2001, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Killing 30727:com.cleanmaster.sdk/u0a59 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.account for broadcast com.xiaomi.account/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=30946 uid=10083 gids={50083, 3003, 1028, 1015, 3002}
+
+I/ActivityManager( 1191): Killing 30770:com.qualcomm.services.location/1000 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.vip for broadcast com.xiaomi.vip/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=30962 uid=10030 gids={50030, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 30870:com.xiaomi.gamecenter.sdk.service/u0a10 (adj 15): empty #9
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Killing 30671:com.miui.fmradio/u0a103 (adj 15): empty #9
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.g:312 com.android.settings.MiuiSettingsReceiver.onReceive:100 
+
+W/ActivityManager( 1191): Unable to start service Intent { act=miui.intent.action.UPDATE_VIRUS_LIB } U=0: not found
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:103 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 com.android.settings.wifi.MiuiWifiService.pt:199 com.android.settings.wifi.MiuiWifiService.onStartCommand:121 android.app.ActivityThread.handleServiceArgs:2696 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+I/ActivityManager( 1191): Start proc com.miui.bugreport:remote for broadcast com.miui.bugreport/com.xiaomi.reporter.ConnectivityChangedReceiver: pid=30978 uid=1000 gids={41000, 3003, 1028, 1015, 3002, 3001, 3005, 1021, 3004, 1000, 3009, 1023, 1010, 1007, 3006, 3007, 2001, 1035}
+
+W/ContextImpl(30978): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 miui.core.SdkManager$1.run:189 android.os.Handler.handleCallback:733 android.os.Handler.dispatchMessage:95 
+
+I/ActivityManager( 1191): Start proc com.miui.cloudservice for broadcast com.miui.cloudservice/.sync.ConnectivityReceiver: pid=30993 uid=10047 gids={50047, 3003, 1028, 1015, 2001}
+
+I/ActivityManager( 1191): Killing 30686:com.miui.player/u0a15 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter for broadcast com.xiaomi.gamecenter/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31014 uid=10106 gids={50106, 1007, 3003, 1028, 1015, 2001}
+
+I/ActivityManager( 1191): Killing 30908:com.xiaomi.market/u0a107 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.mipay.wallet for broadcast com.mipay.wallet/com.mipay.bill.BillReceiver: pid=31040 uid=10065 gids={50065, 3002, 3001, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 30928:com.android.thememanager/9801 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.market for broadcast com.xiaomi.market/.data.ConnectivityChangedReceiver: pid=31056 uid=10107 gids={50107, 1028, 1015, 3003}
+
+I/ActivityManager( 1191): Killing 30946:com.xiaomi.account/u0a83 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.android.updater for broadcast com.android.updater/.DailyCheckReceiver: pid=31075 uid=9802 gids={49802, 3003, 1028, 1015, 2001, 1007}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.account for broadcast com.xiaomi.account/.GreenConnectivityReceiver: pid=31093 uid=10083 gids={50083, 3003, 1028, 1015, 3002}
+
+I/ActivityManager( 1191): Process com.android.updater (pid 31075) has died.
+
+I/ActivityManager( 1191): Killing 30614:com.miui.virtualsim/1001 (adj 15): empty #9
+
+W/ContextImpl( 1545): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.miui.powerkeeper.cloudcontrol.CloudUpdateReceiver.update:51 com.miui.powerkeeper.cloudcontrol.CloudUpdateReceiver.tryUpdate:42 
+
+I/ActivityManager( 1191): Start proc com.miui.mipub for broadcast com.miui.mipub/.mixin.forward.MipubPushBroadcastReceiver: pid=31115 uid=10102 gids={50102, 3003, 1028, 1015, 1007}
+
+I/ActivityManager( 1191): Start proc com.miui.klo.bugreport for broadcast com.miui.klo.bugreport/.receiver.KLOStartupReceiver: pid=31132 uid=1000 gids={41000, 3003, 1028, 1015, 3002, 3001, 3005, 1021, 3004, 1000, 3009, 1023, 1010, 1007, 3006, 3007, 2001, 1035}
+
+I/ActivityManager( 1191): Killing 30962:com.xiaomi.vip/u0a30 (adj 15): empty #9
+
+W/BroadcastQueue( 1191): Unable to launch app com.chaozh.iReaderxda/10090 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Killing 30978:com.miui.bugreport:remote/1000 (adj 15): empty #9
+
+W/BroadcastQueue( 1191): Unable to launch app com.chaozh.iReaderxda/10090 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/ContextImpl(31132): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 miui.core.SdkManager$1.run:189 android.os.Handler.handleCallback:733 android.os.Handler.dispatchMessage:95 
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.wandoujia.phoenix2/10100 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.wandoujia.phoenix2/10100 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Delay finish: com.xiaomi.gamecenter/.push.GameCenterPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Killing 30993:com.miui.cloudservice/u0a47 (adj 15): empty #9
+
+D/ConnectivityService( 1191): setProvNotificationVisible: E visible=false networkType=1 extraInfo=null url=null
+
+D/ConnectivityService( 1191): captivePortalCheckCompleted: ni=NetworkInfo: type: WIFI[], state: CONNECTED/CONNECTED, reason: (unspecified), extra: "alibaba-inc", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false captive=false
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+I/ProcessStatsService( 1191): Prepared write state in 33ms
+
+I/ProcessStatsService( 1191): Prepared write state in 16ms
+
+W/ContextImpl( 1265): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.android.systemui.statusbar.phone.PhoneStatusBar.updateAppMessage:1658 com.android.systemui.statusbar.phone.PhoneStatusBar.updateAppMessage:1650 com.android.systemui.statusbar.phone.PhoneStatusBar.addNotification:1559 
+
+I/ActivityManager( 1191): Killing 31115:com.miui.mipub/u0a102 (adj 15): empty for 623s
+
+I/ActivityManager( 1191): Killing 31093:com.xiaomi.account/u0a83 (adj 15): empty for 624s
+
+I/ActivityManager( 1191): Killing 30890:com.android.fileexplorer:remote/u0a51 (adj 15): empty for 625s
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+D/ConnectivityService( 1191): Captive portal check NetworkInfo: type: WIFI[], state: CONNECTING/CAPTIVE_PORTAL_CHECK, reason: (unspecified), extra: "alibaba-inc", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false
+
+D/ConnectivityService( 1191): handleCaptivePortalTrackerCheck: call captivePortalCheckComplete ni=NetworkInfo: type: WIFI[], state: CONNECTING/CAPTIVE_PORTAL_CHECK, reason: (unspecified), extra: "alibaba-inc", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false
+
+D/ConnectivityService( 1191): ConnectivityChange for WIFI: CONNECTED/CONNECTED
+
+D/ConnectivityService( 1191): Setting TCP values: [1] which comes from [net.tcp.usercfg.wifi]
+
+D/ConnectivityService( 1191): Setting TCP values: [20] which comes from [net.tcp.delack.wifi]
+
+E/ConnectivityService( 1191): Unexpected mtu value: android.net.wifi.WifiStateTracker@4364a358
+
+D/ConnectivityService( 1191): handleConnectivityChange: address are the same reset per doReset linkProperty[1]: resetMask=0
+
+D/Nat464Xlat( 1191): requiresClat: netType=1, hasIPv4Address=true
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+D/ConnectivityService( 1191): NetTransition Wakelock for ConnectedState released by timeout
+
+W/BroadcastQueue( 1191): Unable to launch app com.alipay.m.portal/10344 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter.sdk.service for broadcast com.xiaomi.gamecenter.sdk.service/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31210 uid=10010 gids={50010, 3003, 1007, 1028, 1015}
+
+I/ActivityManager( 1191): Start proc com.miui.fmradio for broadcast com.miui.fmradio/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31227 uid=10103 gids={50103, 3003, 1028, 1015, 1023, 3002}
+
+I/ActivityManager( 1191): Killing 31132:com.miui.klo.bugreport/1000 (adj 15): empty for 1723s
+
+I/ActivityManager( 1191): Start proc com.miui.player for broadcast com.miui.player/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31242 uid=10015 gids={50015, 3002, 1028, 1015, 1023, 3003}
+
+I/ActivityManager( 1191): Killing 31040:com.mipay.wallet/u0a65 (adj 15): empty for 1723s
+
+I/ActivityManager( 1191): Killing 31014:com.xiaomi.gamecenter/u0a106 (adj 15): empty for 1724s
+
+I/ActivityManager( 1191): Start proc com.android.fileexplorer:remote for broadcast com.android.fileexplorer/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31258 uid=10051 gids={50051, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Start proc com.android.thememanager for broadcast com.android.thememanager/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31276 uid=9801 gids={49801, 2001, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.account for broadcast com.xiaomi.account/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31294 uid=10083 gids={50083, 3003, 1028, 1015, 3002}
+
+I/ActivityManager( 1191): Start proc com.miui.virtualsim for broadcast com.miui.virtualsim/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31310 uid=1001 gids={41001, 3004, 3009, 3005, 1006, 3002, 3001, 3003, 1028, 1015, 1007}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.vip for broadcast com.xiaomi.vip/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31336 uid=10030 gids={50030, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 30751:android.process.media/u0a8 (adj 13): empty #9
+
+I/ActivityManager( 1191): Killing 31276:com.android.thememanager/9801 (adj 13): depends on provider com.android.providers.downloads/.DownloadProvider in dying proc android.process.media
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Start proc android.process.media for broadcast com.android.providers.downloads/.DownloadReceiver: pid=31351 uid=10008 gids={50008, 3003, 1028, 1015, 1023, 1024, 2001, 3007}
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.g:312 com.android.settings.MiuiSettingsReceiver.onReceive:100 
+
+W/ActivityManager( 1191): Unable to start service Intent { act=miui.intent.action.UPDATE_VIRUS_LIB } U=0: not found
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:103 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 com.android.settings.wifi.MiuiWifiService.pt:199 com.android.settings.wifi.MiuiWifiService.onStartCommand:121 android.app.ActivityThread.handleServiceArgs:2696 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+I/ActivityManager( 1191): Start proc com.miui.bugreport:remote for broadcast com.miui.bugreport/com.xiaomi.reporter.ConnectivityChangedReceiver: pid=31376 uid=1000 gids={41000, 3003, 1028, 1015, 3002, 3001, 3005, 1021, 3004, 1000, 3009, 1023, 1010, 1007, 3006, 3007, 2001, 1035}
+
+W/ContextImpl(31376): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 miui.core.SdkManager$1.run:189 android.os.Handler.handleCallback:733 android.os.Handler.dispatchMessage:95 
+
+I/ActivityManager( 1191): Start proc com.miui.cloudservice for broadcast com.miui.cloudservice/.sync.ConnectivityReceiver: pid=31389 uid=10047 gids={50047, 3003, 1028, 1015, 2001}
+
+I/ActivityManager( 1191): Killing 31210:com.xiaomi.gamecenter.sdk.service/u0a10 (adj 15): empty #9
+
+I/ActivityManager( 1191): Killing 31227:com.miui.fmradio/u0a103 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter for broadcast com.xiaomi.gamecenter/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31411 uid=10106 gids={50106, 1007, 3003, 1028, 1015, 2001}
+
+I/ActivityManager( 1191): Killing 31242:com.miui.player/u0a15 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.mipay.wallet for broadcast com.mipay.wallet/com.mipay.bill.BillReceiver: pid=31436 uid=10065 gids={50065, 3002, 3001, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Start proc com.android.updater for broadcast com.android.updater/.DailyCheckReceiver: pid=31452 uid=9802 gids={49802, 3003, 1028, 1015, 2001, 1007}
+
+W/ContextImpl( 1545): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.miui.powerkeeper.cloudcontrol.CloudUpdateReceiver.update:51 com.miui.powerkeeper.cloudcontrol.CloudUpdateReceiver.tryUpdate:42 
+
+I/ActivityManager( 1191): Start proc com.miui.mipub for broadcast com.miui.mipub/.mixin.forward.MipubPushBroadcastReceiver: pid=31473 uid=10102 gids={50102, 3003, 1028, 1015, 1007}
+
+I/ActivityManager( 1191): Process com.android.updater (pid 31452) has died.
+
+I/ActivityManager( 1191): Start proc com.miui.klo.bugreport for broadcast com.miui.klo.bugreport/.receiver.KLOStartupReceiver: pid=31489 uid=1000 gids={41000, 3003, 1028, 1015, 3002, 3001, 3005, 1021, 3004, 1000, 3009, 1023, 1010, 1007, 3006, 3007, 2001, 1035}
+
+I/ActivityManager( 1191): Killing 31336:com.xiaomi.vip/u0a30 (adj 15): empty #9
+
+W/BroadcastQueue( 1191): Unable to launch app com.chaozh.iReaderxda/10090 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Killing 31376:com.miui.bugreport:remote/1000 (adj 15): empty #9
+
+W/ContextImpl(31489): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 miui.core.SdkManager$1.run:189 android.os.Handler.handleCallback:733 android.os.Handler.dispatchMessage:95 
+
+W/BroadcastQueue( 1191): Unable to launch app com.chaozh.iReaderxda/10090 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.wandoujia.phoenix2/10100 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.wandoujia.phoenix2/10100 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Start proc com.miui.fmradio for broadcast com.miui.fmradio/com.miui.radio.push.RadioMessageReceiver: pid=31503 uid=10103 gids={50103, 3003, 1028, 1015, 1023, 3002}
+
+I/ActivityManager( 1191): Start proc com.miui.player for broadcast com.miui.player/.push.MiuiPushMessageReceiver: pid=31518 uid=10015 gids={50015, 3002, 1028, 1015, 1023, 3003}
+
+I/ActivityManager( 1191): Killing 31389:com.miui.cloudservice/u0a47 (adj 15): empty #9
+
+I/ActivityManager( 1191): Delay finish: com.miui.virtualsim/.push.MiPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Delay finish: com.android.providers.downloads/.DownloadPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Delay finish: com.miui.fmradio/com.miui.radio.push.RadioMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Delay finish: com.miui.player/.push.MiuiPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Killing 31258:com.android.fileexplorer:remote/u0a51 (adj 15): empty #9
+
+I/ActivityManager( 1191): Killing 31294:com.xiaomi.account/u0a83 (adj 15): empty #9
+
+I/ActivityManager( 1191): Killing 31056:com.xiaomi.market/u0a107 (adj 15): empty #10
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+I/ProcessStatsService( 1191): Prepared write state in 26ms
+
+I/ActivityManager( 1191): Killing 31310:com.miui.virtualsim/1001 (adj 15): empty for 608s
+
+I/ActivityManager( 1191): Killing 31489:com.miui.klo.bugreport/1000 (adj 15): empty for 609s
+
+I/ActivityManager( 1191): Killing 31473:com.miui.mipub/u0a102 (adj 15): empty for 609s
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+I/ActivityManager( 1191): Start proc com.miui.yellowpage for service com.miui.yellowpage/.sync.SyncService: pid=31565 uid=10006 gids={50006, 3003, 1028, 1015, 3002, 3001}
+
+I/ActivityManager( 1191): Killing 31436:com.mipay.wallet/u0a65 (adj 15): empty for 1930s
+
+I/ProcessStatsService( 1191): Prepared write state in 13ms
+
+I/ProcessStatsService( 1191): Prepared write state in 6ms
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+I/ActivityManager( 1191): Start proc com.miui.cloudservice for service com.miui.cloudservice/.sync.MiCloudStatusService: pid=31589 uid=10047 gids={50047, 3003, 1028, 1015, 2001}
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+W/ContextImpl( 2635): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.miui.mdb.DataUpdateReceiver.aT:64 com.miui.mdb.DataUpdateReceiver.onReceive:43 
+
+I/ActivityManager( 1191): Start proc com.miui.klo.bugreport for broadcast com.miui.klo.bugreport/.receiver.KLOStartupReceiver: pid=31602 uid=1000 gids={41000, 3003, 1028, 1015, 3002, 3001, 3005, 1021, 3004, 1000, 3009, 1023, 1010, 1007, 3006, 3007, 2001, 1035}
+
+W/ContextImpl(31602): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.miui.klo.bugreport.receiver.KLOStartupReceiver.l:188 com.miui.klo.bugreport.receiver.KLOStartupReceiver.onReceive:135 
+
+W/ContextImpl(31602): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 miui.core.SdkManager$1.run:189 android.os.Handler.handleCallback:733 android.os.Handler.dispatchMessage:95 
+
+W/ContextImpl( 2635): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.mdb.DataUpdateService.onHandleIntent:57 android.app.IntentService$ServiceHandler.handleMessage:65 android.os.Handler.dispatchMessage:102 
+
+W/ContextImpl( 2635): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.miui.mdb.MDBDataUpdateReceiver.onReceive:19 android.app.ActivityThread.handleReceiver:2415 
+
+W/ActivityThread(31602): ClassLoader.loadClass: The class loader returned by Thread.getContextClassLoader() may fail for processes that host multiple applications. You should explicitly specify a context class loader. For example: Thread.setContextClassLoader(getClass().getClassLoader());
+
+I/ActivityManager( 1191): Killing 31503:com.miui.fmradio/u0a103 (adj 15): empty for 2110s
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+D/ConnectivityService( 1191): Captive portal check NetworkInfo: type: WIFI[], state: CONNECTING/CAPTIVE_PORTAL_CHECK, reason: (unspecified), extra: "alibaba-inc", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false
+
+D/ConnectivityService( 1191): handleCaptivePortalTrackerCheck: call captivePortalCheckComplete ni=NetworkInfo: type: WIFI[], state: CONNECTING/CAPTIVE_PORTAL_CHECK, reason: (unspecified), extra: "alibaba-inc", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false
+
+D/ConnectivityService( 1191): ConnectivityChange for WIFI: CONNECTED/CONNECTED
+
+D/ConnectivityService( 1191): Setting TCP values: [1] which comes from [net.tcp.usercfg.wifi]
+
+D/ConnectivityService( 1191): Setting TCP values: [20] which comes from [net.tcp.delack.wifi]
+
+E/ConnectivityService( 1191): Unexpected mtu value: android.net.wifi.WifiStateTracker@4364a358
+
+D/ConnectivityService( 1191): handleConnectivityChange: address are the same reset per doReset linkProperty[1]: resetMask=0
+
+D/Nat464Xlat( 1191): requiresClat: netType=1, hasIPv4Address=true
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+D/ConnectivityService( 1191): NetTransition Wakelock for ConnectedState released by timeout
+
+W/BroadcastQueue( 1191): Unable to launch app com.alipay.m.portal/10344 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter.sdk.service for broadcast com.xiaomi.gamecenter.sdk.service/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31664 uid=10010 gids={50010, 3003, 1007, 1028, 1015}
+
+I/ActivityManager( 1191): Start proc com.miui.fmradio for broadcast com.miui.fmradio/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31681 uid=10103 gids={50103, 3003, 1028, 1015, 1023, 3002}
+
+I/ActivityManager( 1191): Killing 31518:com.miui.player/u0a15 (adj 15): empty for 3451s
+
+I/ActivityManager( 1191): Start proc com.miui.player for broadcast com.miui.player/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31696 uid=10015 gids={50015, 3002, 1028, 1015, 1023, 3003}
+
+I/ActivityManager( 1191): Killing 31411:com.xiaomi.gamecenter/u0a106 (adj 15): empty for 3451s
+
+I/ActivityManager( 1191): Killing 31565:com.miui.yellowpage/u0a6 (adj 15): empty for 1522s
+
+I/ActivityManager( 1191): Start proc com.android.fileexplorer:remote for broadcast com.android.fileexplorer/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31713 uid=10051 gids={50051, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.market for broadcast com.xiaomi.market/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31731 uid=10107 gids={50107, 1028, 1015, 3003}
+
+I/ActivityManager( 1191): Killing 31602:com.miui.klo.bugreport/1000 (adj 15): empty for 1342s
+
+I/ActivityManager( 1191): Start proc com.android.thememanager for broadcast com.android.thememanager/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31751 uid=9801 gids={49801, 2001, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.account for broadcast com.xiaomi.account/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31769 uid=10083 gids={50083, 3003, 1028, 1015, 3002}
+
+I/ActivityManager( 1191): Start proc com.miui.virtualsim for broadcast com.miui.virtualsim/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31785 uid=1001 gids={41001, 3004, 3009, 3005, 1006, 3002, 3001, 3003, 1028, 1015, 1007}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.vip for broadcast com.xiaomi.vip/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31811 uid=10030 gids={50030, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 31664:com.xiaomi.gamecenter.sdk.service/u0a10 (adj 15): empty #9
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Killing 31681:com.miui.fmradio/u0a103 (adj 15): empty #9
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.g:312 com.android.settings.MiuiSettingsReceiver.onReceive:100 
+
+W/ActivityManager( 1191): Unable to start service Intent { act=miui.intent.action.UPDATE_VIRUS_LIB } U=0: not found
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:103 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 com.android.settings.wifi.MiuiWifiService.pt:199 com.android.settings.wifi.MiuiWifiService.onStartCommand:121 android.app.ActivityThread.handleServiceArgs:2696 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+I/ActivityManager( 1191): Start proc com.miui.bugreport:remote for broadcast com.miui.bugreport/com.xiaomi.reporter.ConnectivityChangedReceiver: pid=31829 uid=1000 gids={41000, 3003, 1028, 1015, 3002, 3001, 3005, 1021, 3004, 1000, 3009, 1023, 1010, 1007, 3006, 3007, 2001, 1035}
+
+W/ContextImpl(31829): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 miui.core.SdkManager$1.run:189 android.os.Handler.handleCallback:733 android.os.Handler.dispatchMessage:95 
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter for broadcast com.xiaomi.gamecenter/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=31845 uid=10106 gids={50106, 1007, 3003, 1028, 1015, 2001}
+
+I/ActivityManager( 1191): Killing 31696:com.miui.player/u0a15 (adj 15): empty #9
+
+I/ActivityManager( 1191): Killing 31731:com.xiaomi.market/u0a107 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.mipay.wallet for broadcast com.mipay.wallet/com.mipay.bill.BillReceiver: pid=31870 uid=10065 gids={50065, 3002, 3001, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 31751:com.android.thememanager/9801 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.market for broadcast com.xiaomi.market/.data.ConnectivityChangedReceiver: pid=31885 uid=10107 gids={50107, 1028, 1015, 3003}
+
+I/ActivityManager( 1191): Killing 31769:com.xiaomi.account/u0a83 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.android.updater for broadcast com.android.updater/.DailyCheckReceiver: pid=31904 uid=9802 gids={49802, 3003, 1028, 1015, 2001, 1007}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.account for broadcast com.xiaomi.account/.GreenConnectivityReceiver: pid=31922 uid=10083 gids={50083, 3003, 1028, 1015, 3002}
+
+I/ActivityManager( 1191): Process com.android.updater (pid 31904) has died.
+
+I/ActivityManager( 1191): Killing 31785:com.miui.virtualsim/1001 (adj 15): empty #9
+
+W/ContextImpl( 1545): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.miui.powerkeeper.cloudcontrol.CloudUpdateReceiver.update:51 com.miui.powerkeeper.cloudcontrol.CloudUpdateReceiver.tryUpdate:42 
+
+I/ActivityManager( 1191): Start proc com.miui.virtualsim for broadcast com.miui.virtualsim/.receiver.ConnectivityChangedReceiver: pid=31943 uid=1001 gids={41001, 3004, 3009, 3005, 1006, 3002, 3001, 3003, 1028, 1015, 1007}
+
+I/ActivityManager( 1191): Killing 31811:com.xiaomi.vip/u0a30 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.miui.mipub for broadcast com.miui.mipub/.mixin.forward.MipubPushBroadcastReceiver: pid=31970 uid=10102 gids={50102, 3003, 1028, 1015, 1007}
+
+I/ActivityManager( 1191): Killing 31829:com.miui.bugreport:remote/1000 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.miui.klo.bugreport for broadcast com.miui.klo.bugreport/.receiver.KLOStartupReceiver: pid=31987 uid=1000 gids={41000, 3003, 1028, 1015, 3002, 3001, 3005, 1021, 3004, 1000, 3009, 1023, 1010, 1007, 3006, 3007, 2001, 1035}
+
+I/ActivityManager( 1191): Killing 31589:com.miui.cloudservice/u0a47 (adj 15): empty #9
+
+W/BroadcastQueue( 1191): Unable to launch app com.chaozh.iReaderxda/10090 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Killing 31713:com.android.fileexplorer:remote/u0a51 (adj 15): empty #9
+
+W/BroadcastQueue( 1191): Unable to launch app com.chaozh.iReaderxda/10090 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.wandoujia.phoenix2/10100 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.wandoujia.phoenix2/10100 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/ContextImpl(31987): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 miui.core.SdkManager$1.run:189 android.os.Handler.handleCallback:733 android.os.Handler.dispatchMessage:95 
+
+I/ActivityManager( 1191): Start proc com.miui.fmradio for broadcast com.miui.fmradio/com.miui.radio.push.RadioMessageReceiver: pid=32000 uid=10103 gids={50103, 3003, 1028, 1015, 1023, 3002}
+
+I/ActivityManager( 1191): Start proc com.miui.player for broadcast com.miui.player/.push.MiuiPushMessageReceiver: pid=32015 uid=10015 gids={50015, 3002, 1028, 1015, 1023, 3003}
+
+I/ActivityManager( 1191): Killing 31845:com.xiaomi.gamecenter/u0a106 (adj 15): empty #9
+
+I/ActivityManager( 1191): Delay finish: com.mipay.wallet/com.mipay.push.MipayPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Delay finish: com.miui.fmradio/com.miui.radio.push.RadioMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Delay finish: com.miui.player/.push.MiuiPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Killing 31885:com.xiaomi.market/u0a107 (adj 15): empty #9
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+I/EntropyMixer( 1191): Writing entropy...
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+I/ProcessStatsService( 1191): Prepared write state in 32ms
+
+I/ProcessStatsService( 1191): Prepared write state in 0ms
+
+I/ProcessStatsService( 1191): Pruning old procstats: /data/system/procstats/state-2015-11-24-22-32-10.bin
+
+I/ActivityManager( 1191): Killing 31970:com.miui.mipub/u0a102 (adj 15): empty for 607s
+
+I/ActivityManager( 1191): Killing 31922:com.xiaomi.account/u0a83 (adj 15): empty for 607s
+
+I/ActivityManager( 1191): Killing 31351:android.process.media/u0a8 (adj 15): empty for 607s
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+I/ProcessStatsService( 1191): Prepared write state in 11ms
+
+I/ProcessStatsService( 1191): Prepared write state in 3ms
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+D/ConnectivityService( 1191): Captive portal check NetworkInfo: type: WIFI[], state: CONNECTING/CAPTIVE_PORTAL_CHECK, reason: (unspecified), extra: "alibaba-inc", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false
+
+D/ConnectivityService( 1191): handleCaptivePortalTrackerCheck: call captivePortalCheckComplete ni=NetworkInfo: type: WIFI[], state: CONNECTING/CAPTIVE_PORTAL_CHECK, reason: (unspecified), extra: "alibaba-inc", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false
+
+D/ConnectivityService( 1191): ConnectivityChange for WIFI: CONNECTED/CONNECTED
+
+D/ConnectivityService( 1191): Setting TCP values: [1] which comes from [net.tcp.usercfg.wifi]
+
+D/ConnectivityService( 1191): Setting TCP values: [20] which comes from [net.tcp.delack.wifi]
+
+E/ConnectivityService( 1191): Unexpected mtu value: android.net.wifi.WifiStateTracker@4364a358
+
+D/ConnectivityService( 1191): handleConnectivityChange: address are the same reset per doReset linkProperty[1]: resetMask=0
+
+D/Nat464Xlat( 1191): requiresClat: netType=1, hasIPv4Address=true
+
+I/ActivityManager( 1191): Start proc com.miui.gallery for broadcast com.miui.gallery/.util.GalleryAnalyticsReceiver: pid=32099 uid=10012 gids={50012, 3003, 1028, 1015, 1023}
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+I/ActivityManager( 1191): Killing 31987:com.miui.klo.bugreport/1000 (adj 15): empty for 3448s
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.AnalyticsReceiver.onReceive:24 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+I/ActivityManager( 1191): Start proc com.android.deskclock for broadcast com.android.deskclock/.AlarmAnalyticsReceiver: pid=32119 uid=10048 gids={50048, 3003, 2001, 1028}
+
+I/ActivityManager( 1191): Start proc com.android.fileexplorer for broadcast com.android.fileexplorer/.controller.AnalyticsReceiver: pid=32133 uid=10051 gids={50051, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Killing 31870:com.mipay.wallet/u0a65 (adj 15): empty for 3448s
+
+I/ActivityManager( 1191): Start proc com.android.fileexplorer:remote for service com.android.fileexplorer/cn.kuaipan.android.service.KscService: pid=32145 uid=10051 gids={50051, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Start proc com.miui.notes:remote for broadcast com.miui.notes/.ui.AnalyticsReceiver: pid=32158 uid=10069 gids={50069, 1028, 1015, 3003}
+
+I/ActivityManager( 1191): Killing 31943:com.miui.virtualsim/1001 (adj 15): empty for 3448s
+
+D/ConnectivityService( 1191): NetTransition Wakelock for ConnectedState released by timeout
+
+I/ActivityManager( 1191): Start proc com.android.soundrecorder for broadcast com.android.soundrecorder/.analytics.AnalyticsReceiver: pid=32174 uid=10079 gids={50079, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 32000:com.miui.fmradio/u0a103 (adj 15): empty for 3449s
+
+I/ActivityManager( 1191): Start proc com.android.thememanager for broadcast com.android.thememanager/.util.ThemeAnalyticsReceiver: pid=32194 uid=9801 gids={49801, 2001, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Start proc android.process.media for broadcast com.android.providers.media/.MediaScannerReceiver: pid=32217 uid=10008 gids={50008, 3003, 1028, 1015, 1023, 1024, 2001, 3007}
+
+I/ActivityManager( 1191): Delay finish: com.android.providers.downloads/.DownloadPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Delay finish: com.android.fileexplorer/cn.kuaipan.android.service.impl.MiPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+W/BroadcastQueue( 1191): Unable to launch app com.alipay.m.portal/10344 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter.sdk.service for broadcast com.xiaomi.gamecenter.sdk.service/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=32260 uid=10010 gids={50010, 3003, 1007, 1028, 1015}
+
+I/ActivityManager( 1191): Start proc com.miui.fmradio for broadcast com.miui.fmradio/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=32277 uid=10103 gids={50103, 3003, 1028, 1015, 1023, 3002}
+
+I/ActivityManager( 1191): Killing 32015:com.miui.player/u0a15 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.miui.player for broadcast com.miui.player/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=32293 uid=10015 gids={50015, 3002, 1028, 1015, 1023, 3003}
+
+I/ActivityManager( 1191): Killing 32099:com.miui.gallery/u0a12 (adj 15): empty #9
+
+I/ActivityManager( 1191): Killing 32119:com.android.deskclock/u0a48 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.market for broadcast com.xiaomi.market/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=32310 uid=10107 gids={50107, 1028, 1015, 3003}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.account for broadcast com.xiaomi.account/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=32331 uid=10083 gids={50083, 3003, 1028, 1015, 3002}
+
+I/ActivityManager( 1191): Killing 32133:com.android.fileexplorer/u0a51 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.miui.virtualsim for broadcast com.miui.virtualsim/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=32347 uid=1001 gids={41001, 3004, 3009, 3005, 1006, 3002, 3001, 3003, 1028, 1015, 1007}
+
+I/ActivityManager( 1191): Killing 32158:com.miui.notes:remote/u0a69 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.vip for broadcast com.xiaomi.vip/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=32373 uid=10030 gids={50030, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 32174:com.android.soundrecorder/u0a79 (adj 15): empty #9
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Killing 32260:com.xiaomi.gamecenter.sdk.service/u0a10 (adj 15): empty #9
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.g:312 com.android.settings.MiuiSettingsReceiver.onReceive:100 
+
+W/ActivityManager( 1191): Unable to start service Intent { act=miui.intent.action.UPDATE_VIRUS_LIB } U=0: not found
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:103 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 com.android.settings.wifi.MiuiWifiService.pt:199 com.android.settings.wifi.MiuiWifiService.onStartCommand:121 android.app.ActivityThread.handleServiceArgs:2696 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+I/ActivityManager( 1191): Start proc com.miui.bugreport:remote for broadcast com.miui.bugreport/com.xiaomi.reporter.ConnectivityChangedReceiver: pid=32392 uid=1000 gids={41000, 3003, 1028, 1015, 3002, 3001, 3005, 1021, 3004, 1000, 3009, 1023, 1010, 1007, 3006, 3007, 2001, 1035}
+
+W/ContextImpl(32392): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 miui.core.SdkManager$1.run:189 android.os.Handler.handleCallback:733 android.os.Handler.dispatchMessage:95 
+
+I/ActivityManager( 1191): Start proc com.miui.cloudservice for broadcast com.miui.cloudservice/.sync.ConnectivityReceiver: pid=32407 uid=10047 gids={50047, 3003, 1028, 1015, 2001}
+
+I/ActivityManager( 1191): Killing 32277:com.miui.fmradio/u0a103 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter for broadcast com.xiaomi.gamecenter/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=32428 uid=10106 gids={50106, 1007, 3003, 1028, 1015, 2001}
+
+I/ActivityManager( 1191): Killing 32293:com.miui.player/u0a15 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.mipay.wallet for broadcast com.mipay.wallet/com.mipay.bill.BillReceiver: pid=32454 uid=10065 gids={50065, 3002, 3001, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 32310:com.xiaomi.market/u0a107 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.market for broadcast com.xiaomi.market/.data.ConnectivityChangedReceiver: pid=32470 uid=10107 gids={50107, 1028, 1015, 3003}
+
+I/ActivityManager( 1191): Killing 32194:com.android.thememanager/9801 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.android.updater for broadcast com.android.updater/.DailyCheckReceiver: pid=32489 uid=9802 gids={49802, 3003, 1028, 1015, 2001, 1007}
+
+W/ContextImpl( 1545): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.miui.powerkeeper.cloudcontrol.CloudUpdateReceiver.update:51 com.miui.powerkeeper.cloudcontrol.CloudUpdateReceiver.tryUpdate:42 
+
+I/ActivityManager( 1191): Start proc com.miui.mipub for broadcast com.miui.mipub/.mixin.forward.MipubPushBroadcastReceiver: pid=32510 uid=10102 gids={50102, 3003, 1028, 1015, 1007}
+
+I/ActivityManager( 1191): Killing 32373:com.xiaomi.vip/u0a30 (adj 15): empty #9
+
+W/ActivityThread(32489): ClassLoader.loadClass: The class loader returned by Thread.getContextClassLoader() may fail for processes that host multiple applications. You should explicitly specify a context class loader. For example: Thread.setContextClassLoader(getClass().getClassLoader());
+
+I/ActivityManager( 1191): Killing 32392:com.miui.bugreport:remote/1000 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.miui.klo.bugreport for broadcast com.miui.klo.bugreport/.receiver.KLOStartupReceiver: pid=32533 uid=1000 gids={41000, 3003, 1028, 1015, 3002, 3001, 3005, 1021, 3004, 1000, 3009, 1023, 1010, 1007, 3006, 3007, 2001, 1035}
+
+I/ActivityManager( 1191): Killing 32407:com.miui.cloudservice/u0a47 (adj 15): empty #9
+
+W/ContextImpl(32533): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 miui.core.SdkManager$1.run:189 android.os.Handler.handleCallback:733 android.os.Handler.dispatchMessage:95 
+
+W/BroadcastQueue( 1191): Unable to launch app com.chaozh.iReaderxda/10090 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Killing 32145:com.android.fileexplorer:remote/u0a51 (adj 15): empty #9
+
+W/BroadcastQueue( 1191): Unable to launch app com.chaozh.iReaderxda/10090 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.wandoujia.phoenix2/10100 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.wandoujia.phoenix2/10100 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter.sdk.service for broadcast com.xiaomi.gamecenter.sdk.service/com.xiaomi.mipush.sdk.PushServiceReceiver: pid=32546 uid=10010 gids={50010, 3003, 1007, 1028, 1015}
+
+W/ContextImpl( 1265): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.android.systemui.statusbar.phone.PhoneStatusBar.updateAppMessage:1658 com.android.systemui.statusbar.phone.PhoneStatusBar.updateAppMessage:1650 com.android.systemui.statusbar.phone.PhoneStatusBar.addNotification:1559 
+
+W/StatusBar( 1265): removeNotification for unknown key: android.os.BinderProxy@43ea3778
+
+I/ActivityManager( 1191): Process com.android.updater (pid 32489) has died.
+
+I/ActivityManager( 1191): Start proc com.miui.fmradio for broadcast com.miui.fmradio/com.miui.radio.push.RadioMessageReceiver: pid=32569 uid=10103 gids={50103, 3003, 1028, 1015, 1023, 3002}
+
+I/ActivityManager( 1191): Killing 32428:com.xiaomi.gamecenter/u0a106 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.miui.player for broadcast com.miui.player/.push.MiuiPushMessageReceiver: pid=32585 uid=10015 gids={50015, 3002, 1028, 1015, 1023, 3003}
+
+I/ActivityManager( 1191): Killing 32454:com.mipay.wallet/u0a65 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.mipay.wallet for broadcast com.mipay.wallet/com.mipay.push.MipayPushMessageReceiver: pid=32605 uid=10065 gids={50065, 3002, 3001, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 32470:com.xiaomi.market/u0a107 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter for broadcast com.xiaomi.gamecenter/.push.GameCenterPushMessageReceiver: pid=32619 uid=10106 gids={50106, 1007, 3003, 1028, 1015, 2001}
+
+I/ActivityManager( 1191): Killing 32217:android.process.media/u0a8 (adj 15): empty #9
+
+I/ActivityManager( 1191): Delay finish: com.miui.fmradio/com.miui.radio.push.RadioMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Delay finish: com.miui.player/.push.MiuiPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Start proc android.process.media for content provider com.android.providers.downloads/.DownloadProvider: pid=32647 uid=10008 gids={50008, 3003, 1028, 1015, 1023, 1024, 2001, 3007}
+
+I/ActivityManager( 1191): Delay finish: com.mipay.wallet/com.mipay.push.MipayPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Killing 32331:com.xiaomi.account/u0a83 (adj 15): empty #9
+
+I/ActivityManager( 1191): Killing 32510:com.miui.mipub/u0a102 (adj 15): empty #9
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+I/ProcessStatsService( 1191): Prepared write state in 15ms
+
+I/ProcessStatsService( 1191): Prepared write state in 12ms
+
+I/ActivityManager( 1191): Killing 32546:com.xiaomi.gamecenter.sdk.service/u0a10 (adj 15): empty for 602s
+
+I/ActivityManager( 1191): Killing 32347:com.miui.virtualsim/1001 (adj 15): empty for 603s
+
+I/ActivityManager( 1191): Killing 32533:com.miui.klo.bugreport/1000 (adj 15): empty for 604s
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+I/ProcessStatsService( 1191): Prepared write state in 13ms
+
+I/ProcessStatsService( 1191): Prepared write state in 13ms
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+I/ActivityManager( 1191): Start proc com.android.providers.calendar for broadcast com.android.providers.calendar/.HolidayDataUpdateReceiver: pid=32729 uid=10005 gids={50005, 3003, 1028, 1015, 2001}
+
+D/ConnectivityService( 1191): Captive portal check NetworkInfo: type: WIFI[], state: CONNECTING/CAPTIVE_PORTAL_CHECK, reason: (unspecified), extra: "alibaba-inc", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false
+
+D/ConnectivityService( 1191): handleCaptivePortalTrackerCheck: call captivePortalCheckComplete ni=NetworkInfo: type: WIFI[], state: CONNECTING/CAPTIVE_PORTAL_CHECK, reason: (unspecified), extra: "alibaba-inc", roaming: false, failover: false, isAvailable: true, isConnectedToProvisioningNetwork: false
+
+D/ConnectivityService( 1191): ConnectivityChange for WIFI: CONNECTED/CONNECTED
+
+D/ConnectivityService( 1191): Setting TCP values: [1] which comes from [net.tcp.usercfg.wifi]
+
+D/ConnectivityService( 1191): Setting TCP values: [20] which comes from [net.tcp.delack.wifi]
+
+E/ConnectivityService( 1191): Unexpected mtu value: android.net.wifi.WifiStateTracker@4364a358
+
+D/ConnectivityService( 1191): handleConnectivityChange: address are the same reset per doReset linkProperty[1]: resetMask=0
+
+D/Nat464Xlat( 1191): requiresClat: netType=1, hasIPv4Address=true
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+I/ActivityManager( 1191): Killing 32605:com.mipay.wallet/u0a65 (adj 15): empty for 3446s
+
+D/ConnectivityService( 1191): NetTransition Wakelock for ConnectedState released by timeout
+
+W/BroadcastQueue( 1191): Unable to launch app com.alipay.m.portal/10344 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter.sdk.service for broadcast com.xiaomi.gamecenter.sdk.service/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=32758 uid=10010 gids={50010, 3003, 1007, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 32619:com.xiaomi.gamecenter/u0a106 (adj 15): empty for 3448s
+
+I/ActivityManager( 1191): Start proc com.android.fileexplorer:remote for broadcast com.android.fileexplorer/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=309 uid=10051 gids={50051, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.market for broadcast com.xiaomi.market/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=335 uid=10107 gids={50107, 1028, 1015, 3003}
+
+I/ActivityManager( 1191): Start proc com.android.thememanager for broadcast com.android.thememanager/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=363 uid=9801 gids={49801, 2001, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.account for broadcast com.xiaomi.account/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=390 uid=10083 gids={50083, 3003, 1028, 1015, 3002}
+
+I/ActivityManager( 1191): Start proc com.miui.virtualsim for broadcast com.miui.virtualsim/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=415 uid=1001 gids={41001, 3004, 3009, 3005, 1006, 3002, 3001, 3003, 1028, 1015, 1007}
+
+I/ActivityManager( 1191): Killing 32729:com.android.providers.calendar/u0a5 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.vip for broadcast com.xiaomi.vip/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=444 uid=10030 gids={50030, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Killing 32758:com.xiaomi.gamecenter.sdk.service/u0a10 (adj 15): empty #9
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Killing 32569:com.miui.fmradio/u0a103 (adj 15): empty #9
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.g:312 com.android.settings.MiuiSettingsReceiver.onReceive:100 
+
+W/ActivityManager( 1191): Unable to start service Intent { act=miui.intent.action.UPDATE_VIRUS_LIB } U=0: not found
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.MiuiSettingsReceiver.onReceive:103 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 com.android.settings.wifi.MiuiWifiService.pt:199 com.android.settings.wifi.MiuiWifiService.onStartCommand:121 android.app.ActivityThread.handleServiceArgs:2696 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+I/ActivityManager( 1191): Start proc com.miui.bugreport:remote for broadcast com.miui.bugreport/com.xiaomi.reporter.ConnectivityChangedReceiver: pid=481 uid=1000 gids={41000, 3003, 1028, 1015, 3002, 3001, 3005, 1021, 3004, 1000, 3009, 1023, 1010, 1007, 3006, 3007, 2001, 1035}
+
+W/ContextImpl(  481): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 miui.core.SdkManager$1.run:189 android.os.Handler.handleCallback:733 android.os.Handler.dispatchMessage:95 
+
+I/ActivityManager( 1191): Start proc com.miui.cloudservice for broadcast com.miui.cloudservice/.sync.ConnectivityReceiver: pid=501 uid=10047 gids={50047, 3003, 1028, 1015, 2001}
+
+I/ActivityManager( 1191): Killing 32585:com.miui.player/u0a15 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.xiaomi.gamecenter for broadcast com.xiaomi.gamecenter/com.xiaomi.push.service.receivers.NetworkStatusReceiver: pid=616 uid=10106 gids={50106, 1007, 3003, 1028, 1015, 2001}
+
+I/ActivityManager( 1191): Killing 335:com.xiaomi.market/u0a107 (adj 15): empty #9
+
+I/ActivityManager( 1191): Start proc com.mipay.wallet for broadcast com.mipay.wallet/com.mipay.bill.BillReceiver: pid=645 uid=10065 gids={50065, 3002, 3001, 3003, 1028, 1015}
+
+I/ActivityManager( 1191): Start proc com.xiaomi.market for broadcast com.xiaomi.market/.data.ConnectivityChangedReceiver: pid=662 uid=10107 gids={50107, 1028, 1015, 3003}
+
+I/ActivityManager( 1191): Start proc com.android.updater for broadcast com.android.updater/.DailyCheckReceiver: pid=688 uid=9802 gids={49802, 3003, 1028, 1015, 2001, 1007}
+
+W/ContextImpl( 1545): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.miui.powerkeeper.cloudcontrol.CloudUpdateReceiver.update:51 com.miui.powerkeeper.cloudcontrol.CloudUpdateReceiver.tryUpdate:42 
+
+I/ActivityManager( 1191): Start proc com.miui.mipub for broadcast com.miui.mipub/.mixin.forward.MipubPushBroadcastReceiver: pid=726 uid=10102 gids={50102, 3003, 1028, 1015, 1007}
+
+I/ActivityManager( 1191): Process com.android.updater (pid 688) has died.
+
+I/ActivityManager( 1191): Start proc com.miui.klo.bugreport for broadcast com.miui.klo.bugreport/.receiver.KLOStartupReceiver: pid=754 uid=1000 gids={41000, 3003, 1028, 1015, 3002, 3001, 3005, 1021, 3004, 1000, 3009, 1023, 1010, 1007, 3006, 3007, 2001, 1035}
+
+I/ActivityManager( 1191): Killing 363:com.android.thememanager/9801 (adj 15): empty #9
+
+W/ContextImpl(  754): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 miui.core.SdkManager$1.run:189 android.os.Handler.handleCallback:733 android.os.Handler.dispatchMessage:95 
+
+W/BroadcastQueue( 1191): Unable to launch app com.chaozh.iReaderxda/10090 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Killing 444:com.xiaomi.vip/u0a30 (adj 15): empty #9
+
+W/BroadcastQueue( 1191): Unable to launch app com.chaozh.iReaderxda/10090 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.sina.weibo/10093 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.wandoujia.phoenix2/10100 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+W/BroadcastQueue( 1191): Unable to launch app com.wandoujia.phoenix2/10100 for broadcast Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x4000010 (has extras) }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Delay finish: com.miui.virtualsim/.push.MiPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Delay finish: com.mipay.wallet/com.mipay.push.MipayPushMessageReceiver
+
+I/ActivityManager( 1191): Resuming delayed broadcast
+
+I/ActivityManager( 1191): Killing 481:com.miui.bugreport:remote/1000 (adj 15): empty #9
+
+I/ActivityManager( 1191): Killing 309:com.android.fileexplorer:remote/u0a51 (adj 15): empty #9
+
+I/ActivityManager( 1191): Killing 501:com.miui.cloudservice/u0a47 (adj 15): empty #10
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+I/ActivityManager( 1191): Killing 754:com.miui.klo.bugreport/1000 (adj 15): empty for 601s
+
+I/ActivityManager( 1191): Killing 726:com.miui.mipub/u0a102 (adj 15): empty for 602s
+
+I/ActivityManager( 1191): Killing 390:com.xiaomi.account/u0a83 (adj 15): empty for 602s
+
+I/ProcessStatsService( 1191): Prepared write state in 12ms
+
+W/ContextImpl( 6194): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.miui.networkassistant.service.tm.TrafficManageService.broadCastDataUsageUpdated:896 com.miui.networkassistant.service.tm.TrafficManageService$7.onReceive:1104 android.app.LoadedApk$ReceiverDispatcher$Args.run:761 
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+W/ContextImpl( 1191): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 com.android.internal.policy.impl.BaseMiuiPhoneWindowManager.interceptKeyBeforeQueueingInternal:707 com.android.internal.policy.impl.MiuiPhoneWindowManager.interceptKeyBeforeQueueing:45 com.android.server.wm.InputMonitor.interceptKeyBeforeQueueing:381 com.android.server.input.InputManagerService.interceptKeyBeforeQueueing:1394 
+
+I/PowerManagerService( 1191): Waking up from sleep...
+
+D/DisplayPowerController( 1191): Blocked screen on. RealTime:30005734
+
+D/ConnectivityService( 1191): Sampling interval elapsed, updating statistics ..
+
+I/WindowManager( 1191): Lock screen displayed!
+
+D/DisplayPowerController( 1191): Unblocked screen on after 49 ms
+
+V/LocationPolicy( 1191): Screen state changed
+
+D/ConnectivityService( 1191): Done.
+
+D/ConnectivityService( 1191): Setting timer for 720seconds
+
+W/ContextImpl( 1191): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 com.android.internal.policy.impl.BaseMiuiPhoneWindowManager.interceptKeyBeforeQueueingInternal:739 com.android.internal.policy.impl.MiuiPhoneWindowManager.interceptKeyBeforeQueueing:45 com.android.server.wm.InputMonitor.interceptKeyBeforeQueueing:381 com.android.server.input.InputManagerService.interceptKeyBeforeQueueing:1394 
+
+D/StatusBar.NetworkController( 1265): onSignalStrengthsChanged received on subscription :0signalStrength=SignalStrength: 25 0 -120 -160 -120 -1 -1 99 2147483647 2147483647 2147483647 2147483647 2147483647 gsm|lte level=5
+
+D/DisplayPowerController( 1191): PROPERTY_SCREEN_COLOR set, currValue:2, default:2
+
+D/DisplayPowerController( 1191): PROPERTY_SCREEN_SATURATION set, currValue:10
+
+D/DisplayPowerController( 1191): PROPERTY_SCREEN_CABC set, currValue:1
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:175ElectronBeamLevel:1.0
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.AnalyticsReceiver.onReceive:24 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.AnalyticsReceiver.onReceive:24 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+I/EntropyMixer( 1191): Writing entropy...
+
+W/BroadcastQueue( 1191): Unable to launch app com.alipay.m.portal/10344 for broadcast Intent { act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010 }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Start proc com.miui.video for broadcast com.miui.video/com.video.ui.PowerConnectionReceiver: pid=832 uid=10067 gids={50067, 3003, 1028, 1015, 1023}
+
+I/ActivityManager( 1191): Killing 415:com.miui.virtualsim/1001 (adj 15): empty for 1850s
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.AnalyticsReceiver.onReceive:24 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+W/PowerUI ( 1265): unknown intent: Intent { act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010 }
+
+W/ProcessCpuTracker( 1191): Skipping unknown process pid 924
+
+W/ProcessCpuTracker( 1191): Skipping unknown process pid 927
+
+W/ContextImpl( 1265): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.android.keyguard.MiuiKeyguardViewMediator.handleKeyguardDone:1362 com.android.keyguard.MiuiKeyguardViewMediator.access$2700:140 com.android.keyguard.MiuiKeyguardViewMediator$9.handleMessage:1328 
+
+W/ContextImpl( 1265): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.android.keyguard.MiuiKeyguardViewMediator.handleKeyguardDone:1366 com.android.keyguard.MiuiKeyguardViewMediator.access$2700:140 com.android.keyguard.MiuiKeyguardViewMediator$9.handleMessage:1328 
+
+W/BroadcastQueue( 1191): Unable to launch app com.alipay.m.portal/10344 for broadcast Intent { act=android.intent.action.USER_PRESENT flg=0x24000010 }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Start proc com.android.calendar for broadcast com.android.calendar/.birthday.BirthdayReceiver: pid=1069 uid=10004 gids={50004, 3003, 1028}
+
+W/InputMethodManagerService( 1191): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@4392fb68 attribute=android.view.inputmethod.EditorInfo@4388ce78, token = android.os.BinderProxy@430cbae8
+
+W/BroadcastQueue( 1191): Unable to launch app com.chaozh.iReaderxda/10090 for broadcast Intent { act=android.intent.action.USER_PRESENT flg=0x24000010 }: process is not permitted to autostart
+
+I/ActivityManager( 1191): Start proc com.android.providers.calendar for content provider com.android.providers.calendar/.CalendarProvider2: pid=1096 uid=10005 gids={50005, 3003, 1028, 1015, 2001}
+
+I/ActivityManager( 1191): Killing 645:com.mipay.wallet/u0a65 (adj 15): empty for 1861s
+
+W/ContextImpl( 1265): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.android.systemui.statusbar.phone.PhoneStatusBar.updateAppMessage:1658 com.android.systemui.statusbar.phone.PhoneStatusBar.updateAppMessage:1650 com.android.systemui.statusbar.phone.PhoneStatusBar.removeNotification:2300 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.AnalyticsReceiver.onReceive:24 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1265): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1165 android.content.ContextWrapper.sendBroadcast:365 com.android.systemui.statusbar.phone.PhoneStatusBar.updateAppMessage:1658 com.android.systemui.statusbar.phone.PhoneStatusBar.updateAppMessage:1650 com.android.systemui.statusbar.phone.PhoneStatusBar.removeNotification:2300 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+I/ActivityManager( 1191): Killing 616:com.xiaomi.gamecenter/u0a106 (adj 15): empty for 1912s
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.AnalyticsReceiver.onReceive:24 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.AnalyticsReceiver.onReceive:24 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+W/BroadcastQueue( 1191): Unable to launch app com.alipay.m.portal/10344 for broadcast Intent { act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010 }: process is not permitted to autostart
+
+I/EntropyMixer( 1191): Writing entropy...
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1521 android.content.ContextWrapper.startService:494 android.content.ContextWrapper.startService:494 com.android.settings.AnalyticsReceiver.onReceive:24 android.app.ActivityThread.handleReceiver:2415 
+
+W/ContextImpl( 1347): Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1585 android.content.ContextWrapper.bindService:517 miui.analytics.Analytics.endSession:120 com.android.settings.analytics.AnalyticService.onHandleIntent:93 android.app.IntentService$ServiceHandler.handleMessage:65 
+
+W/PowerUI ( 1265): unknown intent: Intent { act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010 }
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:174ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:171ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:167ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:164ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:160ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:157ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:154ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:150ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:147ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:144ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:140ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:137ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:134ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:130ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:127ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:124ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:120ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:117ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:114ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:110ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:107ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:103ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:100ElectronBeamLevel:1.0
+
+D/DisplayPowerState( 1191): Screen ready, Screen On:true, Brightness:97ElectronBeamLevel:1.0
+
