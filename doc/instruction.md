@@ -2,8 +2,10 @@
 如何运行我的第一个用例来完成自动化测试
 
 ### 创建脚本
+1,创建一个新脚本
+![new](https://github.com/hoozheng/AndroidRobot/blob/master/doc/new.png)
 
-
+2,编辑脚本如下
 脚本内容：
 \#_*_ coding: iso8859_1  
 \# Script API  
@@ -17,6 +19,9 @@
       
 if \_\_name\_\_ == '\_\_main\_\_':  
 &nbsp;&nbsp;&nbsp;&nbsp;test()
+
+### 添加设备
+
 
 ### 创建任务
 
