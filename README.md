@@ -29,7 +29,7 @@ AndroidRobot采用Python语言为驱动脚本，通过AndroidRobot框架分发�
 
 ### 下载
 * [AndroidRobot Spider 3.0 x32]()
-* [AndroidRobot Spider 3.0 x64]()
+* [AndroidRobot Spider 3.0 x64](/binary/AndroidRobot_Spider3.0x64.zip)
 * [AndroidRobot Spider 3.0 mac]()
  
 ### 我的第一个用例
