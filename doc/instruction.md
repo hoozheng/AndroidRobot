@@ -21,7 +21,11 @@ if \_\_name\_\_ == '\_\_main\_\_':
 &nbsp;&nbsp;&nbsp;&nbsp;test()
 
 ### 添加设备
+选择待添加设备
+![newdevice](https://github.com/hoozheng/AndroidRobot/blob/master/doc/adddevice.png)  
 
+添加成功
+![add](https://github.com/hoozheng/AndroidRobot/blob/master/doc/add.png)  
 
 ### 创建任务
 
