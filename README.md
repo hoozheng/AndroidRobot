@@ -29,27 +29,12 @@ AndroidRobot采用Python语言为驱动脚本，通过AndroidRobot框架分发�
 
 ### 下载
 * [AndroidRobot Spider 3.0 x32]()
-* [AndroidRobot Spider 3.0 x64](/binary/AndroidRobot_Spider3.0x64.zip)
+* [AndroidRobot Spider 3.0 x64](https://github.com/hoozheng/BinaryCode/AndroidRobot_Spider3.0x64.zip)
 * [AndroidRobot Spider 3.0 mac]()
- 
-### 我的第一个用例
-
-\#_*_ coding: iso8859_1  
-\# Script API  
-  
- _from com.android.python import AndroidDriver_  
- _from org.openqa.selenium import By_  
- 
- def test():  
- &nbsp;&nbsp;&nbsp;&nbsp;device[0].logInfo('This is Hello World!') \#Log中记录了一行文字  
-      
-      
-if \_\_name\_\_ == '\_\_main\_\_':  
-&nbsp;&nbsp;&nbsp;&nbsp;test()
   
   
-[API](/doc/readme_api.md)  
-
+### [AndroidRobot API](/doc/readme_api.md)  
+AndroidRobot脚本支持的API详细描述，用户可以根据自己的需求定制自己的API
 
     
 ### 如何运行用例
