@@ -1,0 +1,11 @@
+# AndroidRobot API 概述
+AndroidRobot API对Webview控件支持的API。<br>
+
+### WebView API
+#####  boolean findElementByXpath(String xpath)
+根据xpath查找目标<br>
+
+##### String getPageSource()
+获得WebView页面的Dom元素<br>
+
+

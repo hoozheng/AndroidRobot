@@ -121,12 +121,3 @@ int keyCode - 键盘KeyCode值   int metaState - 大小写(1大写  0小写)<br>
 返回值:true - 点击成功    false - 点击失败
 
 #####  
-
-### WebView API
-#####  boolean findElementByXpath(String xpath)
-根据xpath查找目标<br>
-
-##### String getPageSource()
-获得WebView页面的Dom元素<br>
-
-
