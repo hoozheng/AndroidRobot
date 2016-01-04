@@ -1,12 +1,12 @@
-# ÈçºÎÔËĞĞÓÃÀı
-ÈçºÎÔËĞĞÎÒµÄµÚÒ»¸öÓÃÀıÀ´Íê³É×Ô¶¯»¯²âÊÔ
+# å¦‚ä½•è¿è¡Œç”¨ä¾‹
+å¦‚ä½•è¿è¡Œæˆ‘çš„ç¬¬ä¸€ä¸ªç”¨ä¾‹æ¥å®Œæˆè‡ªåŠ¨åŒ–æµ‹è¯•
 
-### ´´½¨½Å±¾
-1,´´½¨Ò»¸öĞÂ½Å±¾
+### åˆ›å»ºè„šæœ¬
+1,åˆ›å»ºä¸€ä¸ªæ–°è„šæœ¬
 ![new](https://github.com/hoozheng/AndroidRobot/blob/master/doc/new.png)
 
-2,±à¼­½Å±¾ÈçÏÂ
-½Å±¾ÄÚÈİ£º
+2,ç¼–è¾‘è„šæœ¬å¦‚ä¸‹
+è„šæœ¬å†…å®¹ï¼š
 \#_*_ coding: iso8859_1  
 \# Script API  
   
@@ -14,19 +14,27 @@
  _from org.openqa.selenium import By_  
  
  def test():  
- &nbsp;&nbsp;&nbsp;&nbsp;device[0].logInfo('This is Hello World!') \#LogÖĞ¼ÇÂ¼ÁËÒ»ĞĞÎÄ×Ö  
+ &nbsp;&nbsp;&nbsp;&nbsp;device[0].logInfo('This is Hello World!') \#Logä¸­è®°å½•äº†ä¸€è¡Œæ–‡å­—  
       
       
 if \_\_name\_\_ == '\_\_main\_\_':  
 &nbsp;&nbsp;&nbsp;&nbsp;test()
 
-### Ìí¼ÓÉè±¸
-Ñ¡Ôñ´ıÌí¼ÓÉè±¸
+### æ·»åŠ è®¾å¤‡
+é€‰æ‹©å¾…æ·»åŠ è®¾å¤‡
 ![newdevice](https://github.com/hoozheng/AndroidRobot/blob/master/doc/adddevice.png)  
 
-Ìí¼Ó³É¹¦
+æ·»åŠ æˆåŠŸ
 ![add](https://github.com/hoozheng/AndroidRobot/blob/master/doc/add.png)  
 
-### ´´½¨ÈÎÎñ
+### åˆ›å»ºä»»åŠ¡
+æ–°å»ºä»»åŠ¡
+![newtask](https://github.com/hoozheng/AndroidRobot/blob/master/doc/newtask.png)  
 
-### ÔËĞĞÈÎÎñ
+è¾“å…¥ä»»åŠ¡åtest
+![newtest](https://github.com/hoozheng/AndroidRobot/blob/master/doc/new_test.png)
+
+é€‰æ‹©è„šæœ¬å¹¶ä¿å­˜
+![save](https://github.com/hoozheng/AndroidRobot/blob/master/doc/save_test.png)
+
+### è¿è¡Œä»»åŠ¡
