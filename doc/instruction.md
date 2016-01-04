@@ -38,3 +38,11 @@ if \_\_name\_\_ == '\_\_main\_\_':
 ![save](https://github.com/hoozheng/AndroidRobot/blob/master/doc/save_test.png)
 
 ### 运行任务
+运行任务
+* 顺序运行
+  任务以独立的方式在每个手机上运行，每个手机之间不能通过脚本交互。这种运行模式适合批量运行同一任务，不需要多手机进行交互。
+* 交互运行
+  脚本在每个手机上是交互运行的，控制不同的手机使用不同的设备号，device[0]、device[1]...device[n]。这种运行模式适合需要交互的场景，
+比如相互发送短信、打电话、接电话、多方通话、MTBF测试等等，一般运营商测试用的比较多。
+
+![run](https://github.com/hoozheng/AndroidRobot/blob/master/doc/run.png)
