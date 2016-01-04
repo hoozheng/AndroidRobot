@@ -175,3 +175,13 @@ int startX - 开始点x坐标、int startY - 开始点y坐标、int endX - 结�
 
 #####  String shell(String cmd, int timeout)  
 执行adb shell脚本
+
+#####  void sleep(long millisec)  
+等待<br>
+参数:long millisec - 等待时间(毫秒)  
+
+#####  String takeSnapshot(String path, String fileName)  
+获取屏幕快照<br>
+参数:String path - 快照存储本地的路径、String fileName - 快照名<br>
+返回值:String - 成功返回改快照在本地的路径
+
