@@ -33,9 +33,10 @@ AndroidRobot采用Python语言为驱动脚本，通过AndroidRobot框架分发�
 * [AndroidRobot Spider 3.0 mac]()
   
   
-### [AndroidRobot API](/doc/readme_api.md)  
-AndroidRobot脚本支持的API详细描述，用户可以根据自己的需求定制自己的API
-
+### [AndroidRobot API]  
+AndroidRobot脚本支持的API详细描述，用户可以根据自己的需求定制自己的API  
+##### [Native API](/doc/readme_api.md)  
+##### [WebView API](/doc/readme_api_webview.md)
     
 ### [如何运行](/doc/instruction.md)
 1,如何写一个Hello Wrold
