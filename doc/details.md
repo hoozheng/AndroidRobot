@@ -1,11 +1,12 @@
-# 如何运行用例
+﻿# 如何运行用例
 如何运行我的第一个用例来完成自动化测试
 
 ### 设置被测APK
 ![setdut](https://github.com/hoozheng/AndroidRobot/blob/master/doc/setDUT.png)  
-1,设置被测APK信息后，AndroidRobot会获得改APK的基本信息，例如Package、Activity
-2,如果指定强制安装，AndroidRobot会强制安装指定的APK版本。
-
+1,设置被测APK信息后，AndroidRobot会获得改APK的基本信息，例如Package、Activity  
+2,如果指定强制安装，AndroidRobot会强制安装指定的APK版本。  
+3,目前对Seledroid的支持不是很好，请用户不要打钩使用，Selendroid需要用到签名，算是修改了被测Apk的包。  
+4,Chromedriver模式是Google对webview的自动化一种创新，目前应用比较广泛，主要缺点是只支持Android 4.4.2以及以上系统。  
 
 ### 创建脚本
 1,创建一个新脚本
