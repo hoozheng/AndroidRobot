@@ -1,6 +1,12 @@
 # 如何运行用例
 如何运行我的第一个用例来完成自动化测试
 
+### 设置被测APK
+![setdut](https://github.com/hoozheng/AndroidRobot/blob/master/doc/setDUT.png)  
+1,设置被测APK信息后，AndroidRobot会获得改APK的基本信息，例如Package、Activity
+2,如果指定强制安装，AndroidRobot会强制安装指定的APK版本。
+
+
 ### 创建脚本
 1,创建一个新脚本
 ![new](https://github.com/hoozheng/AndroidRobot/blob/master/doc/new.png)
