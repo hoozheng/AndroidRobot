@@ -1,4 +1,4 @@
-# AndroidRobot
+﻿# AndroidRobot
 ### 介绍
 AndroidRobot是专门为移动无线端测试开发的一款自动化测试工具，它能够支持Android平台设备、APP等测试。</br>
 目前支持以下功能：</br>
@@ -35,14 +35,18 @@ AndroidRobot采用Python语言为驱动脚本，通过AndroidRobot框架分发�
   
 ### [AndroidRobot API]  
 AndroidRobot脚本支持的API详细描述，用户可以根据自己的需求定制自己的API  
+
 ##### [Native API](/doc/readme_api.md)  
 ##### [WebView API](/doc/readme_api_webview.md)
     
 ### [如何运行](/doc/instruction.md)
 1,如何写一个Hello Wrold
 2,如何创建任务
-3,如何运行自己的第一个用例
+3,如何运行自己的第一个用例  
 
+
+### [详细使用文档](/doc/details.md)
+1,AndroidRobot详细使用说明
 
 ### 里程碑
 2014.01 - 2015.12 完成第一版本  
@@ -50,8 +54,7 @@ AndroidRobot脚本支持的API详细描述，用户可以根据自己的需求�
 2016.02 - 2016.05 对iphone自动化的支持  
 
 ### Contributor
-何政(架构与开发)、张立华(mac版本调试)
-
+何政(架构与开发)、陈能技(运营合作)
 
 ### Contacts
 * hoozheng@126.com
