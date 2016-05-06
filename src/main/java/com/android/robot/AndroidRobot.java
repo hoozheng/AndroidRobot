@@ -8,6 +8,106 @@
 
 package com.android.robot;
 
+import java.awt.MouseInfo;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Vector;
+
+import javax.imageio.ImageIO;
+import javax.swing.Timer;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.eclipse.jface.text.Document;
+import org.eclipse.jface.text.ITextOperationTarget;
+import org.eclipse.jface.text.TextViewer;
+import org.eclipse.jface.text.TextViewerUndoManager;
+import org.eclipse.jface.viewers.ILabelProviderListener;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.ITableLabelProvider;
+import org.eclipse.jface.viewers.ListViewer;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CTabFolder;
+import org.eclipse.swt.custom.CTabFolder2Adapter;
+import org.eclipse.swt.custom.CTabFolderEvent;
+import org.eclipse.swt.custom.CTabItem;
+import org.eclipse.swt.custom.SashForm;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.custom.TreeEditor;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseMoveListener;
+import org.eclipse.swt.events.MouseTrackListener;
+import org.eclipse.swt.events.PaintEvent;
+import org.eclipse.swt.events.PaintListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.TraverseEvent;
+import org.eclipse.swt.events.TraverseListener;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.graphics.PaletteData;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Canvas;
+import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.CoolBar;
+import org.eclipse.swt.widgets.CoolItem;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.ProgressBar;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.ToolBar;
+import org.eclipse.swt.widgets.ToolItem;
+import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeItem;
+import org.json.JSONObject;
+
 import com.android.control.MtesterAutoCompleteField;
 import com.android.control.PromptString;
 import com.android.control.StyledTextContentAdapter;
@@ -28,51 +128,21 @@ import com.android.ui.data.UIElement;
 import com.android.ui.data.UIPool;
 import com.android.uiautomator.AdbDevice;
 import com.android.uiautomator.UiAutomatorClient;
-import com.android.util.*;
-
-import org.apache.log4j.PropertyConfigurator;
-import org.eclipse.jface.text.Document;
-import org.eclipse.jface.text.ITextOperationTarget;
-import org.eclipse.jface.text.TextViewer;
-import org.eclipse.jface.text.TextViewerUndoManager;
-import org.eclipse.jface.viewers.*;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.*;
-import org.eclipse.swt.events.*;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
-import org.eclipse.swt.graphics.*;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.layout.*;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Canvas;
-import org.eclipse.swt.widgets.*;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.FileDialog;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.List;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MenuItem;
-import org.eclipse.wb.swt.SWTResourceManager;
-import org.python.core.Py;
-import org.python.core.PySystemState;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Vector;
+import com.android.util.AdbUtil;
+import com.android.util.ApkInfo;
+import com.android.util.ApkUtil;
+import com.android.util.Constants;
+import com.android.util.DisplayUtil;
+import com.android.util.Env;
+import com.android.util.FileUtility;
+import com.android.util.HardwareUtil;
+import com.android.util.HttpClientUtil;
+import com.android.util.ProjectUtil;
+import com.android.util.PropertiesUtil;
+import com.android.util.RobotTreeUtil;
+import com.android.util.ServerUtil;
+import com.android.util.TaskUtil;
+import com.android.util.TimeUtil;
 
 /**
  * AndroidRobot 主函数
@@ -81,230 +151,327 @@ import java.util.Vector;
  */
 public class AndroidRobot {
 
-    private static ToolBar toolBar;
-    private static Display display;
+    private static ToolBar                                   toolBar;
+    private static Display                                   display;
 
-    private static Shell shell;
-    private static FormData formData;
-    private static ListViewer listViewerLog;
-    private static SashForm sashFormProject;
-    private static SashForm sashFormContent;
-    private static SashForm sashFormProject2;
-    private static SashForm sashFormProgress;
-    private static TableViewer tableViewerCase;
+    private static Shell                                     shell;
+    private static FormData                                  formData;
+    private static ListViewer                                listViewerLog;
+    private static SashForm                                  sashFormProject;
+    private static SashForm                                  sashFormContent;
+    private static SashForm                                  sashFormProject2;
+    private static SashForm                                  sashFormProgress;
+    private static TableViewer                               tableViewerCase;
 
-    private static Tree tree = null;
-    private static Composite composite = null;
-    private static Composite treeComp = null;
-    private static Listener textListener = null;
-    private static CTabItem tabItemTasks = null;
+    private static Tree                                      tree                   = null;
+    private static Composite                                 composite              = null;
+    private static Composite                                 treeComp               = null;
+    private static Listener                                  textListener           = null;
+    private static CTabItem                                  tabItemTasks           = null;
 
-    private static List listHandsets = null;
-    private static Table tasksTable = null;
+    private static List                                      listHandsets           = null;
+    private static Table                                     tasksTable             = null;
 
-    private static TableEditor taskEditor = null;
-    private static TableEditor taskNumEditor = null;
-    private static TableEditor caseEditor = null;
+    private static TableEditor                               taskEditor             = null;
+    private static TableEditor                               taskNumEditor          = null;
+    private static TableEditor                               caseEditor             = null;
 
-    private static Color black = null;
-    private static Label lblTotal = null;
-    private static Label lblSelected = null;
-    private static TreeEditor editor = null;
-    private static Text adbLogcatText = null;
-    private static TreeItem[] lastItem = null;
-    private static String[] lastSelectNode = null;
+    private static Color                                     black                  = null;
+    private static Label                                     lblTotal               = null;
+    private static Label                                     lblSelected            = null;
+    private static TreeEditor                                editor                 = null;
+    private static Text                                      adbLogcatText          = null;
+    private static TreeItem[]                                lastItem               = null;
+    private static String[]                                  lastSelectNode         = null;
 
-    private static List cloudHandsetsList = null;
+    private static List                                      cloudHandsetsList      = null;
 
-    private static CTabFolder tabFolder;
-    private static CTabFolder tabContent;
-    private static CTabFolder tabLogFolder;
-    private static CTabFolder tabProgress;
-    private static CTabFolder tabHandsetName;
+    private static CTabFolder                                tabFolder;
+    private static CTabFolder                                tabContent;
+    private static CTabFolder                                tabLogFolder;
+    private static CTabFolder                                tabProgress;
+    private static CTabFolder                                tabHandsetName;
 
-    private static CoolBar coolBar1;
-    private static CoolBar coolBar2;
-    private static CoolBar coolBar3;
-    private static CoolBar coolBar4;
+    private static CoolBar                                   coolBar1;
+    private static CoolBar                                   coolBar2;
+    private static CoolBar                                   coolBar3;
+    private static CoolBar                                   coolBar4;
 
-    private static ToolItem tiStatusBarScript;
-    private static ToolItem tiStatusBarPass;
-    private static ToolItem tiStatusBarFail;
-    private static ToolItem tiStatusBarTotal;
-    private static ToolItem tiStatusBarConnect;
-    private static ToolItem tiStatusBarConnectServer;
+    private static ToolItem                                  tiStatusBarScript;
+    private static ToolItem                                  tiStatusBarPass;
+    private static ToolItem                                  tiStatusBarFail;
+    private static ToolItem                                  tiStatusBarTotal;
+    private static ToolItem                                  tiStatusBarConnect;
+    private static ToolItem                                  tiStatusBarConnectServer;
 
-    private static ProgressBar pbRecorder;
+    private static ProgressBar                               pbRecorder;
 
-    private static Menu treeMenu;
-    private static Menu recordMenu;
-    private static Menu recordMenu_2;
-    private static Menu handsetMenu;
-    private static MenuItem itemSaveCP;
-    private static MenuItem itemSaveCP_2;
-    private static MenuItem mntmSubmitProject = null;
-    private static MenuItem mntmHandsetList = null;
-    private static MenuItem mntmConnect = null;
-    private static MoveTableItem moveTableItem = null;
+    private static Menu                                      treeMenu;
+    private static Menu                                      recordMenu;
+    private static Menu                                      recordMenu_2;
+    private static Menu                                      handsetMenu;
+    private static MenuItem                                  itemSaveCP;
+    private static MenuItem                                  itemSaveCP_2;
+    private static MenuItem                                  mntmSubmitProject      = null;
+    private static MenuItem                                  mntmHandsetList        = null;
+    private static MenuItem                                  mntmConnect            = null;
+    private static MoveTableItem                             moveTableItem          = null;
 
-    private static ArrayList<TaskRowItem> taskRowList = null;
-    private static Hashtable htTab = new Hashtable();
-    private static Vector<MenuItem> menuItemVec = new Vector();
-    private static AdbDevice adbGetDevice = new AdbDevice();
-    private static Hashtable<String, TableViewer> htCaseViewer = new Hashtable();
-    private static Hashtable<String, ArrayList<TaskRowItem>> htCaseList = new Hashtable();
+    private static ArrayList<TaskRowItem>                    taskRowList            = null;
+    private static Hashtable                                 htTab                  = new Hashtable();
+    private static Vector<MenuItem>                          menuItemVec            = new Vector();
+    private static AdbDevice                                 adbGetDevice           = new AdbDevice();
+    private static Hashtable<String, TableViewer>            htCaseViewer           = new Hashtable();
+    private static Hashtable<String, ArrayList<TaskRowItem>> htCaseList             = new Hashtable();
 
     //Save all runner
-    private static ArrayList<RobotScriptRunner> runners = new ArrayList<RobotScriptRunner>();
+    private static ArrayList<RobotScriptRunner>              runners                = new ArrayList<RobotScriptRunner>();
 
-    public static String projectPath = "";
-    public static String workspacePath = "";
-    private static String taskFilePath = "";
-    private static String screenFilePath = "";
+    public static String                                     projectPath            = "";
+    public static String                                     workspacePath          = "";
+    private static String                                    taskFilePath           = "";
+    private static String                                    screenFilePath         = "";
 
-    private static IDevice device = null;
-    private static int deviceIndex = -1;
+    private static IDevice                                   device                 = null;
+    private static int                                       deviceIndex            = -1;
 
-    private static int mWidth = 0;
-    private static int mHeight = 0;
+    private static int                                       mWidth                 = 0;
+    private static int                                       mHeight                = 0;
 
-    private static int scaledWidth = 0;
-    private static int scaledHeight = 0;
+    private static int                                       scaledWidth            = 0;
+    private static int                                       scaledHeight           = 0;
 
-    private static boolean isRecording = false;
-    private static boolean isSetCheckPoint = false;
+    private static boolean                                   isRecording            = false;
+    private static boolean                                   isSetCheckPoint        = false;
 
     //Tool Item
-    private static ToolItem itemRun = null;
-    private static ToolItem itemStop = null;
-    private static ToolItem itemNew = null;
-    private static ToolItem itemSetApk = null;
-    private static ToolItem itemSave = null;
-    private static ToolItem itemRec = null;
-    private static ToolItem itemSaveScreen = null;
-    private static ToolItem itemDel = null;
-    private static ToolItem itemOpen = null;
-    private static ToolItem itemImportLog = null;
-    private static ToolItem itemDeployment = null;
-    private static ToolItem itemMemInfo = null;
-    private static ToolItem itemCPUInfo = null;
-    private static ToolItem itemFPSInfo = null;
-    private static ToolItem itemMonkeyTest = null;
-    private static ToolItem itemLogcat = null;
-    private static ToolItem itemNodesView = null;
-    private static ToolItem itemCheckPoint = null;
+    private static ToolItem                                  itemRun                = null;
+    private static ToolItem                                  itemStop               = null;
+    private static ToolItem                                  itemNew                = null;
+    private static ToolItem                                  itemSetApk             = null;
+    private static ToolItem                                  itemSave               = null;
+    private static ToolItem                                  itemRec                = null;
+    private static ToolItem                                  itemSaveScreen         = null;
+    private static ToolItem                                  itemDel                = null;
+    private static ToolItem                                  itemOpen               = null;
+    private static ToolItem                                  itemImportLog          = null;
+    private static ToolItem                                  itemDeployment         = null;
+    private static ToolItem                                  itemMemInfo            = null;
+    private static ToolItem                                  itemCPUInfo            = null;
+    private static ToolItem                                  itemFPSInfo            = null;
+    private static ToolItem                                  itemMonkeyTest         = null;
+    private static ToolItem                                  itemLogcat             = null;
+    private static ToolItem                                  itemPerformance        = null;
+    private static ToolItem                                  itemFPS                = null;
+    private static ToolItem                                  itemTraffic            = null;
+    private static ToolItem                                  itemTextbox            = null;
+    private static ToolItem                                  itemNodesView          = null;
+    private static ToolItem                                  itemCheckPoint         = null;
 
-    private static ToolItem itemStopRecord = null;
-    private static ToolItem itemTakePhoto = null;
-    private static ToolItem itemBack = null;
-    private static ToolItem itemMenu = null;
-    private static ToolItem itemHome = null;
-    private static ToolItem itemInput = null;
+    private static ToolItem                                  itemStopRecord         = null;
+    private static ToolItem                                  itemTakePhoto          = null;
+    private static ToolItem                                  itemBack               = null;
+    private static ToolItem                                  itemMenu               = null;
+    private static ToolItem                                  itemHome               = null;
+    private static ToolItem                                  itemInput              = null;
 
-    private static int tcPBIndex = 0;
-    private static Vector<String> vecSerialNumber = new Vector();
+    private static int                                       tcPBIndex              = 0;
+    private static Vector<String>                            vecSerialNumber        = new Vector();
 
     //===========================================remote==========================================
-    private static UiAutomatorClient client = null;
+    private static UiAutomatorClient                         client                 = null;
+
     //Set Check point
-    private static int offsetX = 0;
-    private static int offsetY = 0;
-    private static boolean isSelendroid = false;
+    private static int                                       offsetX                = 0;
+    private static int                                       offsetY                = 0;
+    private static boolean                                   isSelendroid           = false;
+    private static boolean                                   isChromedriver         = false;
 
-    private static String curPicturePath = "";
-    private static SetToolTipImage tipImage = null;
-    private static Hashtable<String, ProgressBar> htProgress = new Hashtable();
-    private static Hashtable<String, RowItem> htRowItem = new Hashtable();
+    private static String                                    curPicturePath         = "";
+    private static SetToolTipImage                           tipImage               = null;
+    private static Hashtable<String, ProgressBar>            htProgress             = new Hashtable();
+    private static Hashtable<String, RowItem>                htRowItem              = new Hashtable();
 
-    final private static DeviceDetector findDevices = new DeviceDetector(adbGetDevice);
+    private static DeviceDetector                            findDevices            = new DeviceDetector(
+                                                                                        adbGetDevice);
 
-    private static Vector<String> vectorLog = new Vector();
-    private static ArrayList<RowItem> listCase = new ArrayList();
+    private static Vector<String>                            vectorLog              = new Vector();
+    private static ArrayList<RowItem>                        listCase               = new ArrayList();
+
+    private static DeviceSocketClient                        deviceClient           = null;
+    private static LaunchMinicap                             minicap                = null;
 
     //==============================record====================================
-    private static Canvas lbCapture = null;
-    private static GC gc = null;
+    private static Canvas                                    lbCapture              = null;
+    private static GC                                        gc                     = null;
 
-    private static double startMotionTime = 0;
-    private static double endMotionTime = 0;
-    private static double startMoveTime = 0;
+    private static double                                    startMotionTime        = 0;
+    private static double                                    endMotionTime          = 0;
+    private static double                                    startMoveTime          = 0;
 
-    private static boolean isLongTouchMoveEvent = false;
-    private static boolean isTouchDownEvent = false;
-    private static boolean isMoveEvent = false;
+    private static boolean                                   isLongTouchMoveEvent   = false;
+    private static boolean                                   isTouchDownEvent       = false;
+    private static boolean                                   isMoveEvent            = false;
 
-    private static int down_x = 0;
-    private static int down_y = 0;
-    private static int up_x = 0;
-    private static int up_y = 0;
+    private static int                                       down_x                 = 0;
+    private static int                                       down_y                 = 0;
+    private static int                                       up_x                   = 0;
+    private static int                                       up_y                   = 0;
 
-    private static int move_x = 0;
-    private static int move_y = 0;
-    private static int moveCount = 0;
+    private static int                                       move_x                 = 0;
+    private static int                                       move_y                 = 0;
+    private static int                                       moveCount              = 0;
 
+    private static Logger                                    log                    = Logger
+                                                                                        .getLogger(AndroidRobot.class);
 
-    private static Timer refreshProgressUITimer = new Timer(50, new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            final Element element = UIPool.poll();
-            if (null != element) {
-                Display.getDefault().asyncExec(new Runnable() {
-                    public void run() {
-                        if (element.getElement().equals(UIElement.TASK_PROGRESS_BAR)) {
-                            if (((Integer) element.getValue()) > 0)
-                                setProgressBarMax(element.getSN(), element.getTaskName(), element.getScriptName());
-                            else
-                                setProgressBarCount(element.getSN(), element.getTaskName(), element.getScriptName());
-                        } else if (element.getElement().equals(UIElement.TASK_START_TIME)) {
-                            setBeginTime(element.getSN(), element.getTaskName(), element.getScriptName(), String.valueOf(element.getValue()));
-                        } else if (element.getElement().equals(UIElement.TASK_TEST_RESULT)) {
-                            setPassOrFailCount(element.getSN(), element.getTaskName(), element.getScriptName(), Boolean.parseBoolean((String) element.getValue()));
-                        }
-                    }
-                });
+    private static Timer                                     refreshProgressUITimer = new Timer(
+                                                                                        50,
+                                                                                        new ActionListener() {
+                                                                                            public void actionPerformed(ActionEvent e) {
+                                                                                                final Element element = UIPool
+                                                                                                    .poll();
+                                                                                                if (null != element) {
+                                                                                                    Display
+                                                                                                        .getDefault()
+                                                                                                        .asyncExec(
+                                                                                                            new Runnable() {
+                                                                                                                public void run() {
+                                                                                                                    if (element
+                                                                                                                        .getElement()
+                                                                                                                        .equals(
+                                                                                                                            UIElement.TASK_PROGRESS_BAR)) {
+                                                                                                                        if (((Integer) element
+                                                                                                                            .getValue()) > 0)
+                                                                                                                            setProgressBarMax(
+                                                                                                                                element
+                                                                                                                                    .getSN(),
+                                                                                                                                element
+                                                                                                                                    .getTaskName(),
+                                                                                                                                element
+                                                                                                                                    .getScriptName());
+                                                                                                                        else
+                                                                                                                            setProgressBarCount(
+                                                                                                                                element
+                                                                                                                                    .getSN(),
+                                                                                                                                element
+                                                                                                                                    .getTaskName(),
+                                                                                                                                element
+                                                                                                                                    .getScriptName());
+                                                                                                                    } else if (element
+                                                                                                                        .getElement()
+                                                                                                                        .equals(
+                                                                                                                            UIElement.TASK_START_TIME)) {
+                                                                                                                        setBeginTime(
+                                                                                                                            element
+                                                                                                                                .getSN(),
+                                                                                                                            element
+                                                                                                                                .getTaskName(),
+                                                                                                                            element
+                                                                                                                                .getScriptName(),
+                                                                                                                            String
+                                                                                                                                .valueOf(element
+                                                                                                                                    .getValue()));
+                                                                                                                    } else if (element
+                                                                                                                        .getElement()
+                                                                                                                        .equals(
+                                                                                                                            UIElement.TASK_TEST_RESULT)) {
+                                                                                                                        setPassOrFailCount(
+                                                                                                                            element
+                                                                                                                                .getSN(),
+                                                                                                                            element
+                                                                                                                                .getTaskName(),
+                                                                                                                            element
+                                                                                                                                .getScriptName(),
+                                                                                                                            Boolean
+                                                                                                                                .parseBoolean((String) element
+                                                                                                                                    .getValue()));
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            });
 
-            }
-        }
-    });
+                                                                                                }
+                                                                                            }
+                                                                                        });
 
+    private static Timer                                     watchRunScript         = new Timer(
+                                                                                        5000,
+                                                                                        new ActionListener() {
+                                                                                            public void actionPerformed(ActionEvent e) {
+                                                                                                int i = 0;
+                                                                                                for (i = 0; i < runners
+                                                                                                    .size(); i++) {
+                                                                                                    if (runners
+                                                                                                        .get(
+                                                                                                            i)
+                                                                                                        .isAlive())
+                                                                                                        break;
+                                                                                                }
 
-    private static Timer watchRunScript = new Timer(5000, new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            int i = 0;
-            for (i = 0; i < runners.size(); i++) {
-                if (runners.get(i).isAlive())
-                    break;
-            }
+                                                                                                if (i == runners
+                                                                                                    .size()) {
+                                                                                                    Display
+                                                                                                        .getDefault()
+                                                                                                        .asyncExec(
+                                                                                                            new Runnable() {
+                                                                                                                public void run() {
+                                                                                                                    stop(true);
+                                                                                                                    setButton(
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true,
+                                                                                                                        true);
+                                                                                                                }
+                                                                                                            });
 
-            if (i == runners.size()) {
-                Display.getDefault().asyncExec(new Runnable() {
-                    public void run() {
-                        stop(true);
-                        setButton(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-                    }
-                });
-
-
-            }
-        }
-    });
-
+                                                                                                }
+                                                                                            }
+                                                                                        });
 
     private static String takesnapshot(String path, String fileName) {
-        AdbUtil.send("adb shell \"LD_LIBRARY_PATH=/data/local/tmp /data/local/tmp/minicap -P 720x1080@720x1080/0 -s >/data/local/tmp/minicap_1.jpg\"", 1000);
+        AdbUtil
+            .send(
+                "adb shell \"LD_LIBRARY_PATH=/data/local/tmp /data/local/tmp/minicap -P 720x1080@720x1080/0 -s >/data/local/tmp/minicap_1.jpg\"",
+                1000);
         AdbUtil.send("adb pull /data/local/tmp/minicap_1.jpg " + path + "/" + fileName, 1000);
         return path + "/" + fileName;
     }
 
-    public static void timerStop() {
+    public static void timerStop() throws Exception {
         if (client != null) {
-            try {
-                client.disconnect();
-            } catch (Exception e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+            client.disconnect();
             client = null;
         }
+
+        if (deviceClient != null)
+            deviceClient.disconnect();
+
+        if (minicap != null)
+            minicap.stopMinicap();
 
     }
 
@@ -326,14 +493,16 @@ public class AndroidRobot {
     }
 
     private static void touchUp(MouseEvent event) {
-        System.out.println("touchUp");
         int x = event.x;
         int y = event.y;
 
-        if (x < 0) x = 0;
-        if (y < 0) y = 0;
+        if (x < 0)
+            x = 0;
+        if (y < 0)
+            y = 0;
 
-        if (y > (scaledHeight)) y = scaledHeight;
+        if (y > (scaledHeight))
+            y = scaledHeight;
 
         up_x = (int) (x * mWidth / scaledWidth);
         up_y = (int) (y * mHeight / scaledHeight);
@@ -341,16 +510,17 @@ public class AndroidRobot {
         isTouchDownEvent = false;
         endMotionTime = System.currentTimeMillis();
 
-        if (((double) (endMotionTime - startMotionTime) / 1000) < 0.5 &&
-                ((down_x == up_x) && (down_y == up_y))) {
+        if (((double) (endMotionTime - startMotionTime) / 1000) < 0.5
+            && ((down_x == up_x) && (down_y == up_y))) {
             insertScript("device[" + deviceIndex + "].click(" + up_x + "," + up_y + ")");
             client.touchUp(up_x, up_y);
-        } else if (((double) (endMotionTime - startMotionTime) / 1000) >= 0.5 &&
-                ((down_x == up_x) && (down_y == up_y))) {
+        } else if (((double) (endMotionTime - startMotionTime) / 1000) >= 0.5
+                   && ((down_x == up_x) && (down_y == up_y))) {
             insertScript("device[" + deviceIndex + "].longClick(" + up_x + "," + up_y + ")");
             client.longClick(up_x, up_y);
         } else if (isMoveEvent) {
-            insertScript("device[" + deviceIndex + "].swipe(" + down_x + "," + down_y + "," + up_x + "," + up_y + ")");
+            insertScript("device[" + deviceIndex + "].swipe(" + down_x + "," + down_y + "," + up_x
+                         + "," + up_y + ")");
             client.swipe(down_x, down_y, up_x, up_y, 20);
         }
         moveCount = 0;
@@ -368,7 +538,8 @@ public class AndroidRobot {
 
         moveCount++;
 
-        if (moveCount == 1) startMoveTime = System.currentTimeMillis();
+        if (moveCount == 1)
+            startMoveTime = System.currentTimeMillis();
 
         move_x = x;
         move_y = y;
@@ -393,8 +564,8 @@ public class AndroidRobot {
         client.pressHome();
     }
 
-    private static void enableRecordButton(boolean capture, boolean takePhoto
-            , boolean back, boolean menu, boolean home, boolean input) {
+    private static void enableRecordButton(boolean capture, boolean takePhoto, boolean back,
+                                           boolean menu, boolean home, boolean input) {
         itemTakePhoto.setEnabled(takePhoto);
         itemBack.setEnabled(back);
         itemMenu.setEnabled(menu);
@@ -406,20 +577,21 @@ public class AndroidRobot {
         isSetCheckPoint = true;
         FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 
-        dialog.setFilterNames(new String[]{"png Files (*.png)"});
-        dialog.setFilterExtensions(new String[]{"*.png*"}); //Windows wild cards
+        dialog.setFilterNames(new String[] { "png Files (*.png)" });
+        dialog.setFilterExtensions(new String[] { "*.png*" }); //Windows wild cards
 
         dialog.setFilterPath(System.getProperty("user.dir") + "/workspace");
         String choice = dialog.open();
 
         if (choice != null && !choice.trim().equals("")) {
-            curPicturePath = choice.substring(0, choice.lastIndexOf("/"));
+            curPicturePath = choice.substring(0, choice.lastIndexOf(Constants.FILE_SEPARATOR));
             try {
                 if (!choice.trim().endsWith(".png"))
                     choice += ".png";
 
                 File file = new File(choice);
-                String filePath = "";//client.takeSnapshot(file.getParent(), file.getName());
+                String filePath = client.takeSnapshot(file.getParent(), file.getName());
+                System.out.println("file:" + choice);
                 BufferedImage bufferedImage = ImageIO.read(file);
 
                 if (!ImageIO.write(bufferedImage, "png", new File(filePath))) {
@@ -445,14 +617,14 @@ public class AndroidRobot {
         TreeItem root = RobotTreeUtil.getRoot(lastItem[0]);
         if (root != null) {
             String relativePath = RobotTreeUtil.getPathFromTree(lastItem[0]);
-            System.out.println(" 123:" + relativePath);
-            SetCheckPoint2 window = new SetCheckPoint2(shell, relativePath);
+            String node = relativePath.replace("/", Constants.FILE_SEPARATOR);
+            //node = AndroidRobot\Pictures\abc.png
+            SetCheckPoint2 window = new SetCheckPoint2(shell, projectPath, node);
             window.open();
+
         }
 
     }
-
-    private static LaunchMinicap minicap = null;
 
     /**
      * 启动录制
@@ -460,7 +632,8 @@ public class AndroidRobot {
      * @throws Exception
      */
     private static void record() throws Exception {
-        if ((isRecording == false) && (lastItem[0] != null) && (lastItem[0].getData("device") != null)) {
+        if ((isRecording == false) && (lastItem[0] != null)
+            && (lastItem[0].getData("device") != null)) {
             device = (IDevice) lastItem[0].getData("device");
             deviceIndex = (Integer) lastItem[0].getData("index");
         }
@@ -476,22 +649,33 @@ public class AndroidRobot {
                 //向手机注入Minicap截图工具
                 String sdk = device.getProperty("ro.build.version.sdk");
                 String abi = device.getProperty("ro.product.cpu.abi");
-                device.pushFile(System.getProperty("user.dir") + ("/plugins/resources/minicap/bin/" + abi + "/minicap"),
-                		"/data/local/tmp/minicap");
-                device.pushFile(System.getProperty("user.dir") + ("/plugins/resources/minicap/shared/android-" + sdk + "/" + abi + "/minicap.so"),
-                		"/data/local/tmp/minicap.so");
+                device.pushFile(System.getProperty("user.dir")
+                                + ("/plugins/resources/minicap/bin/" + abi + "/minicap"),
+                    "/data/local/tmp/minicap");
+                File minicapFile = new File(System.getProperty("user.dir")
+                                            + ("/plugins/resources/minicap/shared/android-" + sdk
+                                               + "/" + abi + "/minicap.so"));
+                if (minicapFile.exists() == false)
+                    sdk = "M";
+                device
+                    .pushFile(
+                        System.getProperty("user.dir")
+                                + ("/plugins/resources/minicap/shared/android-" + sdk + "/" + abi + "/minicap.so"),
+                        "/data/local/tmp/minicap.so");
 
                 CollectingOutputReceiver receiver = new CollectingOutputReceiver();
                 device.executeShellCommand("chmod 777 /data/local/tmp/minicap", receiver);
                 device.executeShellCommand("chmod 777 /data/local/tmp/minicap.so", receiver);
                 device.executeShellCommand("dumpsys window displays", receiver);
 
-                minicap = new LaunchMinicap(device.getSerialNumber(), mWidth, mHeight, 310, 480, 0);
+                minicap = new LaunchMinicap(device.getSerialNumber(), mWidth, mHeight, mWidth,
+                    mHeight, 0);
                 Thread thread = new Thread(minicap);
                 thread.start();
                 thread.join(10000);
-                AdbUtil.send("adb -s " + device.getSerialNumber() + " forward tcp:1313 localabstract:minicap", 3000);
-                DeviceSocketClient deviceClient = new DeviceSocketClient(display, gc);
+                AdbUtil.send("adb -s " + device.getSerialNumber()
+                             + " forward tcp:1313 localabstract:minicap", 3000);
+                deviceClient = new DeviceSocketClient(display, gc);
                 deviceClient.connect("127.0.0.1", 1313);
             } else {
                 enableRecordButton(false, false, false, false, false, false);
@@ -505,7 +689,13 @@ public class AndroidRobot {
     }
 
     private static void stopRecord() {
-        timerStop();
+        try {
+            timerStop();
+            if (device != null)
+                AdbUtil.kill(device.getSerialNumber(), "uiautomator");
+        } catch (Exception e) {
+            log.error("stopRecord - " + e);
+        }
         enableRecord(true);
         enableRecordButton(false, false, false, false, false, false);
     }
@@ -513,10 +703,8 @@ public class AndroidRobot {
     //==========================================record end======================================================
 
     private static synchronized void stop(boolean isFinished) {
-        System.out.println("stop");
         if (false == isFinished) {
             for (int i = 0; i < runners.size(); i++) {
-                System.out.println("=stop=");
                 runners.get(i).finished();
                 runners.get(i).stop();
             }
@@ -528,8 +716,17 @@ public class AndroidRobot {
         if (watchRunScript != null && watchRunScript.isRunning())
             watchRunScript.stop();
 
+        try {
+            if (isRecording == true) {
+                client.connect();
+            }
+        } catch (Exception ex) {
+            log.error(ex);
+        }
 
-        setButton(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
+        setButton(true, true, true, true, true, true, true, true, true, true, true, true, true,
+            true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+            true);
     }
 
     private static void takeSnapShot() {
@@ -549,14 +746,16 @@ public class AndroidRobot {
             if (tabName.startsWith("*"))
                 tabName = tabName.substring(1, tabName.length());
             //picPath = ".\\workspace\\" +  (String)htTab.get((String)currentTab.getData(tabName)) +"\\Pictures";
-            picPath = ".\\workspace\\" + ((String) currentTab.getData(tabName)).substring(0, ((String) currentTab.getData(tabName)).indexOf("\\")) + "\\Pictures";
+            picPath = ".\\workspace\\"
+                      + ((String) currentTab.getData(tabName)).substring(0,
+                          ((String) currentTab.getData(tabName)).indexOf("\\")) + "\\Pictures";
         }
 
         SaveScreen saveScreen = new SaveScreen(shell, SWT.CLOSE);
         String choice = saveScreen.open();
         if (choice != null && !choice.trim().equals(""))
             try {
-//				takeSnapshoot(new File(".\\workspace\\"+choice));
+                //				takeSnapshoot(new File(".\\workspace\\"+choice));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -579,7 +778,8 @@ public class AndroidRobot {
                 TreeItem item = vecTreeItem.get(i);
                 //delete all project
                 if (item.getParentItem() == null) {
-                    choice = showNotification("您是否确定要删除整个项目" + item.getText() + "?", SWT.ICON_QUESTION | SWT.YES | SWT.NO | SWT.CANCEL);
+                    choice = showNotification("您是否确定要删除整个项目" + item.getText() + "?",
+                        SWT.ICON_QUESTION | SWT.YES | SWT.NO | SWT.CANCEL);
                     if (choice == SWT.YES) {
                         deleteFolder(item);
                         item.dispose();
@@ -591,7 +791,8 @@ public class AndroidRobot {
 
                     } else {
                         if (isALL == false) {
-                            choice = showNotification("您是否确定要删除文件" + item.getText() + "?", SWT.ICON_QUESTION | SWT.YES | SWT.NO | SWT.CANCEL);
+                            choice = showNotification("您是否确定要删除文件" + item.getText() + "?",
+                                SWT.ICON_QUESTION | SWT.YES | SWT.NO | SWT.CANCEL);
                         }
                         if (choice == SWT.YES) {
                             isALL = true;
@@ -669,7 +870,8 @@ public class AndroidRobot {
 
         //recorder
         itemRec = new ToolItem(toolBarRecord, SWT.DROP_DOWN);
-        Image iconRec = new Image(display, ClassLoader.getSystemResourceAsStream("icons/record.png"));
+        Image iconRec = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/record.png"));
         itemRec.setImage(iconRec);
         itemRec.setToolTipText("录制");
 
@@ -693,35 +895,36 @@ public class AndroidRobot {
         recMobile.setEnabled(false);
 
         itemStopRecord = new ToolItem(toolBarRecord, SWT.NONE);
-        Image iconStopRecord = new Image(display, ClassLoader.getSystemResourceAsStream("icons/stoprecord.png"));
+        Image iconStopRecord = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/stoprecord.png"));
         itemStopRecord.setImage(iconStopRecord);
         itemStopRecord.setToolTipText("停止录制(F10)");
         itemStopRecord.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
                 if (event.detail == 0) {
-                    //initCaptureMode();
                     stopRecord();
                 }
             }
         });
 
-		/*
+        /*
         itemCapture = new ToolItem(toolBarRecord, SWT.NONE);
-		Image iconCapture = new Image(display, "./icons/pause.png");
-		itemCapture.setImage(iconCapture);
-		itemCapture.setToolTipText("设置比对信息(F11)");
-		itemCapture.setEnabled(false);
-	    //action for RecordItem
-	    itemCapture.addListener(SWT.Selection, new Listener() {
-	      public void handleEvent(Event event) {
-		        if(event.detail == 0) {
-		        	setCaptureMode();
-		        }
-		      }
-		});
-		*/
+        Image iconCapture = new Image(display, "./icons/pause.png");
+        itemCapture.setImage(iconCapture);
+        itemCapture.setToolTipText("设置比对信息(F11)");
+        itemCapture.setEnabled(false);
+        //action for RecordItem
+        itemCapture.addListener(SWT.Selection, new Listener() {
+          public void handleEvent(Event event) {
+                if(event.detail == 0) {
+                	setCaptureMode();
+                }
+              }
+        });
+        */
         itemTakePhoto = new ToolItem(toolBarRecord, SWT.NONE);
-        Image iconTakePhoto = new Image(display, ClassLoader.getSystemResourceAsStream("icons/takephoto.png"));
+        Image iconTakePhoto = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/takephoto.png"));
         itemTakePhoto.setImage(iconTakePhoto);
         itemTakePhoto.setToolTipText("保存图片(F12)");
         itemTakePhoto.setEnabled(false);
@@ -775,9 +978,9 @@ public class AndroidRobot {
             }
         });
 
-
         itemInput = new ToolItem(toolBarRecord, SWT.NONE);
-        Image iconInput = new Image(display, ClassLoader.getSystemResourceAsStream("icons/input.png"));
+        Image iconInput = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/input.png"));
         itemInput.setImage(iconInput);
         itemInput.setToolTipText("Input");
         itemInput.setEnabled(false);
@@ -827,18 +1030,17 @@ public class AndroidRobot {
         //ToolBar
         toolBar = new ToolBar(coolBarPrj, SWT.FLAT | SWT.WRAP | SWT.RIGHT);
 
-
         //apk
         itemSetApk = new ToolItem(toolBar, SWT.PUSH);
-        Image iconSetAPK = new Image(display, ClassLoader.getSystemResourceAsStream("icons/apk.png"));
+        Image iconSetAPK = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/apk.png"));
         itemSetApk.setImage(iconSetAPK);
         itemSetApk.setToolTipText("设置被测应用");
         itemSetApk.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
                 if (event.detail == 0) {
-                    SetApkWindow newPrj =
-                    		new SetApkWindow(shell, SWT.CLOSE, PropertiesUtil.getValue(System.getProperty("user.dir") +
-                    		"/system.properties", "aut"));
+                    SetApkWindow newPrj = new SetApkWindow(shell, SWT.CLOSE, workspacePath
+                                                                             + "/system.properties"); //
                     String choice = newPrj.open();
 
                     if (choice != null && !choice.equals(""))
@@ -900,18 +1102,17 @@ public class AndroidRobot {
             }
         });
 
-
         //run
         itemRun = new ToolItem(toolBar, SWT.DROP_DOWN);
         Image iconRun = new Image(display, ClassLoader.getSystemResourceAsStream("icons/run.png"));
         itemRun.setImage(iconRun);
         itemRun.setToolTipText("运行(F5)");
 
-
         final Menu menuNorRun = new Menu(shell, SWT.POP_UP);
         MenuItem newNorRun = new MenuItem(menuNorRun, SWT.PUSH);
         newNorRun.setText("并发运行");
-        Image iconRunOrder = new Image(display, ClassLoader.getSystemResourceAsStream("icons/order.png"));
+        Image iconRunOrder = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/order.png"));
         newNorRun.setImage(iconRunOrder);
         newNorRun.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
@@ -923,7 +1124,8 @@ public class AndroidRobot {
 
         MenuItem newNorRun2 = new MenuItem(menuNorRun, SWT.PUSH);
         newNorRun2.setText("交互运行");
-        Image iconRunInteract = new Image(display, ClassLoader.getSystemResourceAsStream("icons/interact.png"));
+        Image iconRunInteract = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/interact.png"));
         newNorRun2.setImage(iconRunInteract);
         newNorRun2.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
@@ -943,13 +1145,13 @@ public class AndroidRobot {
             }
         });
 
-//	    itemRun.addListener(SWT.Selection, new Listener() {//disconn
-//		      public void handleEvent(Event event) {
-//		        if(event.detail == 0) {
-//		        	run();
-//		        }
-//		      }
-//		});
+        //	    itemRun.addListener(SWT.Selection, new Listener() {//disconn
+        //		      public void handleEvent(Event event) {
+        //		        if(event.detail == 0) {
+        //		        	run();
+        //		        }
+        //		      }
+        //		});
 
         //Stop
         itemStop = new ToolItem(toolBar, SWT.PUSH);
@@ -957,15 +1159,16 @@ public class AndroidRobot {
         itemStop.setImage(iconStop);
         itemStop.setToolTipText("停止(F6)");
         itemStop.addListener(SWT.Selection, new Listener() {//disconn
-            public void handleEvent(Event event) {
-                if (event.detail == 0) {
-                    stop(false);
+                public void handleEvent(Event event) {
+                    if (event.detail == 0) {
+                        stop(false);
+                    }
                 }
-            }
-        });
+            });
         //Take Snapshoot
         itemSaveScreen = new ToolItem(toolBar, SWT.PUSH);
-        Image iconSaveScreen = new Image(display, ClassLoader.getSystemResourceAsStream("icons/takesnapshoot.png"));
+        Image iconSaveScreen = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/takesnapshoot.png"));
         itemSaveScreen.setImage(iconSaveScreen);
         itemSaveScreen.setToolTipText("截取屏幕");
         itemSaveScreen.addListener(SWT.Selection, new Listener() {
@@ -978,7 +1181,8 @@ public class AndroidRobot {
         //itemSaveScreen.setEnabled(false);
         //delete
         itemDel = new ToolItem(toolBar, SWT.PUSH);
-        Image iconDel = new Image(display, ClassLoader.getSystemResourceAsStream("icons/delete.png"));
+        Image iconDel = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/delete.png"));
         itemDel.setImage(iconDel);
         itemDel.setToolTipText("删除");
         itemDel.addListener(SWT.Selection, new Listener() {
@@ -1001,7 +1205,18 @@ public class AndroidRobot {
                             TreeItem root = RobotTreeUtil.getRoot(lastItem[0]);
                             if (root != null) {
                                 String relativePath = RobotTreeUtil.getPathFromTree(lastItem[0]);
-                                Runtime.getRuntime().exec("explorer.exe .");
+                                String os = System.getProperty("os.name").toLowerCase();
+
+                                if (os.contains("windows")) {
+                                    int index = relativePath.indexOf("/");
+                                    if (index >= 0) {
+                                        String node = relativePath.substring(index + 1,
+                                            relativePath.length());
+                                        Runtime.getRuntime().exec(
+                                            "cmd /c start " + projectPath + "\\" + node);
+                                    }
+
+                                }
                             }
                         }
                     } catch (IOException e) {
@@ -1013,7 +1228,8 @@ public class AndroidRobot {
         });
 
         itemCheckPoint = new ToolItem(toolBar, SWT.PUSH);
-        Image iconCheckPoint = new Image(display, ClassLoader.getSystemResourceAsStream("icons/checkpoint.png"));
+        Image iconCheckPoint = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/checkpoint.png"));
         itemCheckPoint.setImage(iconCheckPoint);
         itemCheckPoint.setToolTipText("修改比对信息");
 
@@ -1031,7 +1247,8 @@ public class AndroidRobot {
 
         itemImportLog = new ToolItem(toolBar, SWT.PUSH);
         itemImportLog.setEnabled(true);
-        Image iconImportLog = new Image(display, ClassLoader.getSystemResourceAsStream("icons/log.png"));
+        Image iconImportLog = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/log.png"));
         itemImportLog.setImage(iconImportLog);
         itemImportLog.setToolTipText("查看日志");
         itemImportLog.addListener(SWT.Selection, new Listener() {
@@ -1044,29 +1261,31 @@ public class AndroidRobot {
 
         itemDeployment = new ToolItem(toolBar, SWT.PUSH);
         itemDeployment.setEnabled(true);
-        Image iconDeployment = new Image(display, ClassLoader.getSystemResourceAsStream("icons/deployment.png"));
+        Image iconDeployment = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/deployment.png"));
         itemDeployment.setImage(iconDeployment);
         itemDeployment.setToolTipText("部署APK");
         itemDeployment.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
                 if (event.detail == 0) {
-//		        	FileDialog dialog = new FileDialog (shell, SWT.MULTI | SWT.OPEN);
-//		    		dialog.setFilterNames (new String [] {"apk Files (*.apk)"});
-//		    		dialog.setFilterExtensions (new String [] {"*.apk*"}); //Windows wild cards
-//		    		dialog.setFilterPath (".\\workspace"); //Windows path
-//		    		String choice = dialog.open();
-//		    		if(choice != null){
-//		    			String filePath = dialog.getFilterPath();
-//		    			String[] selectedFiles = dialog.getFileNames();
-//		    			System.out.println(filePath + " " + selectedFiles[0]);
-//		    		}
+                    //		        	FileDialog dialog = new FileDialog (shell, SWT.MULTI | SWT.OPEN);
+                    //		    		dialog.setFilterNames (new String [] {"apk Files (*.apk)"});
+                    //		    		dialog.setFilterExtensions (new String [] {"*.apk*"}); //Windows wild cards
+                    //		    		dialog.setFilterPath (".\\workspace"); //Windows path
+                    //		    		String choice = dialog.open();
+                    //		    		if(choice != null){
+                    //		    			String filePath = dialog.getFilterPath();
+                    //		    			String[] selectedFiles = dialog.getFileNames();
+                    //		    			System.out.println(filePath + " " + selectedFiles[0]);
+                    //		    		}
                 }
             }
         });
 
         itemMemInfo = new ToolItem(toolBar, SWT.PUSH);
         itemMemInfo.setEnabled(true);
-        Image iconMemInfo = new Image(display, ClassLoader.getSystemResourceAsStream("icons/meminfo.png"));
+        Image iconMemInfo = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/meminfo.png"));
         itemMemInfo.setImage(iconMemInfo);
         itemMemInfo.setToolTipText("监控内存PSS");
         itemMemInfo.addListener(SWT.Selection, new Listener() {
@@ -1080,7 +1299,8 @@ public class AndroidRobot {
 
         itemFPSInfo = new ToolItem(toolBar, SWT.PUSH);
         itemFPSInfo.setEnabled(true);
-        Image iconFPSInfo = new Image(display, ClassLoader.getSystemResourceAsStream("icons/fps.png"));
+        Image iconFPSInfo = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/fps.png"));
         itemFPSInfo.setImage(iconFPSInfo);
         itemFPSInfo.setToolTipText("监控FPS");
         itemFPSInfo.addListener(SWT.Selection, new Listener() {
@@ -1094,7 +1314,8 @@ public class AndroidRobot {
 
         itemCPUInfo = new ToolItem(toolBar, SWT.PUSH);
         itemCPUInfo.setEnabled(true);
-        Image iconCPUInfo = new Image(display, ClassLoader.getSystemResourceAsStream("icons/cpu.png"));
+        Image iconCPUInfo = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/cpu.png"));
         itemCPUInfo.setImage(iconCPUInfo);
         itemCPUInfo.setToolTipText("监控CPU信息");
         itemCPUInfo.addListener(SWT.Selection, new Listener() {
@@ -1106,9 +1327,51 @@ public class AndroidRobot {
             }
         });
 
+        itemPerformance = new ToolItem(toolBar, SWT.PUSH);
+        itemPerformance.setEnabled(true);
+        Image iconPerformance = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/power.png"));
+        itemPerformance.setImage(iconPerformance);
+        itemPerformance.setToolTipText("电量消耗(mAh)");
+        itemPerformance.addListener(SWT.Selection, new Listener() {
+            public void handleEvent(Event event) {
+                if (event.detail == 0) {
+
+                }
+            }
+        });
+
+        itemFPS = new ToolItem(toolBar, SWT.PUSH);
+        itemFPS.setEnabled(true);
+        Image iconFPS = new Image(display, ClassLoader.getSystemResourceAsStream("icons/frame.png"));
+        itemFPS.setImage(iconFPS);
+        itemFPS.setToolTipText("FPS(ms)");
+        itemFPS.addListener(SWT.Selection, new Listener() {
+            public void handleEvent(Event event) {
+                if (event.detail == 0) {
+
+                }
+            }
+        });
+
+        itemTraffic = new ToolItem(toolBar, SWT.PUSH);
+        itemTraffic.setEnabled(true);
+        Image iconTraffic = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/traffic.png"));
+        itemTraffic.setImage(iconTraffic);
+        itemTraffic.setToolTipText("流量消耗(KB)");
+        itemTraffic.addListener(SWT.Selection, new Listener() {
+            public void handleEvent(Event event) {
+                if (event.detail == 0) {
+
+                }
+            }
+        });
+
         itemMonkeyTest = new ToolItem(toolBar, SWT.PUSH);
         itemMonkeyTest.setEnabled(true);
-        Image iconMonkeyTest = new Image(display, ClassLoader.getSystemResourceAsStream("icons/monkey.png"));
+        Image iconMonkeyTest = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/monkey.png"));
         itemMonkeyTest.setImage(iconMonkeyTest);
         itemMonkeyTest.setToolTipText("Monkey Test");
         itemMonkeyTest.addListener(SWT.Selection, new Listener() {
@@ -1122,30 +1385,77 @@ public class AndroidRobot {
 
         itemLogcat = new ToolItem(toolBar, SWT.PUSH);
         itemLogcat.setEnabled(true);
-        Image iconLogcat = new Image(display, ClassLoader.getSystemResourceAsStream("icons/logcat.png"));
+        Image iconLogcat = new Image(display,
+            ClassLoader.getSystemResourceAsStream("icons/nodesview.png"));
         itemLogcat.setImage(iconLogcat);
-        itemLogcat.setToolTipText("ADB LogCat");
+        itemLogcat.setToolTipText("视图分析");
         itemLogcat.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
                 if (event.detail == 0) {
-                    //Logcat.stopADBLogcat();
+                    try {
+                        Runtime.getRuntime().exec(
+                            System.getProperty("user.dir") + File.separator
+                                    + "uiautomatorviewer.bat");
+                    } catch (Exception e) {
+                        log.error(e);
+                    }
                 }
             }
         });
 
-//        itemNodesView = new ToolItem(toolBar, SWT.PUSH);
-//        itemNodesView.setEnabled(true);
-//        Image iconNodesView = new Image(display, "./icons/nodesview.png");
-//        itemNodesView.setImage(iconNodesView);
-//        itemNodesView.setToolTipText("Nodes View");
-//        itemNodesView.addListener(SWT.Selection, new Listener() {
-//            public void handleEvent(Event event) {
-//                if (event.detail == 0) {
-//                    NodeViewer nodeViewer = new NodeViewer(shell, SWT.CLOSE, findDevices.getDevices());
-//                    nodeViewer.open();
-//                }
-//            }
-//        });
+        itemTextbox = new ToolItem(toolBar, SWT.SEPARATOR);
+        itemTextbox.setEnabled(true);
+        final Text textCommand = new Text(toolBar, SWT.BORDER | SWT.SINGLE);
+        textCommand.setText("单命令调试窗口");
+        textCommand.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_GRAY));
+        textCommand.pack();
+
+        textCommand.addTraverseListener(new TraverseListener() {
+            public void keyTraversed(TraverseEvent e) {
+                if (e.keyCode == 13) {
+                    e.doit = true;
+                    if (client != null) {
+                        AndroidDriver driver = new AndroidDriver(client);
+                        driver.executeCommand(textCommand.getText());
+                        textCommand.setText("");
+                    } else
+                        showNotification("请在录制模式下调试命令!", SWT.ICON_WARNING | SWT.YES);
+                }
+            }
+        });
+
+        textCommand.addFocusListener(new org.eclipse.swt.events.FocusAdapter() {
+            public void focusLost(org.eclipse.swt.events.FocusEvent e) {
+                if (textCommand.getText().trim().equals("")) {
+                    textCommand.setText("单命令调试窗口");
+                    textCommand.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_GRAY));
+                }
+            }
+
+            public void focusGained(org.eclipse.swt.events.FocusEvent e) {
+                if (textCommand.getText().trim().equals("单命令调试窗口")) {
+                    textCommand.setText("");
+                    textCommand.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_BLACK));
+                }
+            }
+        });
+        itemTextbox.setWidth(219); //textCommand.getSize().x * 3
+        System.out.println(textCommand.getSize().x * 3);
+        itemTextbox.setControl(textCommand);
+
+        //        itemNodesView = new ToolItem(toolBar, SWT.PUSH);
+        //        itemNodesView.setEnabled(true);
+        //        Image iconNodesView = new Image(display, "./icons/nodesview.png");
+        //        itemNodesView.setImage(iconNodesView);
+        //        itemNodesView.setToolTipText("Nodes View");
+        //        itemNodesView.addListener(SWT.Selection, new Listener() {
+        //            public void handleEvent(Event event) {
+        //                if (event.detail == 0) {
+        //                    NodeViewer nodeViewer = new NodeViewer(shell, SWT.CLOSE, findDevices.getDevices());
+        //                    nodeViewer.open();
+        //                }
+        //            }
+        //        });
         coolItemPrj.setControl(toolBar);
 
         Control controlPrj = coolItemPrj.getControl();
@@ -1174,7 +1484,8 @@ public class AndroidRobot {
                 outfile.createNewFile();
 
                 StringBuffer sb = new StringBuffer();
-                sb.append("<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>").append("\n");
+                sb.append("<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>").append(
+                    "\n");
                 sb.append("<screen>").append("\n");
                 sb.append("</screen>").append("\n");
                 OutputStream out = null;
@@ -1198,7 +1509,8 @@ public class AndroidRobot {
                 outfile.createNewFile();
 
                 sb = new StringBuffer();
-                sb.append("<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>").append("\n");
+                sb.append("<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>").append(
+                    "\n");
                 sb.append("<tasks>").append("\n");
                 sb.append("</tasks>").append("\n");
                 try {
@@ -1283,15 +1595,12 @@ public class AndroidRobot {
         if (textNode != null) {
             TreeItem folder = new TreeItem(lastItem[0], SWT.NONE);
             folder.setText("New Folder");
-            //System.out.println(vecProject.get(i).getName());
-            folder.setImage(new Image(display, ".\\icons\\folder.png"));
-
+            folder.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/folder.png")));
             TreeItem root = RobotTreeUtil.getRoot(folder);
             String projectFile = (String) root.getData("path");
             String absolutPath = projectFile.substring(0, projectFile.lastIndexOf("\\") + 1);
             String relativePath = RobotTreeUtil.getPathFromTree(folder);
-
-            //String path = RobotTreeUtil.getPathFromTree(folder);
+            
             File file = new File(absolutPath + relativePath);
             file.mkdirs();
         }
@@ -1304,8 +1613,8 @@ public class AndroidRobot {
         tabItem.setToolTipText(path);
 
         //########################################################
-        final TextViewer textViewer =
-                new TextViewer(tabContent, SWT.BORDER | SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+        final TextViewer textViewer = new TextViewer(tabContent, SWT.BORDER | SWT.MULTI
+                                                                 | SWT.H_SCROLL | SWT.V_SCROLL);
         textViewer.setDocument(new Document());
         TextViewerUndoManager undoManager;
         //20是保存记录的数量。
@@ -1327,7 +1636,8 @@ public class AndroidRobot {
             FileUtility.readFileByLines(path, text_1);
         else if (script == DisplayUtil.Script.Read)
             FileUtility.readFileByLines(path, text_1);
-        tabItem.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/script.png")));
+        tabItem.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/script.png")));
 
         text_1.addListener(SWT.Modify, new Listener() {
             public void handleEvent(Event event) {
@@ -1383,7 +1693,8 @@ public class AndroidRobot {
 
         });
 
-        text_1.addLineStyleListener(new PythonLineStyleListener(new ReadProperties().getKeyName(), shell));
+        text_1.addLineStyleListener(new PythonLineStyleListener(new ReadProperties().getKeyName(),
+            shell));
 
         promot(text_1);
         //show it
@@ -1393,8 +1704,8 @@ public class AndroidRobot {
 
     private static void openLogSystem() {
         FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-        dialog.setFilterNames(new String[]{"Log Files (*.arlog)"});
-        dialog.setFilterExtensions(new String[]{"*.arlog*"}); //Windows wild cards
+        dialog.setFilterNames(new String[] { "Log Files (*.arlog)" });
+        dialog.setFilterExtensions(new String[] { "*.arlog*" }); //Windows wild cards
         dialog.setFilterPath(System.getProperty("user.dir") + "/workspace"); //Windows path
         String choice = dialog.open();//return value: path & null
         if (choice != null) {
@@ -1406,8 +1717,8 @@ public class AndroidRobot {
 
     private static void openProject() {
         FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-        dialog.setFilterNames(new String[]{"Project Files (*.androidrobot)"});
-        dialog.setFilterExtensions(new String[]{"*.androidrobot*"}); //Windows wild cards
+        dialog.setFilterNames(new String[] { "Project Files (*.androidrobot)" });
+        dialog.setFilterExtensions(new String[] { "*.androidrobot*" }); //Windows wild cards
         dialog.setFilterPath(System.getProperty("user.dir") + "/workspace"); //Windows path
         String choice = dialog.open();
         if (choice != null) {
@@ -1421,6 +1732,12 @@ public class AndroidRobot {
             tis[i].dispose();
         }
         lastItem[0] = null;
+
+        if (tasksTable != null) {
+            TableItem[] tableItems = tasksTable.getItems();
+            for (TableItem ti : tableItems)
+                ti.dispose();
+        }
     }
 
     public static void enableConnectButton() {
@@ -1485,7 +1802,6 @@ public class AndroidRobot {
                 saveScript();
             }
         });
-
 
         MenuItem mntmexit = new MenuItem(menu_1, SWT.NONE);
         mntmexit.setText("退出(E&XIT)");
@@ -1632,7 +1948,6 @@ public class AndroidRobot {
         mntmConnect = new MenuItem(menu_remote, SWT.PUSH);
         mntmConnect.setText("连接服务器");
 
-
         mntmHandsetList = new MenuItem(menu_remote, SWT.PUSH);
         mntmHandsetList.setText("云端控制面板");
         mntmHandsetList.addSelectionListener(new SelectionAdapter() {
@@ -1673,17 +1988,18 @@ public class AndroidRobot {
         mntmAbout.setText("&About Android Robot");
         mntmAbout.addSelectionListener(new SelectionAdapter() {
             public void widgetSelected(SelectionEvent e) {
-                final Shell dialog =
-                        new Shell(shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+                final Shell dialog = new Shell(shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 
                 dialog.setText("About Android Robot");
-                dialog.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/title.png")));
+                dialog.setImage(new Image(display, ClassLoader
+                    .getSystemResourceAsStream("icons/title.png")));
                 dialog.setLayout(new RowLayout());
-                Text textHelp = new Text(dialog,
-                        SWT.BORDER | SWT.MULTI);
+                Text textHelp = new Text(dialog, SWT.BORDER | SWT.MULTI);
                 textHelp.setFont(new Font(display, "宋体", 10, SWT.NONE));
 
-                textHelp.setText("About Android Robot\n\nVersion: 3.0 " + "\nBuild id: 20140101-1635\n\n迈测 \nAndroid Robot Copyright@ 2011,2012迈测  All rights reserved");
+                textHelp
+                    .setText("About Android Robot\n\nVersion: 3.0 "
+                             + "\nBuild id: 20140101-1635\n\n迈测 \nAndroid Robot Copyright@ 2011,2012迈测  All rights reserved");
                 //dialog.setSize(new Point(300, 200));
                 dialog.pack();
                 dialog.open();
@@ -1692,9 +2008,8 @@ public class AndroidRobot {
                 Rectangle shellBounds = shell.getBounds();
                 Point dialogSize = dialog.getSize();
 
-                dialog.setLocation(
-                        shellBounds.x + (shellBounds.width - dialogSize.x) / 2,
-                        shellBounds.y + (shellBounds.height - dialogSize.y) / 2);
+                dialog.setLocation(shellBounds.x + (shellBounds.width - dialogSize.x) / 2,
+                    shellBounds.y + (shellBounds.height - dialogSize.y) / 2);
 
             }
         });
@@ -1703,10 +2018,9 @@ public class AndroidRobot {
         mntmAboutUS.setText("关于我们");
         mntmAboutUS.addSelectionListener(new SelectionAdapter() {
             public void widgetSelected(SelectionEvent e) {
-                final Shell dialog =
-                        new Shell(shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+                final Shell dialog = new Shell(shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
                 dialog.setText("关于我们");
-                
+
                 dialog.pack();
                 dialog.open();
 
@@ -1714,13 +2028,11 @@ public class AndroidRobot {
                 Rectangle shellBounds = shell.getBounds();
                 Point dialogSize = dialog.getSize();
 
-                dialog.setLocation(
-                        shellBounds.x + (shellBounds.width - dialogSize.x) / 2,
-                        shellBounds.y + (shellBounds.height - dialogSize.y) / 2);
+                dialog.setLocation(shellBounds.x + (shellBounds.width - dialogSize.x) / 2,
+                    shellBounds.y + (shellBounds.height - dialogSize.y) / 2);
 
             }
         });
-
 
     }
 
@@ -1809,9 +2121,11 @@ public class AndroidRobot {
                     return o.getStartTime();
                 }
 
-                if (columnIndex == 5) return o.getEndTime();
+                if (columnIndex == 5)
+                    return o.getEndTime();
 
-                if (columnIndex == 6) return o.getResult();
+                if (columnIndex == 6)
+                    return o.getResult();
                 return "";
             }
         });
@@ -1820,11 +2134,10 @@ public class AndroidRobot {
     }
 
     private static void createTable(String name) {
-        String[] COLUMN_NAMES = {"设备名称", "任务名称", "用例", "开始时间", "结束时间", "进度", "成功/失败"};
+        String[] COLUMN_NAMES = { "设备名称", "任务名称", "用例", "开始时间", "结束时间", "进度", "成功/失败" };
         CTabItem tabItemLog = new CTabItem(tabLogFolder, SWT.NONE);
         tabItemLog.setText(name);
-        tableViewerCase = new TableViewer(tabLogFolder, SWT.MULTI | SWT.BORDER
-                | SWT.FULL_SELECTION);
+        tableViewerCase = new TableViewer(tabLogFolder, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
 
         final Table tableShow = tableViewerCase.getTable();
 
@@ -1869,9 +2182,11 @@ public class AndroidRobot {
         CTabItem tabItemLog = new CTabItem(tabLogFolder, SWT.NONE);
         tabItemLog.setText(name);
 
-        tabItemLog.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/log.png")));
+        tabItemLog.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/log.png")));
         //add contorl
-        listViewerLog = new ListViewer(tabLogFolder, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL | SWT.H_SCROLL);
+        listViewerLog = new ListViewer(tabLogFolder, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL
+                                                     | SWT.H_SCROLL);
         tabItemLog.setControl(listViewerLog.getList());
         listViewerLog.getList().setFont(new Font(display, "宋体", 10, SWT.NONE));
         //set content provider
@@ -1884,10 +2199,7 @@ public class AndroidRobot {
             public void dispose() {
             }
 
-            public void inputChanged(
-                    Viewer viewer,
-                    Object oldInput,
-                    Object newInput) {
+            public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
             }
         });
 
@@ -1898,8 +2210,7 @@ public class AndroidRobot {
         CTabItem tabItemLog = new CTabItem(tabLogFolder, SWT.NONE);
         tabItemLog.setText(name);
         //add contorl
-        adbLogcatText = new Text(tabLogFolder,
-                SWT.BORDER | SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+        adbLogcatText = new Text(tabLogFolder, SWT.BORDER | SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
         tabItemLog.setControl(adbLogcatText);
         adbLogcatText.setFont(new Font(display, "宋体", 10, SWT.NONE));
         adbLogcatText.setEditable(false);
@@ -1939,16 +2250,17 @@ public class AndroidRobot {
 
         tabContent.addCTabFolder2Listener(new CTabFolder2Adapter() {
             public void close(CTabFolderEvent e) {
-                System.out.println("closed");
                 CTabItem closingItem = (CTabItem) e.item;
                 String tabName = closingItem.getText();
                 //System.out.println("Close "+tabName+" "+closingItem.getData(tabName));
                 if (!tabName.contains("*")) {
+                    System.out.println("tabName:" + closingItem.getData(tabName));
                     htTab.remove(closingItem.getData(tabName));
                     htCaseViewer.remove(closingItem.getData(tabName));
                     htCaseList.remove(closingItem.getData(tabName));
                 } else {
-                    int choice = showNotification("是否保存?", SWT.ICON_QUESTION | SWT.YES | SWT.NO | SWT.CANCEL);
+                    int choice = showNotification("是否保存?", SWT.ICON_QUESTION | SWT.YES | SWT.NO
+                                                           | SWT.CANCEL);
                     if (choice == SWT.YES) {
                         saveScript();
                         htTab.remove(closingItem.getData(tabName.substring(1, tabName.length())));
@@ -1964,7 +2276,8 @@ public class AndroidRobot {
 
     private static void addMachineTab(final String name) {
         final CTabItem tabItem = new CTabItem(tabHandsetName, SWT.MULTI | SWT.V_SCROLL);
-        tabItem.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/device.png")));
+        tabItem.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/device.png")));
         tabItem.setText(name);
 
         listHandsets = new List(tabHandsetName, SWT.BORDER);
@@ -2025,13 +2338,13 @@ public class AndroidRobot {
     private static void addEmulator() {
         final CTabItem tabItemEmulator = new CTabItem(tabProgress, SWT.V_SCROLL | SWT.H_SCROLL);
         tabItemEmulator.setText("手机视图");
-        tabItemEmulator.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/view.png")));
+        tabItemEmulator.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/view.png")));
 
         addDisplay(tabItemEmulator);
         //show it
         tabProgress.setSelection(tabItemEmulator);
     }
-
 
     private static void addDisplay(CTabItem tabItemEmulator) {
         lbCapture = new Canvas(tabProgress, SWT.NO_BACKGROUND);
@@ -2047,7 +2360,7 @@ public class AndroidRobot {
         lbCapture.addPaintListener(new PaintListener() {
             public void paintControl(PaintEvent e) {
                 PaletteData palette = new PaletteData(0, 0, 0);
-                palette.colors = new RGB[]{new RGB(236, 233, 216), new RGB(236, 233, 216)};
+                palette.colors = new RGB[] { new RGB(236, 233, 216), new RGB(236, 233, 216) };
                 palette.isDirect = false;
                 ImageData imageData = new ImageData(scaledWidth, scaledHeight, 1, palette);
                 Image firstImage = new Image(Display.getDefault(), imageData);
@@ -2055,11 +2368,10 @@ public class AndroidRobot {
             }
         });
 
-
         lbCapture.addMouseMoveListener(new MouseMoveListener() {
             @Override
             public void mouseMove(MouseEvent event) {
-                if (isTouchDownEvent == true) {
+                if (isTouchDownEvent == true && (itemBack.getEnabled() == true)) {
                     move(event);
                 }
             }
@@ -2068,15 +2380,15 @@ public class AndroidRobot {
         lbCapture.addMouseListener(new MouseAdapter() {
             int startX = 0;
             int startY = 0;
-            int endX = 0;
-            int endY = 0;
+            int endX   = 0;
+            int endY   = 0;
 
             public void mouseDown(MouseEvent event) {
                 //Left click
                 if (event.button != 1)
                     return;
 
-                if (isRecording && !isSetCheckPoint)
+                if (isRecording && !isSetCheckPoint && (itemBack.getEnabled() == true))
                     touchDown(event);
                 else if (isSetCheckPoint == true) {
                     //System.out.println(event.count);
@@ -2089,9 +2401,9 @@ public class AndroidRobot {
                 //System.out.println("up");
                 if (event.button != 1)
                     return;
-                if (isRecording && !isSetCheckPoint)
+                if (isRecording && !isSetCheckPoint && (itemBack.getEnabled() == true))
                     touchUp(event);
-                else if (isRecording && isSetCheckPoint == true) {
+                else if (isRecording && isSetCheckPoint == true && (itemBack.getEnabled() == true)) {
 
                     endX = event.x;
                     endY = event.y;
@@ -2126,8 +2438,6 @@ public class AndroidRobot {
         lbCapture.addListener(SWT.MenuDetect, new Listener() {
             public void handleEvent(Event event) {
                 if (isRecording && !isSetCheckPoint) {//isSetCheckPoint
-                    System.out.println("isRecording");
-                    //itemSetCheckPoint.setEnabled(true);
                     itemSaveCP.setEnabled(true);
                     lbCapture.setMenu(recordMenu);
                 } else if (isSetCheckPoint) {
@@ -2149,7 +2459,8 @@ public class AndroidRobot {
     }
 
     private static void addRemoteHandsetsList() {
-        final CTabItem cloudHandsetsTabItem = new CTabItem(tabHandsetName, SWT.V_SCROLL | SWT.H_SCROLL);
+        final CTabItem cloudHandsetsTabItem = new CTabItem(tabHandsetName, SWT.V_SCROLL
+                                                                           | SWT.H_SCROLL);
         cloudHandsetsTabItem.setText("云端设备");
         cloudHandsetsTabItem.setImage(new Image(display, ".\\icons\\view.png"));
 
@@ -2162,8 +2473,7 @@ public class AndroidRobot {
     private static void addProgressBar(int index, String key, int count) {
         Table table = tableViewerCase.getTable();
         TableItem ti = table.getItem(index);
-        ProgressBar bar = new ProgressBar(table, SWT.HORIZONTAL
-                | SWT.SMOOTH);
+        ProgressBar bar = new ProgressBar(table, SWT.HORIZONTAL | SWT.SMOOTH);
         bar.setSelection(0);
         bar.setMinimum(0);
         bar.setMaximum(count);
@@ -2215,7 +2525,7 @@ public class AndroidRobot {
         coolItem3.setSize(pt3);
         coolBar3.pack();
 
-	    /*add progressbar to tool*/
+        /*add progressbar to tool*/
         pbRecorder = new ProgressBar(shell, SWT.HORIZONTAL | SWT.SMOOTH);
         FormData formData11 = new FormData();
         formData11.left = new FormAttachment(45, 0);
@@ -2276,12 +2586,16 @@ public class AndroidRobot {
         coolBar2.pack();
     }
 
-    public static void setButton(boolean setApk, boolean openValue, boolean newValue, boolean saveValue, boolean recValue,
-                                 boolean delValue, boolean saveScreenValue, boolean stopValue, boolean debugValue,
-                                 boolean runValue, boolean checkPoint, boolean importLog, boolean boolDeployment,
-                                 boolean boolMemInfo, boolean boolCPUInfo, boolean boolFPSInfo, boolean boolStartUpTime, boolean boolMonkeyTest,
-                                 boolean boolLogcat, boolean boolNodesView, boolean boolLoadScreen,
-                                 boolean boolLeakInfo, boolean boolConsum) {
+    public static void setButton(boolean setApk, boolean openValue, boolean newValue,
+                                 boolean saveValue, boolean recValue, boolean delValue,
+                                 boolean saveScreenValue, boolean stopValue, boolean debugValue,
+                                 boolean runValue, boolean checkPoint, boolean importLog,
+                                 boolean boolDeployment, boolean boolMemInfo, boolean boolCPUInfo,
+                                 boolean boolFPSInfo, boolean boolStartUpTime,
+                                 boolean boolMonkeyTest, boolean boolLogcat, boolean boolNodesView,
+                                 boolean boolLoadScreen, boolean boolLeakInfo, boolean boolConsum,
+                                 boolean boolItemBack, boolean boolItemSaveCP,
+                                 boolean boolItemMenu, boolean boolItemHome, boolean boolItemInput) {
         itemSetApk.setEnabled(setApk);
         itemNew.setEnabled(newValue);
         itemSave.setEnabled(saveValue);
@@ -2304,7 +2618,12 @@ public class AndroidRobot {
         itemFPSInfo.setEnabled(boolFPSInfo);
         itemMonkeyTest.setEnabled(boolMonkeyTest);
         itemLogcat.setEnabled(boolLogcat);
-//        itemNodesView.setEnabled(boolNodesView);
+        itemBack.setEnabled(boolItemBack);
+        itemSaveCP.setEnabled(boolItemSaveCP);
+        itemMenu.setEnabled(boolItemMenu);
+        itemHome.setEnabled(boolItemHome);
+        itemInput.setEnabled(boolItemInput);
+        //        itemNodesView.setEnabled(boolNodesView);
     }
 
     public static void enableRecord(boolean value) {
@@ -2315,7 +2634,8 @@ public class AndroidRobot {
 
     private static int checkedCaseNum = 0;
 
-    private static Vector<TestCase> getCheckedItems(final String projectName, final Table casesTable, final String tabName) {
+    private static Vector<TestCase> getCheckedItems(final String projectName,
+                                                    final Table casesTable, final String tabName) {
         Vector<TestCase> tcVector = new Vector();
         int itemCount = casesTable.getItemCount();
         for (int i = 0; i < itemCount; i++) {
@@ -2381,7 +2701,8 @@ public class AndroidRobot {
         return bRet;
     }
 
-    private static void initTask(Combo comboSolution, Combo comboProject, Combo comboItem, Table casesTable, String taskName) {
+    private static void initTask(Combo comboSolution, Combo comboProject, Combo comboItem,
+                                 Table casesTable, String taskName) {
 
         TreeItem tiRoot = tree.getItem(0);
         if (tiRoot != null) {
@@ -2417,8 +2738,8 @@ public class AndroidRobot {
                         comboSolution.select(j);
 
                         //load project in folder
-                        scriptPath = System.getProperty("user.dir") +
-                        		"/workspace/" + comboSolution.getText().trim() + "/Scripts/";
+
+                        scriptPath = projectPath + "/Scripts/";
                         loadProjectInTaskTab(scriptPath, comboProject);
 
                         isFind = true;
@@ -2462,13 +2783,13 @@ public class AndroidRobot {
             if (isFind == true) {
                 Vector<String> vecBaseScripts = new Vector();
                 try {
+                    System.out.println("###################################");
                     //Scripts from disk
-                	System.out.println("scriptPath:" + scriptPath + "   " + new File(scriptPath));
-
-                    FileUtility.getScripts(new File(scriptPath), vecBaseScripts);
+                    FileUtility.getScripts(new File(scriptPath), vecBaseScripts, projectPath);
 
                     //add from task.dat
                     for (int i = 0; i < task.vecTC.size(); i++) {
+                        System.out.println("" + task.vecTC.get(i).path);
                         if (removeScripts(vecBaseScripts, task.vecTC.get(i).path)) {
                             TaskRowItem rowItem = new TaskRowItem();
                             rowItem.setPath(task.vecTC.get(i).path);
@@ -2477,6 +2798,7 @@ public class AndroidRobot {
                             rowItem.setLoop(Integer.toString(task.vecTC.get(i).loop));
 
                             rowItem.setChecked(task.vecTC.get(i).isChecked);
+
                             //add row to table
                             htCaseList.get(taskName).add(rowItem);
                         }
@@ -2486,9 +2808,10 @@ public class AndroidRobot {
                     for (int i = 0; i < vecBaseScripts.size(); i++) {
                         TaskRowItem rowItem = new TaskRowItem();
                         rowItem.setPath(vecBaseScripts.get(i));
-                        String name = vecBaseScripts.get(i).substring(vecBaseScripts.get(i).lastIndexOf("\\") + 1, vecBaseScripts.get(i).length());
+                        String name = vecBaseScripts.get(i).substring(
+                            vecBaseScripts.get(i).lastIndexOf("\\") + 1,
+                            vecBaseScripts.get(i).length());
                         rowItem.setName(name);
-
                         //add row to table
                         htCaseList.get(taskName).add(rowItem);
                     }
@@ -2514,7 +2837,6 @@ public class AndroidRobot {
             }
         }
     }
-
 
     private static int checkNode(TreeItem node) {
         if (node == null)
@@ -2560,16 +2882,16 @@ public class AndroidRobot {
             //remove old record
             //taskRowList.clear();
             //casesTableViewer.refresh(false);
-            System.out.println("=====================loadScripts");
             //add new record
             for (int k = 0; k < vecScripts.size(); k++) {
                 TaskRowItem rowItem = new TaskRowItem();
-                int index = vecScripts.get(k).lastIndexOf("\\workspace\\");
-                String reletivePath = "." + vecScripts.get(k).substring(index, vecScripts.get(k).length());
-                //rowItem.setPath(vecScripts.get(k));
-                rowItem.setPath(reletivePath);
+                int index = vecScripts.get(k).indexOf(projectPath);
+                String relativePath = vecScripts.get(k).substring(projectPath.length(),
+                    vecScripts.get(k).length());
+                rowItem.setPath(relativePath);
                 //相对路径
-                String name = vecScripts.get(k).substring(vecScripts.get(k).lastIndexOf("\\") + 1, vecScripts.get(k).length());
+                String name = vecScripts.get(k).substring(vecScripts.get(k).lastIndexOf("\\") + 1,
+                    vecScripts.get(k).length());
                 rowItem.setName(name);
                 //add row to table
                 htCaseList.get(tabName).add(rowItem);
@@ -2614,7 +2936,6 @@ public class AndroidRobot {
             table.setFocus();
             table.select(position);
 
-
         } else {
             TaskRowItem currTask = taskRowList.get(index);
             boolean currChecked = table.getItem(index).getChecked();
@@ -2651,7 +2972,8 @@ public class AndroidRobot {
         final CTabItem tabItem = new CTabItem(tabContent, SWT.Close | SWT.MULTI | SWT.V_SCROLL);
         taskRowList = new ArrayList();
         tabItem.setText(name);
-        tabItem.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/config.png")));
+        tabItem.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/config.png")));
         tabItem.setData(name, name);
         htTab.put(name, tabItem);
 
@@ -2686,9 +3008,9 @@ public class AndroidRobot {
         //add project name
         /*
         if(vecProject != null){
-	        for(int i=0;i<vecProject.size();i++){
-	        	prjCombo.add(vecProject.get(i).getName());
-	        }
+            for(int i=0;i<vecProject.size();i++){
+            	prjCombo.add(vecProject.get(i).getName());
+            }
         }*/
         if (tree.getItemCount() > 0) {
             for (int i = 0; i < tree.getItemCount(); i++) {
@@ -2707,7 +3029,7 @@ public class AndroidRobot {
                 htCaseViewer.get(name).refresh(false);
                 //load script by project then show it in table
                 //loadScripts(name);
-                String scriptPath = ".\\workspace\\" + comboSolution.getText().trim() + "\\Scripts\\";
+                String scriptPath = projectPath + "\\Scripts\\";
                 Vector<String> vecScripts = TaskUtil.loadScriptsInFolder(scriptPath);
                 loadScripts(name, vecScripts);
                 //display case number
@@ -2736,10 +3058,13 @@ public class AndroidRobot {
                 htCaseViewer.get(name).refresh(false);
 
                 //load all scripts by folder
-                String scriptPath = ".\\workspace\\" + comboSolution.getText().trim() + "\\Scripts\\" + comboProject.getText().trim() + "\\";
+                String scriptPath = projectPath + comboSolution.getText().trim() + "\\Scripts\\"
+                                    + comboProject.getText().trim() + "\\";
                 Vector<String> vecScripts = new Vector();
                 try {
-                    FileUtility.getScripts(new File(projectPath + "\\Scripts\\" + comboProject.getText() + "\\"), vecScripts);
+                    FileUtility.getScripts(
+                        new File(projectPath + "\\Scripts\\" + comboProject.getText() + "\\"),
+                        vecScripts, projectPath);
                     loadScripts(name, vecScripts);
                     //display case number
                     lblTotal.setText("          总用例数:" + vecScripts.size() + "条");
@@ -2770,8 +3095,8 @@ public class AndroidRobot {
                 htCaseViewer.get(name).refresh(false);
 
                 //load all scripts by folder
-                String scriptPath = projectPath + "\\Scripts\\" + comboProject.getText() + "\\" +
-                        comboItem.getText().trim() + "\\";
+                String scriptPath = projectPath + "\\Scripts\\" + comboProject.getText() + "\\"
+                                    + comboItem.getText().trim() + "\\";
 
                 Vector<String> vecScripts = new Vector();
                 try {
@@ -2793,9 +3118,9 @@ public class AndroidRobot {
         caseComp.setLayoutData(caseGridData);
         caseComp.setLayout(new GridLayout(1, true));
 
-        TableViewer casesTableViewer = new TableViewer(caseComp, SWT.CHECK | SWT.V_SCROLL | SWT.BORDER | SWT.FULL_SELECTION
-                | SWT.VIRTUAL);
-
+        TableViewer casesTableViewer = new TableViewer(caseComp, SWT.CHECK | SWT.V_SCROLL
+                                                                 | SWT.BORDER | SWT.FULL_SELECTION
+                                                                 | SWT.VIRTUAL);
 
         htCaseViewer.put(name, casesTableViewer);
         htCaseList.put(name, taskRowList);
@@ -2807,7 +3132,6 @@ public class AndroidRobot {
         caseEditor = new TableEditor(casesTable);
         caseEditor.horizontalAlignment = SWT.LEFT;
         caseEditor.grabHorizontal = true;
-
 
         casesTable.addMouseListener(new MouseAdapter() {
             public void mouseDoubleClick(MouseEvent e) {
@@ -2832,8 +3156,7 @@ public class AndroidRobot {
                     int line1 = casesTable.getSelectionIndex();
 
                     if (col1 == 1) {
-                        final Text texteditor = new Text(casesTable,
-                                SWT.NONE);
+                        final Text texteditor = new Text(casesTable, SWT.NONE);
 
                         texteditor.computeSize(SWT.DEFAULT, casesTable.getItemHeight());
 
@@ -2851,9 +3174,7 @@ public class AndroidRobot {
                             public void modifyText(ModifyEvent event) {
                                 Text text = (Text) caseEditor.getEditor();
                                 text.setForeground(display.getSystemColor(SWT.COLOR_BLACK));
-                                caseEditor.getItem().setText(
-                                        col1,
-                                        text.getText());
+                                caseEditor.getItem().setText(col1, text.getText());
                             }
                         });
 
@@ -2870,13 +3191,14 @@ public class AndroidRobot {
                     //open scripts
                     if (col1 == 0) {
                         String scriptPath = htCaseList.get(name).get(line1).getPath();
-                        if (!htTab.containsKey(scriptPath)) {
-                            CTabItem tabItem = addTabItem(tableitem.getText(col1), scriptPath, DisplayUtil.Script.Read);
-                            htTab.put(taskRowList.get(line1).getPath(), tabItem);
+                        if (!htTab.containsKey(projectPath + scriptPath)) {
+                            CTabItem tabItem = addTabItem(tableitem.getText(col1), projectPath
+                                                                                   + scriptPath,
+                                DisplayUtil.Script.Read);
+                            htTab.put(projectPath + scriptPath, tabItem);
                         } else {
-                            tabContent.setSelection((CTabItem) htTab.get(scriptPath));
+                            tabContent.setSelection((CTabItem) htTab.get(projectPath + scriptPath));
                         }
-
                     }
                 }
             }
@@ -2892,9 +3214,8 @@ public class AndroidRobot {
                     TableItem item = casesTable.getItem(point);
                     if (item != null) {
                         moveTableItem = new MoveTableItem(shell, SWT.NONE);
-                        moveTableItem.setLocation(
-                                MouseInfo.getPointerInfo().getLocation().x,
-                                MouseInfo.getPointerInfo().getLocation().y);
+                        moveTableItem.setLocation(MouseInfo.getPointerInfo().getLocation().x,
+                            MouseInfo.getPointerInfo().getLocation().y);
                         int line = moveTableItem.open();
                         if (line != -1 && line < casesTable.getItemCount())
                             ins2Table(casesTable, line, casesTable.getSelectionIndex());
@@ -2911,7 +3232,7 @@ public class AndroidRobot {
         GridData casesGridData = new GridData(GridData.FILL_BOTH);
         casesTable.setLayoutData(casesGridData);
 
-        String[] COLUMN_NAMES = {"测试用例", "运行次数", "时间间隔", "间隔单位"};
+        String[] COLUMN_NAMES = { "测试用例", "运行次数", "时间间隔", "间隔单位" };
 
         TableColumn columns_0 = new TableColumn(casesTable, SWT.NONE);
         columns_0.setWidth(200);
@@ -2987,16 +3308,18 @@ public class AndroidRobot {
                     return o.getLoop();
                 }
 
-                if (columnIndex == 2) return o.getInterval();
+                if (columnIndex == 2)
+                    return o.getInterval();
 
-                if (columnIndex == 3) return o.getUnit();
+                if (columnIndex == 3)
+                    return o.getUnit();
                 return "";
             }
         });
 
-//		for(int i=0;i<taskRowList.size();i++) {
-//			System.out.println(taskRowList.get(i).getName());
-//		}
+        //		for(int i=0;i<taskRowList.size();i++) {
+        //			System.out.println(taskRowList.get(i).getName());
+        //		}
 
         casesTableViewer.setInput(taskRowList);
 
@@ -3012,7 +3335,6 @@ public class AndroidRobot {
         bottomComp.setLayoutData(bottomGridData);
         bottomComp.setLayout(new GridLayout(6, true));
 
-
         Button btnConfirm = new Button(bottomComp, SWT.NONE);
         btnConfirm.setLayoutData(new GridData(GridData.FILL_BOTH));
         btnConfirm.setText("保存");
@@ -3026,11 +3348,11 @@ public class AndroidRobot {
                     task.solution = comboSolution.getText();
                     task.project = comboProject.getText();
                     task.item = comboItem.getText();
-                    task.vecTC =
-                            getCheckedItems(task.solution, casesTable, name);
+                    task.vecTC = getCheckedItems(task.solution, casesTable, name);
 
                     try {
-                        TaskUtil.updateTask(task);
+
+                        TaskUtil.updateTask(projectPath + "/tasks_database.xml", task);
                         //remove from CTabItem
                         if (htTab.containsKey(name)) {
                             ((CTabItem) htTab.get(name)).dispose();
@@ -3115,7 +3437,6 @@ public class AndroidRobot {
             }
         });
 
-
         Button btnDown = new Button(bottomComp, SWT.NONE);
         btnDown.setLayoutData(new GridData(GridData.FILL_BOTH));
         btnDown.setText("向下");
@@ -3138,7 +3459,6 @@ public class AndroidRobot {
                         casesTable.getItem(index + 1).setText(2, currTask.getInterval());
                         casesTable.getItem(index + 1).setText(3, currTask.getUnit());
                         casesTable.getItem(index + 1).setChecked(currChecked);
-
 
                         taskRowList.set(index, preTask);
                         taskRowList.get(index).setChecked(preChecked);
@@ -3241,8 +3561,7 @@ public class AndroidRobot {
         final int tasksCount = tasksTable.getItemCount();
         final TableItem tableitem = tasksTable.getItem(tasksCount - 1);
         if (tableitem != null) {
-            final Text texteditor = new Text(tasksTable,
-                    SWT.NONE);
+            final Text texteditor = new Text(tasksTable, SWT.NONE);
 
             texteditor.computeSize(SWT.DEFAULT, tasksTable.getItemHeight());
 
@@ -3260,9 +3579,7 @@ public class AndroidRobot {
                 public void modifyText(ModifyEvent event) {
                     Text text = (Text) taskEditor.getEditor();
                     text.setForeground(display.getSystemColor(SWT.COLOR_BLACK));
-                    taskEditor.getItem().setText(
-                            0,
-                            text.getText().trim());
+                    taskEditor.getItem().setText(0, text.getText().trim());
                 }
             });
 
@@ -3273,8 +3590,7 @@ public class AndroidRobot {
                     int count = tasksTable.getItemCount();
                     //htTab
                     for (int i = 0; i < count - 1; i++) {
-                        TableItem ti =
-                                tasksTable.getItem(i);
+                        TableItem ti = tasksTable.getItem(i);
                         if (ti.getText(0).trim().equals(((Text) c).getText().trim())) {
                             showNotification("此任务已经存在!", SWT.ICON_WARNING | SWT.YES);
                             ((Text) c).setFocus();
@@ -3300,7 +3616,8 @@ public class AndroidRobot {
         tabItemTasks = new CTabItem(tabFolder, SWT.TOP | SWT.MULTI | SWT.V_SCROLL);
         tabItemTasks.setText("任务管理");
         //tabItem.setFont(new Font(display,"宋体",10,SWT.NONE));
-        tabItemTasks.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/config.png")));
+        tabItemTasks.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/config.png")));
 
         // create the composite for ToolBar
         final Composite toolComp = new Composite(tabFolder, SWT.NONE);
@@ -3316,7 +3633,8 @@ public class AndroidRobot {
         toolBar.setLayoutData(suGridData);
         //new task
         ToolItem newTaskToolItem = new ToolItem(toolBar, SWT.PUSH);
-        newTaskToolItem.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/newTask.png")));//
+        newTaskToolItem.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/newTask.png")));//
         newTaskToolItem.setToolTipText("新建任务");
         newTaskToolItem.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
@@ -3328,7 +3646,8 @@ public class AndroidRobot {
 
         //remove task
         ToolItem removeToolItem = new ToolItem(toolBar, SWT.PUSH);
-        removeToolItem.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/removeTask.png")));//
+        removeToolItem.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/removeTask.png")));//
         removeToolItem.setToolTipText("移除任务");
         removeToolItem.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
@@ -3337,15 +3656,19 @@ public class AndroidRobot {
                     if (selTask >= 0) {
                         String taskName = tasksTable.getItem(selTask).getText(0);
                         //remove from tasks.dat
-                        //UserTasks.removeTask(taskFilePath,taskName);
-
-                        //remove from CTabItem
-                        if (htTab.containsKey(taskName)) {
-                            ((CTabItem) htTab.get(taskName)).dispose();
-                            htTab.remove(taskName);
+                        try {
+                            TaskUtil.removeTask(projectPath + "/tasks_database.xml", taskName);
+                            //remove from CTabItem
+                            if (htTab.containsKey(taskName)) {
+                                ((CTabItem) htTab.get(taskName)).dispose();
+                                htTab.remove(taskName);
+                            }
+                            //remove from TaskTable
+                            tasksTable.getItem(selTask).dispose();
+                        } catch (Exception e) {
+                            log.error("[remove task]" + e);
                         }
-                        //remove from TaskTable
-                        tasksTable.getItem(selTask).dispose();
+
                     }
                 }
             }
@@ -3353,7 +3676,8 @@ public class AndroidRobot {
 
         //up
         ToolItem upToolItem = new ToolItem(toolBar, SWT.PUSH);
-        upToolItem.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/up.png")));//
+        upToolItem.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/up.png")));//
         upToolItem.setToolTipText("向上移动");
         upToolItem.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
@@ -3364,9 +3688,12 @@ public class AndroidRobot {
                         String taskDescription = tasksTable.getItem(selTask).getText(1);
                         String taskNum = tasksTable.getItem(selTask).getText(2);
 
-                        tasksTable.getItem(selTask).setText(0, tasksTable.getItem(selTask - 1).getText(0));
-                        tasksTable.getItem(selTask).setText(1, tasksTable.getItem(selTask - 1).getText(1));
-                        tasksTable.getItem(selTask).setText(2, tasksTable.getItem(selTask - 1).getText(2));
+                        tasksTable.getItem(selTask).setText(0,
+                            tasksTable.getItem(selTask - 1).getText(0));
+                        tasksTable.getItem(selTask).setText(1,
+                            tasksTable.getItem(selTask - 1).getText(1));
+                        tasksTable.getItem(selTask).setText(2,
+                            tasksTable.getItem(selTask - 1).getText(2));
 
                         tasksTable.getItem(selTask - 1).setText(0, taskName);
                         tasksTable.getItem(selTask - 1).setText(1, taskDescription);
@@ -3383,7 +3710,8 @@ public class AndroidRobot {
 
         //down
         ToolItem downToolItem = new ToolItem(toolBar, SWT.PUSH);
-        downToolItem.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/down.png")));//
+        downToolItem.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/down.png")));//
         downToolItem.setToolTipText("向下移动");
         downToolItem.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
@@ -3394,9 +3722,12 @@ public class AndroidRobot {
                         String taskDescription = tasksTable.getItem(selTask).getText(1);
                         String taskNum = tasksTable.getItem(selTask).getText(2);
 
-                        tasksTable.getItem(selTask).setText(0, tasksTable.getItem(selTask + 1).getText(0));
-                        tasksTable.getItem(selTask).setText(1, tasksTable.getItem(selTask + 1).getText(1));
-                        tasksTable.getItem(selTask).setText(2, tasksTable.getItem(selTask + 1).getText(2));
+                        tasksTable.getItem(selTask).setText(0,
+                            tasksTable.getItem(selTask + 1).getText(0));
+                        tasksTable.getItem(selTask).setText(1,
+                            tasksTable.getItem(selTask + 1).getText(1));
+                        tasksTable.getItem(selTask).setText(2,
+                            tasksTable.getItem(selTask + 1).getText(2));
 
                         tasksTable.getItem(selTask + 1).setText(0, taskName);
                         tasksTable.getItem(selTask + 1).setText(1, taskDescription);
@@ -3414,7 +3745,8 @@ public class AndroidRobot {
 
         //save
         ToolItem saveToolItem = new ToolItem(toolBar, SWT.PUSH);
-        saveToolItem.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/save_task.png")));//
+        saveToolItem.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/save_task.png")));//
         saveToolItem.setToolTipText("保存");
         saveToolItem.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
@@ -3437,7 +3769,8 @@ public class AndroidRobot {
                             for (int j = 0; j < tasksList.size(); j++) {
                                 if (tasksList.get(j).name.equals(taskName)) {
                                     Task task = tasksList.get(j);
-                                    task.loop = Integer.parseInt(tasksTable.getItem(i).getText(2).trim());
+                                    task.loop = Integer.parseInt(tasksTable.getItem(i).getText(2)
+                                        .trim());
                                     tempTaskList.add(task);
                                     break;
                                 }
@@ -3447,7 +3780,8 @@ public class AndroidRobot {
                         //save
                         for (int i = 0; i < tempTaskList.size(); i++)
                             try {
-                                TaskUtil.updateTask(tempTaskList.get(i));
+                                TaskUtil.updateTask(projectPath + "/tasks_database.xml",
+                                    tempTaskList.get(i));
                             } catch (Exception e) {
                                 // TODO Auto-generated catch block
                                 e.printStackTrace();
@@ -3459,8 +3793,7 @@ public class AndroidRobot {
             }
         });
 
-        tasksTable = new Table(toolComp, SWT.BORDER | SWT.CHECK | SWT.FULL_SELECTION
-                | SWT.VIRTUAL);
+        tasksTable = new Table(toolComp, SWT.BORDER | SWT.CHECK | SWT.FULL_SELECTION | SWT.VIRTUAL);
         tasksTable.setLinesVisible(true);
         suGridData = new GridData(GridData.FILL_BOTH);
         tasksTable.setLayoutData(suGridData);
@@ -3483,7 +3816,6 @@ public class AndroidRobot {
         taskNumEditor.grabHorizontal = true;
 
         tasksTable.addMouseListener(new MouseAdapter() {
-
             public void mouseDoubleClick(MouseEvent e) {
                 Control c = taskNumEditor.getEditor();
                 if (c != null) {
@@ -3504,11 +3836,8 @@ public class AndroidRobot {
                     //System.out.println(column);
                     final int col1 = column;
                     if (col1 == 2) {
-                        final Text textnum = new Text(tasksTable,
-                                SWT.NONE);
-
+                        final Text textnum = new Text(tasksTable, SWT.NONE);
                         textnum.computeSize(SWT.DEFAULT, tasksTable.getItemHeight());
-
                         taskNumEditor.grabHorizontal = true;
                         taskNumEditor.minimumHeight = textnum.getSize().y;
                         taskNumEditor.minimumWidth = textnum.getSize().x;
@@ -3523,9 +3852,7 @@ public class AndroidRobot {
                             public void modifyText(ModifyEvent event) {
                                 Text text = (Text) taskNumEditor.getEditor();
                                 text.setForeground(display.getSystemColor(SWT.COLOR_BLACK));
-                                taskNumEditor.getItem().setText(
-                                        2,
-                                        text.getText());
+                                taskNumEditor.getItem().setText(2, text.getText());
                             }
                         });
 
@@ -3557,7 +3884,6 @@ public class AndroidRobot {
             }
         });
 
-
         tabItemTasks.setControl(toolComp);
 
     }
@@ -3576,30 +3902,29 @@ public class AndroidRobot {
         //CreateTabFolder();
         createSashForm2();
         //CreateSashForm1();
-        sashFormProject.setWeights(new int[]{1, 3});
+        sashFormProject.setWeights(new int[] { 1, 3 });
     }
 
     public static void createSashForm1() {
         sashFormProject2 = new SashForm(sashFormProject, SWT.VERTICAL);
         createProjectExplorer();
         createMachineWindow();
-        sashFormProject2.setWeights(new int[]{3, 1});
+        sashFormProject2.setWeights(new int[] { 3, 1 });
     }
 
     public static void createSashForm2() {
         sashFormContent = new SashForm(sashFormProject, SWT.VERTICAL);
         createSashForm3();
         createLogTabFolder();
-        sashFormContent.setWeights(new int[]{3, 1});
+        sashFormContent.setWeights(new int[] { 3, 1 });
     }
 
     public static void createSashForm3() {
         sashFormProgress = new SashForm(sashFormContent, SWT.HORIZONTAL);
         createScriptTab();
         createProgressTab();
-        sashFormProgress.setWeights(new int[]{2, 1});
+        sashFormProgress.setWeights(new int[] { 2, 1 });
     }
-
 
     static void checkParent(TreeItem parent, boolean checked, boolean grayed) {
         if (parent == null)//递归退出条件：父亲为空。
@@ -3635,13 +3960,15 @@ public class AndroidRobot {
             boolean showBorder = true;
             black = Display.getCurrent().getSystemColor(SWT.COLOR_BLACK);
             treeComp = new Composite(tree, SWT.NONE);
-            if (showBorder) treeComp.setBackground(black);
+            if (showBorder)
+                treeComp.setBackground(black);
             final Text textTreeNode = new Text(treeComp, SWT.NONE);
             final int inset = showBorder ? 1 : 0;
             treeComp.addListener(SWT.Resize, new Listener() {
                 public void handleEvent(Event e) {
                     Rectangle rect = treeComp.getClientArea();
-                    textTreeNode.setBounds(rect.x + inset, rect.y + inset, rect.width - inset * 2, rect.height - inset * 2);
+                    textTreeNode.setBounds(rect.x + inset, rect.y + inset, rect.width - inset * 2,
+                        rect.height - inset * 2);
                 }
             });
 
@@ -3663,7 +3990,6 @@ public class AndroidRobot {
 
             editor.setEditor(treeComp, lastItem[0]);
 
-
             textListener = new Listener() {
                 public void handleEvent(final Event e) {
                     //System.out.println("textListener"+e.type);
@@ -3683,7 +4009,8 @@ public class AndroidRobot {
                                 case SWT.TRAVERSE_RETURN:
                                     //System.out.println("TRAVERSE_RETURN");
                                     lastItem[0].setText(textTreeNode.getText());
-                                    changeName(lastItem[0], lastSelectNode[0], textTreeNode.getText());
+                                    changeName(lastItem[0], lastSelectNode[0],
+                                        textTreeNode.getText());
                                     //FALL THROUGH
                                 case SWT.TRAVERSE_ESCAPE:
                                     //System.out.println("TRAVERSE_ESCAPE");
@@ -3710,18 +4037,16 @@ public class AndroidRobot {
     }
 
     private static void loadProjects() {
-        String projectPath = "";
         try {
-            projectPath = new File(ProjectUtil.getCurrentProject()).getCanonicalPath();
+            String projectFilePath = new File(ProjectUtil.getCurrentProject()).getCanonicalPath();
+            File project = new File(projectFilePath);
+            if (projectFilePath != null && !projectFilePath.equals("") && project.exists()
+                && project.isFile())
+                openProject(projectFilePath);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            log.error(e);
         }
 
-        File project = new File(projectPath);
-        if (projectPath != null && !projectPath.equals("") &&
-                project.exists() && project.isFile())
-            openProject(projectPath);
     }
 
     /**
@@ -3735,11 +4060,13 @@ public class AndroidRobot {
 
             root.setData("path", prjName);
             if (prjName.endsWith(".androidrobot")) {
-                projectPath = new File(prjName.substring(0, prjName.lastIndexOf(".androidrobot"))).getCanonicalPath();
-
+                projectPath = new File(prjName.substring(0, prjName.lastIndexOf(".androidrobot")))
+                    .getCanonicalPath();
+                workspacePath = projectPath.substring(0,
+                    projectPath.lastIndexOf(File.separator + "workspace" + File.separator));
                 //set path for checkpoint system
-                PropertiesUtil.append(System.getProperty("user.dir") +
-                		File.separator + "system.properties", "ProjectPath", prjName, "");
+                PropertiesUtil.append(workspacePath + File.separator + "system.properties",
+                    "ProjectPath", prjName, "");
 
                 FileUtility.loadLogsByProject(root, display, projectPath);
                 FileUtility.loadPicturesByProject(root, display, projectPath);
@@ -3753,8 +4080,7 @@ public class AndroidRobot {
                 if (!xmlPath.exists())
                     return;
 
-                ArrayList<Task> tasksList =
-                        (ArrayList<Task>) TaskUtil.loadTask(taskFilePath);
+                ArrayList<Task> tasksList = (ArrayList<Task>) TaskUtil.loadTask(taskFilePath);
 
                 tasksTable.setToolTipText(taskFilePath);
 
@@ -3775,7 +4101,7 @@ public class AndroidRobot {
             }
 
         } catch (Exception ex) {
-            ex.printStackTrace();
+            log.error(ex);
         }
     }
 
@@ -3801,7 +4127,8 @@ public class AndroidRobot {
         CTabItem item = new CTabItem(tabFolder, SWT.NONE | SWT.MULTI | SWT.V_SCROLL);
         tabFolder.setSelection(item);
         item.setText("项目浏览");
-        item.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/workspace.png")));
+        item.setImage(new Image(display, ClassLoader
+            .getSystemResourceAsStream("icons/workspace.png")));
         composite = new Composite(tabFolder, SWT.NONE);
         composite.setLayout(new GridLayout());
         tree = new Tree(composite, SWT.BORDER);//SWT.CHECK |
@@ -3830,10 +4157,11 @@ public class AndroidRobot {
             public void handleEvent(Event event) {
                 Point point = new Point(event.x, event.y);
                 TreeItem item = tree.getItem(point);
-                if (item != null && lastItem[0] != null
-                        && (lastItem[0].getText().trim().toLowerCase().endsWith(".png")
-                        || lastItem[0].getText().trim().toLowerCase().endsWith(".py")
-                        || lastItem[0].getText().trim().toLowerCase().endsWith(".arlog"))) {
+                if (item != null
+                    && lastItem[0] != null
+                    && (lastItem[0].getText().trim().toLowerCase().endsWith(".png")
+                        || lastItem[0].getText().trim().toLowerCase().endsWith(".py") || lastItem[0]
+                        .getText().trim().toLowerCase().endsWith(".arlog"))) {
                     //System.out.println ("Mouse down: " + item);
                     String name = item.getText();
                     TreeItem root = RobotTreeUtil.getRoot(item);
@@ -3948,15 +4276,16 @@ public class AndroidRobot {
 
                     if (new File(path).exists() && path.trim().toLowerCase().endsWith(".png")) {
                         tipImage = new SetToolTipImage(path);
-                        tipImage.setLocation(
-                                MouseInfo.getPointerInfo().getLocation().x + 15,
-                                MouseInfo.getPointerInfo().getLocation().y + 20);
+                        tipImage.setLocation(MouseInfo.getPointerInfo().getLocation().x + 15,
+                            MouseInfo.getPointerInfo().getLocation().y + 20);
                         tipImage.open();
                     } else {
                         if (item.getData("device") != null) {
                             //System.out.println("index:"+item.getData("index"));
                             //System.out.println("sn:"+item.getData("sn"));
-                            tree.setToolTipText("序号:" + item.getData("index") + "\n分辨率:" + item.getData("pixel") + "\nSN:" + item.getData("sn"));
+                            tree.setToolTipText("序号:" + item.getData("index") + "\n分辨率:"
+                                                + item.getData("pixel") + "\nSN:"
+                                                + item.getData("sn"));
                             //System.out.println("pixel:"+mWidth+"*"+mHeight);
                         }
                     }
@@ -4007,7 +4336,7 @@ public class AndroidRobot {
         tableViewerCase.refresh(false);
 
         //remove
-        for (Iterator itrProgress = htProgress.keySet().iterator(); itrProgress.hasNext(); ) {
+        for (Iterator itrProgress = htProgress.keySet().iterator(); itrProgress.hasNext();) {
             String taskName = (String) itrProgress.next();
             ProgressBar progressBar = htProgress.get(taskName);
             progressBar.dispose();
@@ -4031,7 +4360,8 @@ public class AndroidRobot {
                 htRowItem.put(sn + "." + task.name + "." + task.vecTC.get(j).name, row);
 
                 tableViewerCase.refresh(false);
-                addProgressBar(tcPBIndex++, sn + "." + task.name + "." + task.vecTC.get(j).name, 100);
+                addProgressBar(tcPBIndex++, sn + "." + task.name + "." + task.vecTC.get(j).name,
+                    100);
             }
         }
     }
@@ -4097,13 +4427,12 @@ public class AndroidRobot {
         tiStatusBarTotal.setText(count);
     }
 
-
     public static void setBeginTime(String sn, String taskName, String scriptName, String time) {
         RowItem rowItem = null;
         for (int i = 0; i < listCase.size(); i++) {
             if (listCase.get(i).getTaskName().equals(taskName)
-                    && listCase.get(i).getCaseName().equals(scriptName)
-                    && listCase.get(i).getSn().equals(sn)) {
+                && listCase.get(i).getCaseName().equals(scriptName)
+                && listCase.get(i).getSn().equals(sn)) {
                 rowItem = listCase.get(i);
                 break;
             }
@@ -4160,10 +4489,11 @@ public class AndroidRobot {
                 for (int j = 0; j < devices.getItemCount(); j++) {
                     String sn = (String) devices.getItem(j).getData("sn");
                     String name = devices.getItem(j).getText();
-                    if (name.equals(brand) &&
-                            (sn != null && device.getSerialNumber().contains(sn))) {
+                    if (name.equals(brand) && (sn != null && device.getSerialNumber().contains(sn))) {
                         if (!composite.getParent().isDisposed()) {
-                            devices.getItem(j).setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/devices.png")));
+                            devices.getItem(j).setImage(
+                                new Image(display, ClassLoader
+                                    .getSystemResourceAsStream("icons/devices.png")));
                             devices.getItem(j).setData("device", device);
                         }
                     }
@@ -4180,9 +4510,10 @@ public class AndroidRobot {
                 for (int j = 0; j < devices.getItemCount(); j++) {
                     String sn = (String) devices.getItem(j).getData("sn");
                     String name = devices.getItem(j).getText();
-                    if (name.equals(brand) &&
-                            (sn != null && device.getSerialNumber().contains(sn))) {
-                        devices.getItem(j).setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/disconn.png")));
+                    if (name.equals(brand) && (sn != null && device.getSerialNumber().contains(sn))) {
+                        devices.getItem(j).setImage(
+                            new Image(display, ClassLoader
+                                .getSystemResourceAsStream("icons/disconn.png")));
                     }
                 }
             }
@@ -4196,15 +4527,16 @@ public class AndroidRobot {
                 TreeItem devices = RobotTreeUtil.getNodeByName(rootTI, "Devices");
                 for (int j = 0; j < devices.getItemCount(); j++) {
                     try {
-                        if (!composite.getParent().isDisposed() &&
-                                null != devices.getItem(j) &&
-                                null != devices.getItem(j).getData("device")) {
-                            devices.getItem(j).setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/disconn.png")));
+                        if (!composite.getParent().isDisposed() && null != devices.getItem(j)
+                            && null != devices.getItem(j).getData("device")) {
+                            devices.getItem(j).setImage(
+                                new Image(display, ClassLoader
+                                    .getSystemResourceAsStream("icons/disconn.png")));
                             devices.getItem(j).setData("device", null);
                         }
-//        				}else{
-//        					System.out.println("Node is removed2.");
-//        				}
+                        //        				}else{
+                        //        					System.out.println("Node is removed2.");
+                        //        				}
                     } catch (Exception ex) {
                         System.out.println("Node is removed1.");
                     }
@@ -4267,7 +4599,8 @@ public class AndroidRobot {
         tiStatusBarConnect.setText("No Handset");
     }
 
-    public static void setPassOrFailCount(String sn, String taskName, String scriptName, boolean result) {
+    public static void setPassOrFailCount(String sn, String taskName, String scriptName,
+                                          boolean result) {
 
         String strPass = tiStatusBarPass.getText();
         int pCount = Integer.parseInt(strPass.substring(5, strPass.length()));
@@ -4280,8 +4613,8 @@ public class AndroidRobot {
 
         for (int i = 0; i < listCase.size(); i++) {
             if (listCase.get(i).getTaskName().equals(taskName)
-                    && listCase.get(i).getCaseName().equals(scriptName)
-                    && listCase.get(i).getSn().equals(sn)) {
+                && listCase.get(i).getCaseName().equals(scriptName)
+                && listCase.get(i).getSn().equals(sn)) {
                 rowItem = listCase.get(i);
                 break;
             }
@@ -4294,10 +4627,9 @@ public class AndroidRobot {
         int pRowCount = 0;
         int fRowCount = 0;
         if (pfCount != null && !pfCount.trim().equals("")) {
-            pRowCount =
-                    Integer.parseInt(pfCount.substring(0, pfCount.indexOf("/")));
-            fRowCount =
-                    Integer.parseInt(pfCount.substring(pfCount.indexOf("/") + 1, pfCount.length()));
+            pRowCount = Integer.parseInt(pfCount.substring(0, pfCount.indexOf("/")));
+            fRowCount = Integer.parseInt(pfCount.substring(pfCount.indexOf("/") + 1,
+                pfCount.length()));
         } else {
             pRowCount = fRowCount = 0;
         }
@@ -4325,9 +4657,9 @@ public class AndroidRobot {
     }
 
     private static void promot(StyledText stText) {
-        new MtesterAutoCompleteField(stText, new StyledTextContentAdapter(), PromptString.str, PromptString.str2, shell);
+        new MtesterAutoCompleteField(stText, new StyledTextContentAdapter(), PromptString.str,
+            PromptString.str2, shell);
     }
-
 
     private static void createHandsetRightClickRecord() {
         handsetMenu = new Menu(shell, SWT.POP_UP);
@@ -4349,20 +4681,21 @@ public class AndroidRobot {
                             if (root != null) {
                                 try {
                                     TreeItem ti = RobotTreeUtil.getNodeByName(root, "Devices");
-                                    String name =
-                                            listHandsets.getItems()[listHandsets.getSelectionIndex()];
-                                    IDevice tempDevice = findDevices.getDevices()[listHandsets.getSelectionIndex()];
+                                    String name = listHandsets.getItems()[listHandsets
+                                        .getSelectionIndex()];
+                                    IDevice tempDevice = findDevices.getDevices()[listHandsets
+                                        .getSelectionIndex()];
                                     String sn = tempDevice.getSerialNumber();
                                     if (RobotTreeUtil.isChildContained(ti, sn) == false) {
                                         String projectFile = (String) root.getData("path");
-
 
                                         Hashtable<String, String> attri = new Hashtable();
                                         attri.put("pixel", mWidth + "*" + mHeight);
                                         attri.put("sn", sn);
                                         ProjectUtil.addHandset(projectFile, name, attri);
                                         //RobotTreeUtil.addHandsetTreeItem(display,ti,name,tempDevice,attri);
-                                        RobotTreeUtil.addHandsetTreeItem(display, ti, name, tempDevice, attri);
+                                        RobotTreeUtil.addHandsetTreeItem(display, ti, name,
+                                            tempDevice, attri);
                                     }
                                 } catch (Exception e) {
                                     // TODO Auto-generated catch block
@@ -4381,17 +4714,17 @@ public class AndroidRobot {
 
     private static void createRightClickRecord() {
         recordMenu = new Menu(shell, SWT.POP_UP);
-		/*
-		itemSetCheckPoint = new MenuItem(recordMenu, SWT.PUSH);
-		itemSetCheckPoint.setText("设置比对信息");
-		itemSetCheckPoint.addListener(SWT.Selection, new Listener() {
-		      public void handleEvent(Event event) {
-			        if(event.detail == 0) {
-			        	setCaptureMode();
-			        }
-			      }
-			});
-*/
+        /*
+        itemSetCheckPoint = new MenuItem(recordMenu, SWT.PUSH);
+        itemSetCheckPoint.setText("设置比对信息");
+        itemSetCheckPoint.addListener(SWT.Selection, new Listener() {
+              public void handleEvent(Event event) {
+        	        if(event.detail == 0) {
+        	        	setCaptureMode();
+        	        }
+        	      }
+        	});
+        */
         itemSaveCP = new MenuItem(recordMenu, SWT.PUSH);
         itemSaveCP.setText("保存图片");
         itemSaveCP.addListener(SWT.Selection, new Listener() {
@@ -4405,17 +4738,17 @@ public class AndroidRobot {
 
     private static void createRightClickRecord_2() {
         recordMenu_2 = new Menu(shell, SWT.POP_UP);
-		/*
-		itemSetCheckPoint_2 = new MenuItem(recordMenu_2, SWT.PUSH);
-		itemSetCheckPoint_2.setText("继续录制");
-		itemSetCheckPoint_2.addListener(SWT.Selection, new Listener() {
-		      public void handleEvent(Event event) {
-			        if(event.detail == 0) {
-			        	setCaptureMode();
-			        }
-			      }
-			});
-*/
+        /*
+        itemSetCheckPoint_2 = new MenuItem(recordMenu_2, SWT.PUSH);
+        itemSetCheckPoint_2.setText("继续录制");
+        itemSetCheckPoint_2.addListener(SWT.Selection, new Listener() {
+              public void handleEvent(Event event) {
+        	        if(event.detail == 0) {
+        	        	setCaptureMode();
+        	        }
+        	      }
+        	});
+        */
         itemSaveCP_2 = new MenuItem(recordMenu_2, SWT.PUSH);
         itemSaveCP_2.setText("保存图片");
         itemSaveCP_2.addListener(SWT.Selection, new Listener() {
@@ -4460,7 +4793,6 @@ public class AndroidRobot {
             }
         });
 
-
     }
 
     private static void createChildRightClickMenu() {
@@ -4470,7 +4802,6 @@ public class AndroidRobot {
 
         Menu menu_2 = new Menu(mntmnew);
         mntmnew.setMenu(menu_2);
-
 
         MenuItem mntmfold = new MenuItem(menu_2, SWT.NONE);
         mntmfold.setText("目录");
@@ -4488,7 +4819,6 @@ public class AndroidRobot {
 
         MenuItem itemRefresh = new MenuItem(treeMenu, SWT.PUSH);
         itemRefresh.setText("刷新");
-
 
         mntmfold.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
@@ -4525,16 +4855,16 @@ public class AndroidRobot {
             }
         });
 
-		/*MenuItem itemRename = new MenuItem(treeMenu, SWT.PUSH);
-		itemRename.setText("重命名");
+        /*MenuItem itemRename = new MenuItem(treeMenu, SWT.PUSH);
+        itemRename.setText("重命名");
 
-		itemRename.addListener(SWT.Selection, new Listener() {
-		      public void handleEvent(Event event) {
-			        if(event.detail == 0) {
-			        	changeName();
-			        }
-			      }
-		});*/
+        itemRename.addListener(SWT.Selection, new Listener() {
+              public void handleEvent(Event event) {
+        	        if(event.detail == 0) {
+        	        	changeName();
+        	        }
+        	      }
+        });*/
 
         MenuItem itemRun = new MenuItem(treeMenu, SWT.PUSH);
         itemRun.setText("运行");
@@ -4575,7 +4905,6 @@ public class AndroidRobot {
         Menu menu_2 = new Menu(mntmnew);
         mntmnew.setMenu(menu_2);
 
-
         MenuItem mntmfold = new MenuItem(menu_2, SWT.NONE);
         mntmfold.setText("目录");
 
@@ -4595,7 +4924,6 @@ public class AndroidRobot {
 
         MenuItem itemRefresh = new MenuItem(treeMenu, SWT.PUSH);
         itemRefresh.setText("刷新");
-
 
         mntmfold.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
@@ -4693,10 +5021,8 @@ public class AndroidRobot {
     private static void createImportRightClickMenu() {
         treeMenu = new Menu(shell, SWT.POP_UP);
 
-
         MenuItem itemRun = new MenuItem(treeMenu, SWT.PUSH);
         itemRun.setText("导入工程");
-
 
         itemRun.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event event) {
@@ -4750,12 +5076,14 @@ public class AndroidRobot {
             CTabItem item = tabContent.getItem(i);
             String name = item.getText();
             if (name.contains("*")) {
-                int iChoice = showNotification("是否保存?", SWT.ICON_QUESTION | SWT.YES | SWT.NO | SWT.CANCEL);
+                int iChoice = showNotification("是否保存?", SWT.ICON_QUESTION | SWT.YES | SWT.NO
+                                                        | SWT.CANCEL);
                 if (iChoice == SWT.YES) {
                     StyledText text = (StyledText) item.getControl();
                     name = name.substring(1, name.length());
                     try {
-                        FileUtility.saveAllScripts((String) item.getData(name), item.getText(), text.getText());
+                        FileUtility.saveAllScripts((String) item.getData(name), item.getText(),
+                            text.getText());
                     } catch (FileNotFoundException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -4830,8 +5158,8 @@ public class AndroidRobot {
         if (lastItem[0] != null) {
             TreeItem root = RobotTreeUtil.getRoot(lastItem[0]);
             String projectFile = (String) root.getData("path");
-            String absolutPath = 
-            		projectFile.substring(0, projectFile.lastIndexOf(System.getProperty("file.separator")) + 1);
+            String absolutPath = projectFile.substring(0,
+                projectFile.lastIndexOf(System.getProperty("file.separator")) + 1);
             String relativePath = RobotTreeUtil.getPathFromTree(lastItem[0]);
             dispose(lastItem[0]);
             FileUtility.refresh(lastItem[0], display, absolutPath + relativePath);
@@ -4849,15 +5177,16 @@ public class AndroidRobot {
         vectorLog.clear();
         listViewerLog.refresh(false);
 
-        Vector<IDevice> vecDevices =
-                RobotTreeUtil.getDevicesByProject(tree.getItem(0));
+        Vector<IDevice> vecDevices = RobotTreeUtil.getDevicesByProject(tree.getItem(0));
 
         int count = 0;
         run(vecDevices);
 
         //disable all button
         if (count > 0)
-            setButton(false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+            setButton(false, false, false, false, false, false, false, true, false, false, false,
+                false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false);
     }
 
     public static synchronized ArrayList<IDevice> getDevices(ArrayList<String> devicesList) {
@@ -4876,7 +5205,6 @@ public class AndroidRobot {
         return tempList;
     }
 
-
     private static void run() {
         //init system
         tcPBIndex = 0;
@@ -4885,14 +5213,27 @@ public class AndroidRobot {
         vectorLog.clear();
         runners.clear();
         listViewerLog.refresh(false);
-        setButton(false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+        setButton(false, false, false, false, false, false, false, true, false, false, false,
+            false, false, false, false, false, false, false, false, false, false, false, false,
+            false, false, false, false, false);
 
-        Vector<IDevice> vecDevices =
-                RobotTreeUtil.getDevicesByProject(tree.getItem(0));
-
+        Vector<IDevice> vecDevices = RobotTreeUtil.getDevicesByProject(tree.getItem(0));
+        if (vecDevices == null || vecDevices.size() <= 0) {
+            UIUtiles.alertMsg(shell, "请先检查设备是否上线，并添加设备.");
+            stop(false);
+            return;
+        }
         int count = 0;
-//		RobotDeviceQueue queue = new RobotDeviceQueue();
+        //		RobotDeviceQueue queue = new RobotDeviceQueue();
 
+        //disable record
+
+        try {
+            if (isRecording == true && client != null && client.getSDKVersion() != 0)
+                client.disconnect();
+        } catch (Exception ex) {
+            log.error(ex);
+        }
 
         for (int i = 0; i < vecDevices.size(); i++) {
             count++;
@@ -4900,10 +5241,16 @@ public class AndroidRobot {
             Vector<IDevice> devices = new Vector<IDevice>();
             devices.add(vecDevices.get(i));
             run(devices);
+
         }
     }
 
     public static boolean run(Vector<IDevice> vecDevices) {
+        if (vecDevices == null || vecDevices.size() <= 0) {
+            UIUtiles.alertMsg(shell, "请先检查设备是否上线，并添加设备.");
+            stop(false);
+            return false;
+        }
         //get devices from tree
         if (tree.getItemCount() > 0 && tree.getItem(0) != null) {
             Vector<AndroidDriver> drivers = new Vector();
@@ -4911,6 +5258,7 @@ public class AndroidRobot {
             ArrayList<String> listTasks = new ArrayList();
             //get task from task.dat
             int itemCount = tasksTable.getItemCount();
+            log.info("Task Count:" + itemCount);
             for (int i = 0; i < itemCount; i++) {
                 TableItem ti = tasksTable.getItem(i);
                 boolean isChecked = ti.getChecked();
@@ -4920,42 +5268,72 @@ public class AndroidRobot {
             }
 
             Vector<Task> tasks = TaskUtil.getCheckedTasks(taskFilePath, listTasks);
-            if (tasks.size() <= 0)
+            log.info("Task Checked Count:" + tasks.size());
+            if (tasks.size() <= 0) {
+                UIUtiles.alertMsg(shell, "请到任务管理先选择任务!");
+                stop(false);
                 return false;
+            }
 
             try {
                 //connect to device
+                log.info("Device Count:" + vecDevices.size());
                 if (vecDevices.size() <= 0)
                     return false;
-                String apk = PropertiesUtil.getValue(System.getProperty("user.dir") +
-                		"/system.properties", "aut");
-                String str_sele = PropertiesUtil.getValue(System.getProperty("user.dir") +
-                		"/system.properties", "isSelendroid");
+                String apk = PropertiesUtil.getValue(workspacePath + "/system.properties", "aut");
+                String str_sele = PropertiesUtil.getValue(workspacePath + "/system.properties",
+                    "isSelendroid");
+                String str_chrome = PropertiesUtil.getValue(workspacePath + "/system.properties",
+                    "isChromedriver");
+                String isForceInstall = PropertiesUtil.getValue(workspacePath
+                                                                + "/system.properties",
+                    "isForceInstall");
 
-                if (!str_sele.trim().equals("") && (str_sele.trim().toLowerCase().equals("false") || str_sele.trim().toLowerCase().equals("true")))
+                log.info("dut=" + apk + " isSelendroid=" + str_sele + " isChromedriver="
+                         + str_chrome + " isForceInstall=" + isForceInstall);
+                if (!str_sele.trim().equals("")
+                    && (str_sele.trim().toLowerCase().equals("false") || str_sele.trim()
+                        .toLowerCase().equals("true")))
                     isSelendroid = Boolean.parseBoolean(str_sele);
 
-                for (int i = 0; i < vecDevices.size(); i++) {
-                    AndroidDriver driver = new AndroidDriver(apk, vecDevices.get(i).getSerialNumber(), isSelendroid, projectPath);
-                    if (driver.connect()) {
-                        int sdk_version = driver.getSDKVersion();
-                        //小于Android 4.4 uiautomator+selendroid
-                        if (sdk_version < 19 && isSelendroid && !apk.trim().equals("")) {
-                            ApkInfo apkInfo = new ApkUtil().getApkInfo(apk);
-                            AdbUtil.send("adb -s " + vecDevices.get(i).getSerialNumber() + " uninstall " + apkInfo.getPackageName(), 60000);
-                            AdbUtil.send("adb -s " + vecDevices.get(i).getSerialNumber() + " uninstall io.selendroid." + apkInfo.getPackageName(), 60000);
+                if (!str_chrome.trim().equals("")
+                    && (str_chrome.trim().toLowerCase().equals("false") || str_chrome.trim()
+                        .toLowerCase().equals("true")))
+                    isChromedriver = Boolean.parseBoolean(str_chrome);
 
-                            AndroidDriver.launchSelendroidStandalone(apk, 4444);
+                for (int i = 0; i < vecDevices.size(); i++) {
+                    AndroidDriver driver = new AndroidDriver(apk, vecDevices.get(i)
+                        .getSerialNumber(), isSelendroid, projectPath);
+                    if (driver.connect()) {
+                        log.info("connect " + vecDevices.get(i).getSerialNumber() + " success");
+                        int sdk_version = driver.getSDKVersion();
+                        if (sdk_version < 19) {
+                            //小于Android 4.4 uiautomator+selendroid
+                            if (apk != null && !apk.trim().equals("")
+                                && isForceInstall.trim().toLowerCase().equals("true")
+                                && isSelendroid == true) {
+                                ApkInfo apkInfo = new ApkUtil().getApkInfo(apk);
+                                AdbUtil.send("adb -s " + vecDevices.get(i).getSerialNumber()
+                                             + " uninstall " + apkInfo.getPackageName(), 60000);
+
+                                AdbUtil.send(
+                                    "adb -s " + vecDevices.get(i).getSerialNumber()
+                                            + " uninstall io.selendroid."
+                                            + apkInfo.getPackageName(), 60000);
+                                AndroidDriver.launchSelendroidStandalone(apk, 4444);
+                            }
+
+                        } else {
+                            if (isChromedriver == true)
+                                AndroidDriver.launchChromeServer();
+                        }
+
+                        if (isForceInstall.trim().toLowerCase().equals("true") && apk != null
+                            && apk.trim().equals("")) {
                             if (driver.setup(vecDevices.get(i).getSerialNumber(), isSelendroid))
                                 drivers.add(driver);
-                        } else {
-                            //>=4.4用uiautomator+chromedriver
-                            if (driver.setup(vecDevices.get(i).getSerialNumber(), false)) {
-                                if (sdk_version >= 19)
-                                    AndroidDriver.launchChromeServer();
-                                drivers.add(driver);
-                            }
-                        }
+                        } else
+                            drivers.add(driver);
                     }
                 }
 
@@ -4966,7 +5344,7 @@ public class AndroidRobot {
                 }
 
             } catch (Exception ex) {
-            	ex.printStackTrace();
+                log.error(ex);
                 stop(false);
                 String exception = ex.getMessage();
                 showNotification(exception, SWT.ICON_WARNING | SWT.YES);
@@ -4980,8 +5358,8 @@ public class AndroidRobot {
             log.createFile(projectPath);
 
             //Run
-            RobotScriptRunner scriptRunner =
-                    new RobotScriptRunner(tasks, drivers, log, isSelendroid);
+            RobotScriptRunner scriptRunner = new RobotScriptRunner(tasks, drivers, log,
+                isSelendroid);
 
             scriptRunner.start();
             runners.add(scriptRunner);
@@ -5001,22 +5379,102 @@ public class AndroidRobot {
         File newFile;
 
         if (!src.equals(dest)) {
-
+            System.out.println("src=" + src + " " + workspacePath + " " + dest);
             if (ti.getParentItem() == null) {
-                old = new File(System.getProperty("user.dir") + "/workspace/" + src);
-                newFile = new File(System.getProperty("user.dir") + "/workspace/" + dest);
+                old = new File(workspacePath + "/workspace/" + src);
+                newFile = new File(workspacePath + "/workspace/" + dest);
             } else {
                 String path = RobotTreeUtil.getPathFromTree(ti.getParentItem());
                 ti.setText(dest);
 
-                old = new File(System.getProperty("user.dir") + "/workspace/" + path + "/" + src);
-                newFile = new File(System.getProperty("user.dir") + "/workspace/" + path + "/" + dest);
+                old = new File(workspacePath + "/workspace/" + path + "/" + src);
+                newFile = new File(workspacePath + "/workspace/" + path + "/" + dest);
             }
 
             old.renameTo(newFile);
         }
     }
 
+    public static boolean register() {
+        File file = new File("hello.dat");
+
+        try {
+            if (!file.exists()) {
+                String cpuSerial = HardwareUtil.getCPUSerial();
+                String url = "http://test.hongganju.com:8096/netmonitor/resource/registerDate?cpu="
+                             + cpuSerial;
+                System.out.println("url=" + url);
+                String str = HttpClientUtil.get(url, null);
+
+                FileOutputStream out = null;
+                try {
+                    System.out.println(str);
+                    JSONObject dataJson = new JSONObject(str);
+                    if (dataJson.getString("success") != null
+                        && dataJson.getString("success").equals("true")) {
+                        String today = dataJson.getString("today");
+                        String date = dataJson.getString("date");
+                        System.out.println("today=" + today + " date=" + date);
+                        SimpleDateFormat sdfToday = new SimpleDateFormat("yyyyMMdd");
+                        Date dateToday = sdfToday.parse(today);
+
+                        SimpleDateFormat sdfDate = new SimpleDateFormat("yyyyMMdd");
+                        Date dateDate = sdfDate.parse(date);
+                        System.out.println(dateToday.getTime() - dateDate.getTime());
+                        if ((dateDate.getTime() - dateToday.getTime()) > 0) {
+                            file.createNewFile();
+                            out = new FileOutputStream(file);
+                            out.write((today + date + cpuSerial).getBytes());
+                            return true;
+                        } else {
+                            showNotification("请根据CPU序列号:" + cpuSerial + "注册", SWT.ICON_ERROR
+                                                                              | SWT.OK);
+                            return false;
+                        }
+                    } else {
+                        showNotification("请根据CPU序列号:" + cpuSerial + "注册", SWT.ICON_ERROR | SWT.OK);
+                        return false;
+                    }
+
+                    //
+                } catch (Exception e) {
+                    showNotification("请根据CPU序列号:" + cpuSerial + "注册", SWT.ICON_ERROR | SWT.OK);
+                    return false;
+                } finally {
+                    if (null != out)
+                        out.close();
+                }
+            } else {
+                FileInputStream in = new FileInputStream(file);
+                byte[] today = new byte[8];
+                in.read(today, 0, today.length);
+
+                byte[] date = new byte[8];
+                in.read(date, 0, date.length);
+
+                byte[] cpuInfo = new byte[20];
+                in.read(cpuInfo, 0, cpuInfo.length);
+                System.out.println(new String(today) + " " + new String(date) + " "
+                                   + new String(cpuInfo));
+
+                SimpleDateFormat sdfToday = new SimpleDateFormat("yyyyMMdd");
+                Date dateToday = sdfToday.parse(new String(today));
+
+                SimpleDateFormat sdfDate = new SimpleDateFormat("yyyyMMdd");
+                Date dateDate = sdfDate.parse(new String(date));
+                if ((dateDate.getTime() - dateToday.getTime()) > 0) {
+
+                } else {
+                    return false;
+                }
+                //    			String string=" attrib +H "+file.getAbsolutePath(); //设置文件属性为隐藏
+                //        		Runtime.getRuntime().exec(string);
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
 
     /**
      * AndroidRobot Main Function
@@ -5026,15 +5484,27 @@ public class AndroidRobot {
      */
     public static void main(String[] args) {
         //Loading Splash windows from start
-//        SplashWindow sp = new SplashWindow(System.getProperty("user.dir") +
-//        		File.separator + "splash.jpg");
-//        sp.start();
+        //        SplashWindow sp = new SplashWindow(System.getProperty("user.dir") +
+        //        		File.separator + "splash.jpg");
+        //        sp.start();
+        //设置log4j环境
+        PropertyConfigurator.configure(System.getProperty("user.dir") + File.separator
+                                       + "log4j.properties");
+        //设置adb环境
+        Env.setEnv();
+        if (Env.isValidJava() != true) {
+            Logger.getLogger(AndroidRobot.class).error(
+                "当前Java版本为" + Env.getJavaVersion() + " " + Env.getJavaArch());
+            Logger.getLogger(AndroidRobot.class).error("建议使用JDK 1.7 64位以上版本");
+            return;
+        }
 
         display = new Display();
         shell = new Shell(display);
-        shell.setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/title.png")));
+        shell
+            .setImage(new Image(display, ClassLoader.getSystemResourceAsStream("icons/title.png")));
 
-        String title = "AndroidRobot -- Spider 3.0";
+        String title = "AndroidRobot -- Spider 3.1";
         shell.setText(title);
 
         /**
@@ -5057,7 +5527,9 @@ public class AndroidRobot {
                         break;
                     case SWT.F6:
                         if (listHandsets.getSelectionIndex() >= 0) {
-                            int choice = showNotification("您确定要停止运行当前的设备?", SWT.ICON_QUESTION | SWT.YES | SWT.NO | SWT.CANCEL);
+                            int choice = showNotification("您确定要停止运行当前的设备?", SWT.ICON_QUESTION
+                                                                            | SWT.YES | SWT.NO
+                                                                            | SWT.CANCEL);
                             if (choice == SWT.YES)
                                 stop(false);
                         }
@@ -5073,7 +5545,8 @@ public class AndroidRobot {
                         break;
                     case SWT.F10:
                         if (isRecording == true) {
-                            int choice = showNotification("您确定要停止录制?", SWT.ICON_QUESTION | SWT.YES | SWT.NO | SWT.CANCEL);
+                            int choice = showNotification("您确定要停止录制?", SWT.ICON_QUESTION | SWT.YES
+                                                                       | SWT.NO | SWT.CANCEL);
                             if (choice == SWT.YES)
                                 stopRecord();
                         }
@@ -5100,7 +5573,7 @@ public class AndroidRobot {
         createStatusBar();
 
         findDevices.start();
-//		watchRun3Script.start();
+        //		watchRun3Script.start();
         shell.setMaximized(true);
         shell.setLayout(new FormLayout());
         shell.addListener(SWT.Close, new Listener() {
@@ -5125,11 +5598,13 @@ public class AndroidRobot {
 
         //load current project
         loadProjects();
-        PropertyConfigurator.configure(System.getProperty("user.dir") +
-                "/log4j.properties");
+
         shell.open();
         shell.layout();
-//        sp.closeSplashWindow();
+
+        //    	if(register() == false)
+        //    		System.exit(0);
+        //        sp.closeSplashWindow();
         while (shell != null && !shell.isDisposed()) {
             if (display != null && !display.readAndDispatch()) {
                 display.sleep();

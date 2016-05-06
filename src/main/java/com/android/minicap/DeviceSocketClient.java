@@ -17,6 +17,7 @@ import java.net.Socket;
 
 import javax.imageio.ImageIO;
 
+import org.apache.log4j.Logger;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.ImageLoader;
 import org.eclipse.swt.graphics.RGB;
@@ -112,7 +113,7 @@ public class DeviceSocketClient {
 			private Image createImage(byte[] imageBytes) {
 				Image image = null;
 				try {
-					save(imageBytes);
+					//save(imageBytes);
 					ByteArrayInputStream bais = new ByteArrayInputStream(imageBytes);
 					image = new Image(display, bais);
 				} catch (Exception e) {
@@ -161,16 +162,12 @@ public class DeviceSocketClient {
 						input.readFully(frame_size);
 						byte[] data = new byte[this.LittleEndian2BigEndian(frame_size)];
 						input.readFully(data);
-						long start = System.currentTimeMillis();
-//						Image image = new Image(display, getImage(data, 310, 480));
-						//System.out.println("duration:" + (System.currentTimeMillis() - start));
 						Image image = createImage(data);
-//						System.out.println(image.getBounds().width + " " + image.getBounds().height);
-						gc.drawImage(image, 0, 0);
-//						System.out.println("duration:" + (System.currentTimeMillis() - start));
+						gc.drawImage(image, 0, 0, image.getImageData().width, image.getImageData().height, 0, 0, 310, 480);
+						image.dispose();
 					}
 				}catch(Exception ex) {
-					ex.printStackTrace();
+					Logger.getLogger(DeviceSocketClient.class).error(ex);
 				}
 			}
 	    	
@@ -237,7 +234,6 @@ public class DeviceSocketClient {
 		public void disconnect(){
 	    	try {
 	    		if(socket != null){
-	    			System.out.println("Client dissconnect...");
 	    			socket.close();
 	    		}
 			} catch (IOException e) {

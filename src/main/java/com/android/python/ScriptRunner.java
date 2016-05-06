@@ -33,18 +33,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Vector;
 
+import org.apache.log4j.Logger;
 import org.eclipse.swt.widgets.Display;
 /*     */ import org.python.core.Py;
 /*     */ import org.python.core.PyException;
 /*     */ import org.python.core.PyObject;
 import org.python.util.PythonInterpreter;
-/*     */ 
+		  
 /*     */ public class ScriptRunner
 /*     */ {
 /*  49 */   //private static final Logger LOG = Logger.getLogger(MonkeyRunnerOptions.class.getName());
 /*     */   //private final Object scope;
 /*     */   //private final String variable;
-			
+			private Logger log = Logger.getLogger(ScriptRunner.class);
 			public ScriptRunner(){
 				
 			}
@@ -96,14 +97,14 @@ import org.python.util.PythonInterpreter;
 /*     */     {
 /* 116 */        python.execfile(scriptfilename);
 /*     */     } catch (PyException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
+
+	  			log.error(e);
 /* 118 */       if (Py.SystemExit.equals(e.type))
 /*     */       {
-					System.out.println("======1=======");
 /* 120 */         return ((Integer)e.value.__tojava__(Integer.class)).intValue();
 /*     */       }
 				
-				System.out.println("======2=======" + e.value);
 				//if throw exception, the tc = false
 //				for(int k=0;k<((Vector<RobotDevice>)vecRobotDevices).size();k++){
 //					((Vector<RobotDevice>)vecRobotDevices).get(k).setResult(false);

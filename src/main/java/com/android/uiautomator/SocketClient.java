@@ -21,8 +21,7 @@ public class SocketClient {
             socket = new Socket(host, port);
             sc = new Service(socket);
         } catch (Exception ex) {
-        	ex.printStackTrace();
-        	throw new Exception("[send] Connect error");
+        	throw ex;
         }
     	return true;
     }

@@ -9,6 +9,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.android.python.AndroidDriver;
 import com.android.util.AdbUtil;
 import com.android.util.JsonUtil;
 import com.android.util.XmlUtil;
@@ -16,7 +17,7 @@ import com.android.util.XmlUtil;
 public class UiAutomatorClient {
 	private String sn = "";
 	private SocketClient socket = null;
-	
+	private static Logger logger = Logger.getLogger(UiAutomatorClient.class);
 	public UiAutomatorClient(String sn){
 		this.sn = sn;
 	}
@@ -34,8 +35,8 @@ public class UiAutomatorClient {
 				return true;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("socket connect error:", e);
+			return false;
 		}
 		
 		return false;
@@ -257,6 +258,28 @@ public class UiAutomatorClient {
 		String result = 
 				this.socket.sendMessageAndGetRespond(Request.getRequest("scrollToEnd", map));
 
+		SendData sendData = JsonUtil.fromJson(result, SendData.class);
+		return Boolean.parseBoolean(sendData.getCommand());
+	}
+	
+	public boolean scrollForward(int steps) {
+		HashMap<String,Object> map = new HashMap();
+		map.put("steps", steps);
+
+		String result = 
+				this.socket.sendMessageAndGetRespond(Request.getRequest("scrollForward", map));
+		
+		SendData sendData = JsonUtil.fromJson(result, SendData.class);
+		return Boolean.parseBoolean(sendData.getCommand());
+	}
+	
+	public boolean scrollBackward(int steps) {
+		HashMap<String,Object> map = new HashMap();
+		map.put("steps", steps);
+
+		String result = 
+				this.socket.sendMessageAndGetRespond(Request.getRequest("scrollBackward", map));
+		
 		SendData sendData = JsonUtil.fromJson(result, SendData.class);
 		return Boolean.parseBoolean(sendData.getCommand());
 	}

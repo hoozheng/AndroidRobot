@@ -61,9 +61,29 @@ public class TaskUtil {
 		
 	}
 	
-	public static void updateTask(Task task) throws Exception {
-		String xmlTasks = System.getProperty("user.dir") + 
-				"/workspace/" + task.solution + "/tasks_database.xml";
+	public static void removeTask(String xmlTasks, String name) throws Exception {
+		XmlUtil xml = new XmlUtil(xmlTasks);
+		Document doc = xml.parse(xmlTasks);
+		Element root = doc.getDocumentElement();
+		NodeList childs = root.getChildNodes();
+		if(childs != null){
+        	for(int i=0; i<childs.getLength(); i++){
+        		Node project = childs.item(i);
+        		if(project.getNodeType() == Node.ELEMENT_NODE){
+        			NamedNodeMap map = project.getAttributes();
+        			String taskName = map.getNamedItem("name").getNodeValue();
+        			if(taskName.equals(name)) {
+        				root.removeChild(project);
+        				break;
+        			}
+        		}
+        	}
+        	
+            xml.flush(doc);
+		}
+	}
+	
+	public static void updateTask(String xmlTasks, Task task) throws Exception {
 		XmlUtil xml = new XmlUtil(xmlTasks);
 		Document doc = xml.parse(xmlTasks);
 		Element root = doc.getDocumentElement();
@@ -123,7 +143,7 @@ public class TaskUtil {
 	
 	private static Task loadCheckedTask(String path,String strTask) throws Exception{
 		Task task = new Task();
-		List<Task> tasksList = loadTask(path);
+		List<Task> tasksList = loadTaskForRun(path);
 		for(int i=0;i<tasksList.size();i++){
 			Task tempTask = tasksList.get(i);
 			if(tempTask.name.equals(strTask)){
@@ -144,13 +164,14 @@ public class TaskUtil {
 		}
 		return task;
 	}
-
+	
 	public static ArrayList<Task> loadTask(String xmlFile) throws Exception {
 		ArrayList<Task> tasksList = new ArrayList<Task>();
 		XmlUtil xml = new XmlUtil(xmlFile);
 		Document doc = xml.parse(xmlFile);
 		Element root = doc.getDocumentElement();
 		NodeList childs = root.getChildNodes();
+		String projectPath = new File(xmlFile).getParent();
 		if(childs != null){
         	for(int i=0; i<childs.getLength(); i++){
         		Node project = childs.item(i);
@@ -172,6 +193,59 @@ public class TaskUtil {
         					TestCase tc = new TestCase();
         					tc.name = caseNodeMap.getNamedItem("name").getNodeValue();
         					tc.path = caseNodeMap.getNamedItem("path").getNodeValue();
+        					tc.unit = caseNodeMap.getNamedItem("unit").getNodeValue();
+        					tc.loop = 0;
+        					try {
+        						tc.loop = Integer.parseInt(caseNodeMap.getNamedItem("loop").getNodeValue());
+        					}catch(Exception ex) {
+        						tc.loop = 0;
+        					}
+        					tc.individual = 1;
+        					tc.isChecked = false;
+        					try {
+        						tc.isChecked = Boolean.parseBoolean(caseNodeMap.getNamedItem("isChecked").getNodeValue());
+        					}catch(Exception ex) {
+        						tc.isChecked = false;
+        					}
+        					task.vecTC.add(tc);
+        				}
+        			}
+        			tasksList.add(task);
+        		}
+        	}
+		}
+		
+		return tasksList;
+	}
+
+	public static ArrayList<Task> loadTaskForRun(String xmlFile) throws Exception {
+		ArrayList<Task> tasksList = new ArrayList<Task>();
+		XmlUtil xml = new XmlUtil(xmlFile);
+		Document doc = xml.parse(xmlFile);
+		Element root = doc.getDocumentElement();
+		NodeList childs = root.getChildNodes();
+		String projectPath = new File(xmlFile).getParent();
+		if(childs != null){
+        	for(int i=0; i<childs.getLength(); i++){
+        		Node project = childs.item(i);
+        		if(project.getNodeType() == Node.ELEMENT_NODE){
+        			NamedNodeMap map = project.getAttributes();
+        			Task task = new Task();
+        			task.name = map.getNamedItem("name").getNodeValue();
+        			task.project = map.getNamedItem("project").getNodeValue();
+        			task.solution = map.getNamedItem("solution").getNodeValue();
+        			task.loop = Integer.parseInt(map.getNamedItem("loop").getNodeValue());
+        			task.item = map.getNamedItem("item").getNodeValue();
+        			task.vecTC = new Vector<TestCase> ();
+        			
+        			NodeList caseNodes = project.getChildNodes();
+        			for(int j=0;j<caseNodes.getLength();j++) {
+        				Node caseNode = caseNodes.item(j);
+        				if(caseNode.getNodeType() == Node.ELEMENT_NODE) {
+        					NamedNodeMap caseNodeMap = caseNode.getAttributes();
+        					TestCase tc = new TestCase();
+        					tc.name = caseNodeMap.getNamedItem("name").getNodeValue();
+        					tc.path = projectPath + caseNodeMap.getNamedItem("path").getNodeValue();
         					tc.unit = caseNodeMap.getNamedItem("unit").getNodeValue();
         					tc.loop = 0;
         					try {

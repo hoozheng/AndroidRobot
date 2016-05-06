@@ -13,6 +13,7 @@ import com.android.tasks.TestCase;
 import com.android.ui.data.Element;
 import com.android.ui.data.UIElement;
 import com.android.ui.data.UIPool;
+import com.android.util.AdbUtil;
 import com.android.util.DisplayUtil;
 import com.android.util.PropertiesUtil;
 import com.android.util.TimeUtil;
@@ -174,15 +175,17 @@ public class RobotScriptRunner extends Thread{
 	}
 	
 	public void finished(){
-		System.out.println("finished");
 		this.isRunning = false;
 		for(int i=0; i<drivers.size();i++)
 			try {
 				drivers.get(i).stopChromeDriver();
 				drivers.get(i).disconnect();
+
+				AdbUtil.kill(drivers.get(i).getSN(), "uiautomator");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		
 	}
 }

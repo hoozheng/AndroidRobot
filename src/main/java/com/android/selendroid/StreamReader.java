@@ -16,18 +16,17 @@ public class StreamReader extends Thread {
 		 this.type = type;
 	 }
 	 
-
 	 public void run() {
 		 try {
 			 InputStreamReader isr = new InputStreamReader(is,"UTF-8");
 			 BufferedReader br = new BufferedReader(isr);
+			 String separator = System.getProperty("line.separator");
 			 String line = null;
 			 while ((line = br.readLine()) != null) {
-				 System.out.println(line);
 				 if (type.equals("Error"))
-					 error.append(line);
+					 error.append(line + separator);
 				 else
-					 info.append(line);
+					 info.append(line + separator);
 			 }
 		 } catch (IOException ioe) {
 			 ioe.printStackTrace();

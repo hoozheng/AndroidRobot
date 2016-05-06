@@ -39,12 +39,12 @@ public class PropertiesUtil {
 			return tempMap;
 	    }
 	    
-	    public static void append(String file,String key,String value,String description){
+	    public static void append(String file,String key,Object value,String description){
 	    	try { 		
 	       		Properties properties = new Properties();
 	    		
 	       		properties.putAll(loadToMap(file));
-	       		properties.setProperty(key, value);
+	       		properties.setProperty(key, String.valueOf(value));
 	    		FileOutputStream outFile = new FileOutputStream(file);
 	    		properties.store(outFile, description);
 	    		outFile.close();

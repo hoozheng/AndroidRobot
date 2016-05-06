@@ -3,9 +3,13 @@ package com.android.python;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.eclipse.swt.widgets.Display;
@@ -34,6 +38,7 @@ import com.android.uiautomator.UiAutomatorClient;
 import com.android.util.AdbUtil;
 import com.android.util.ApkInfo;
 import com.android.util.ApkUtil;
+import com.android.util.Constants;
 import com.android.util.DisplayUtil;
 import com.android.util.ImageUtil;
 import com.android.util.PropertiesUtil;
@@ -68,11 +73,16 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 	private int picCounter = 0;
 	private String projectPath = "";
 	
+	private Logger log = Logger.getLogger(AndroidDriver.class);
+			
 	public static void classDictInit(PyObject dict){
 		JythonUtils.convertDocAnnotationsForClass(AndroidDriver.class, dict);
 	}
 	
 	public void addLog(String sn, String str) {
+		if(sn == null || sn.equals(""))
+			return;
+		
 		//log4j
 		Logger.getLogger(AndroidDriver.class).info("[" +sn + "]" + str);
 		//自动化测试日志
@@ -89,6 +99,10 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 		this.uiAutomatorClient  = new UiAutomatorClient(this.sn);
 		if(isSelendroid)
 			this.uiSelendroidClient = new UiSelendroidClient(apkPath, this.sn, 4444);
+	}
+	
+	public AndroidDriver(UiAutomatorClient  uiAutomatorClient) {
+		this.uiAutomatorClient = uiAutomatorClient;
 	}
 	
 	public void setTaskName(String taskName){
@@ -117,11 +131,15 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 	
 	public boolean connect() throws Exception{
 		boolean isLaunched = false;
-		if(this.uiAutomatorClient != null)
+		if(this.uiAutomatorClient != null) {
 			isLaunched = this.uiAutomatorClient.connect();
+			if(false == isLaunched)
+				return isLaunched;
+		}
 		this.sdk_version = this.uiAutomatorClient.getSDKVersion();
 		
-		if(this.apkPath != null && !this.apkPath.trim().equals("")) {
+		File apkFile = new File(this.apkPath);
+		if(this.apkPath != null && !this.apkPath.trim().equals("") && !apkFile.exists()) {
 			ApkInfo apkInfo = new ApkUtil().getApkInfo(this.apkPath);
 			this.act_name = apkInfo.getActivityName();
 			this.pkg_name = apkInfo.getPackageName();
@@ -175,10 +193,24 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 		}
 	}
 	
+	private String getPkg(String str) {
+		String pkg = "";
+		Pattern p = Pattern.compile("[a-z]+\\.[^/]+/[^}]+\\s");
+		Matcher m = p.matcher(str);
+		while(m.find()){
+			pkg = m.group().split("/")[0];
+		}
+		
+		return pkg;
+	}
+	
 	public void launchChromeDriver() {
 		if(this.sdk_version < 19)
 			return;
 		
+		String resp = 
+				AdbUtil.send("adb shell \"dumpsys activity | grep mFocusedActivity\"", 2000);
+		this.pkg_name = getPkg(resp);
 		if(chromeDriverClient == null) {
 			chromeDriverClient = new ChromeDriverClient(); 
 			chromeDriverClient.createDriver(this.pkg_name, this.sn); //
@@ -201,30 +233,21 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 	 */
 	public void runBeforeInstall(){
 		mInWatcherContext = true;
-		System.out.println(this.projectPath + "/Library/Install.py");
 		executePython(this.projectPath + "/Library/Install.py", "watcher");
 		mInWatcherContext = false;
 	}
 	
 	public boolean setup(final String serial,boolean isSelendroid) throws Exception {
 		if(!this.apkPath.trim().equals("")) {
-			String isForceInstall = PropertiesUtil.getValue(System.getProperty("user.dir") + 
-					"/system.properties", "isForceInstall");
-			if(!isForceInstall.trim().toLowerCase().equals("true")) {
-				return true;
-			}
-
 			boolean bRet = false;
 			int count = 3;
 			while(count-- > 0){
 				Thread preinstall = new Thread(new Runnable(){
 					@Override
 					public void run() {
-						System.out.println("============1121==============");
 						runBeforeInstall();
 					}});
 				preinstall.start();
-				System.out.println("============3==============");
 				if(isSelendroid && this.sdk_version < 17)
 					bRet = this.uiSelendroidClient.
 						setup(serial, this.pkg_name, this.act_name, this.apk_version);
@@ -304,7 +327,6 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 		drivers.add(this);
 		interpreter.set("device", drivers);
 		interpreter.execfile(filePath);
-		System.out.println(filePath + "  " + function);
 		PyFunction pyfunction = interpreter.get(function, PyFunction.class);
 		PyObject pyobj = pyfunction.__call__();
 		return pyobj;
@@ -318,6 +340,25 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 		interpreter.execfile(filePath);
 		PyFunction pyfunction = interpreter.get(function, PyFunction.class);
 		PyObject pyobj = pyfunction.__call__(params.__getitem__(0));
+		return pyobj;
+	}
+	
+	public void executeCommand(String cmd){
+		PythonInterpreter interpreter = new PythonInterpreter();
+		Vector<AndroidDriver> drivers = new Vector();
+		drivers.add(this);
+		interpreter.set("device", drivers);
+		interpreter.exec(cmd); 
+	}
+	
+	private PyObject executePython(String filePath, String function, PyObject param0, PyObject param1){
+		PythonInterpreter interpreter = new PythonInterpreter();
+		Vector<AndroidDriver> drivers = new Vector();
+		drivers.add(this);
+		interpreter.set("device", drivers);
+		interpreter.execfile(filePath);
+		PyFunction pyfunction = interpreter.get(function, PyFunction.class);
+		PyObject pyobj = pyfunction.__call__(param0, param1);
 		return pyobj;
 	}
 	
@@ -339,7 +380,6 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 	 * 执行Watcher.py文件
 	 */
 	public void runWatcher(){
-		System.out.println("run watcher");
 		mInWatcherContext = true;
 		executePython(this.projectPath + "/Library/Watcher.py", "watcher");
 		mInWatcherContext = false;
@@ -352,6 +392,27 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 	@MonkeyRunnerExported(doc="getSerialNumber", args={"void"}, argDocs={""}, returns = "Serial ")
 	public String getSerialNumber(PyObject[] args, String[] kws) throws UnsupportedEncodingException {
 		return this.sn;
+	}
+	
+	@MonkeyRunnerExported(doc="getSerialNumber", args={"void"}, argDocs={""}, returns = "Serial ")
+	public void login(PyObject[] args, String[] kws){
+		ArgParser ap = JythonUtils.createArgParser(args, kws);
+		Preconditions.checkNotNull(ap);
+
+		executePython(this.projectPath + "/Library/Login.py", "login", ap.getPyObject(0), ap.getPyObject(1));
+	}
+	
+	@MonkeyRunnerExported(doc="getSerialNumber", args={"void"}, argDocs={""}, returns = "Serial ")
+	public void quit(PyObject[] args, String[] kws){
+		ArgParser ap = JythonUtils.createArgParser(args, kws);
+		Preconditions.checkNotNull(ap);
+		
+		String pkg = ap.getString(0);
+		String cmd = "adb -s " + sn +" shell am force-stop " + pkg;
+//		else if (pkg_name != null && !pkg_name.equals(""))
+//			cmd += pkg_name;
+		
+		AdbUtil.send(cmd, 5000);
 	}
 	
 	@MonkeyRunnerExported(doc="switchToWindow", args={"void"}, argDocs={""}, returns = "Serial ")
@@ -610,15 +671,18 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 //					break;
 //			}
 			
-			if(ret == false && !mInWatcherContext)
-				throw new Exception(Errors.TOUCH_TEXT_FAIL);
-			else
+			if(ret == false && !mInWatcherContext) {
+				if(sn != null && !sn.equals(""))
+					throw new Exception(Errors.TOUCH_TEXT_FAIL);
+			}else
 				return ret;
 		}else{
 			ret = this.uiAutomatorClient.click(x, y);
 			addLog(sn, "click[" + x +"," + y + "] 返回="+ret);
 			return ret;
 		}
+		
+		return ret;
 	}
 	
 	@MonkeyRunnerExported(doc="click id", args={"x", "y"}, argDocs={"x coordinate in pixels", "y coordinate in pixels"}, returns = "boolean")
@@ -876,6 +940,32 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 		return ret;
 	}
 	
+	@MonkeyRunnerExported(doc="click screen", args={"x", "y"}, argDocs={"x coordinate in pixels", "y coordinate in pixels"}, returns = "boolean")
+	public boolean scrollForward(PyObject[] args, String[] kws) throws Exception {
+		ArgParser ap = JythonUtils.createArgParser(args, kws);
+		Preconditions.checkNotNull(ap);
+		boolean ret = false;
+		this.refreshProgressData();
+		int steps = ap.getInt(0);
+		
+		ret = this.uiAutomatorClient.scrollForward(steps);
+		addLog(sn , "scrollForward[" + steps + "] 返回=" + ret);
+		return ret;
+	}
+	
+	@MonkeyRunnerExported(doc="scrollBackward", args={"x", "y"}, argDocs={"x coordinate in pixels", "y coordinate in pixels"}, returns = "boolean")
+	public boolean scrollBackward(PyObject[] args, String[] kws) throws Exception {
+		ArgParser ap = JythonUtils.createArgParser(args, kws);
+		Preconditions.checkNotNull(ap);
+		boolean ret = false;
+		this.refreshProgressData();
+		int steps = ap.getInt(0);
+		
+		ret = this.uiAutomatorClient.scrollForward(steps);
+		addLog(sn, "scrollBackward[" + steps + "] 返回=" + ret);
+		return ret;
+	}
+	
 	@MonkeyRunnerExported(doc="get script compatible screen", args={"x", "y"}, argDocs={"x coordinate in pixels", "y coordinate in pixels"}, returns = "no")
 	public String shell(PyObject[] args, String[] kws) {
 		ArgParser ap = JythonUtils.createArgParser(args, kws);
@@ -1034,15 +1124,17 @@ public class AndroidDriver extends PyObject implements ClassDictInit{
 		try {
 			String screen = this.uiAutomatorClient.takeSnapshot(System.getProperty("user.dir") + 
 					"/temp/", "screen.png");
+			String project = 
+					projectPath.substring(projectPath.lastIndexOf(Constants.FILE_SEPARATOR) + 1, 
+							projectPath.length());
 			
-			String trimFilePath = StringUtil.trim(filePath);
-			String project = trimFilePath.substring(0, trimFilePath.indexOf("/"));
-			Area area = AreaLoader.load(System.getProperty("user.dir") + 
-					"/workspace/" + project + "/screen_area.xml",trimFilePath);
-			
-			return new ImageUtil(filePath, screen, rate).compare(area.getX(), area.getY(), area.getWidth(), area.getHeight());
+			String expectedPath = project + Constants.FILE_SEPARATOR + 
+					"Pictures" + Constants.FILE_SEPARATOR + filePath;
+			Area area = AreaLoader.load(projectPath + "/screen_area.xml",expectedPath);
+			return new ImageUtil(projectPath + Constants.FILE_SEPARATOR + "Pictures" + Constants.FILE_SEPARATOR + filePath, screen, rate).
+					compare(area.getX(), area.getY(), area.getWidth(), area.getHeight());
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error(e);
 			return false;
 		}
 	}

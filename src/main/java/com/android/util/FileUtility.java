@@ -101,17 +101,19 @@ public class FileUtility {
         }
     }
 	
-	public static void getScripts(File project,Vector<String> scripts) throws IOException{
+	public static void getScripts(File project, Vector<String> scripts, String projectPath) throws IOException{
 		if(project != null && project.isFile()){
 			String canonicalPath = project.getCanonicalPath();
-			int index = canonicalPath.lastIndexOf(System.getProperty("file.separator") + "workspace" + System.getProperty("file.separator"));
-			String relativePath = "."+canonicalPath.substring(index,canonicalPath.length());
+			//System.out.println("bbbbbbbbbbb:" + canonicalPath + "  " + projectPath);
+			int index = canonicalPath.indexOf(projectPath);//lastIndexOf(System.getProperty("file.separator") + "workspace" + System.getProperty("file.separator"));
+			String relativePath = canonicalPath.substring(projectPath.length(),canonicalPath.length());
+			//System.out.println("bbbbbbbbbbb:" + relativePath);
 			//scripts.add(project.getCanonicalPath());
 			scripts.add(relativePath);
 		}else if(project != null && project.isDirectory()){
 			File[] files= project.listFiles();
 			for(int i=0;i<files.length;i++){
-				getScripts(files[i],scripts);
+				getScripts(files[i],scripts,projectPath);
 			}
 		}
 	}

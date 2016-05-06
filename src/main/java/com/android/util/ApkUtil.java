@@ -118,7 +118,7 @@ public class ApkUtil {
 
 	public static void main(String[] args) {
 		try {
-			String demo = "d:/AlipayMerchant_321101601_Test_debug_201510161720.apk";
+			String demo = "C:\\Users\\hezheng.hz\\Downloads\\Alipay_960031504_Release_debug_201603151603.apk";
 			if (args.length > 0) {
 				demo = args[0];
 			}

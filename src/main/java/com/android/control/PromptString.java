@@ -67,7 +67,11 @@ public class PromptString {
 		"tapByXpath(String xpath)",
 		"call(String num)",
 		"sendSMS(String num, String content)",
-		"shell(String cmd, int timeout)"
+		"shell(String cmd, int timeout)",
+		"scrollForward(int steps)",
+		"scrollBackward(int steps)",
+		"login(String user, String pwd)",
+		"quit(String package)"
 	};
 		
 	public static String[] str2 = {
@@ -120,7 +124,11 @@ public class PromptString {
 		"boolean",
 		"void",
 		"void",
-		"String"
+		"String",
+		"boolean",
+		"boolean",
+		"void",
+		"void"
 	};
 	
 	public static String[] str3 = {
@@ -173,7 +181,11 @@ public class PromptString {
 		"按Xpath点击控件 \n\n for WebView",
 		"拨打电话",
 		"发送短线",
-		"执行adb shell脚本"
+		"执行adb shell脚本",
+		"向前滑动",
+		"向后滑动",
+		"登录操作\n调用库文件Login.py的函数login",
+		"退出指定App\n\nString package - 应用程序的包名"
 	};
 }
 

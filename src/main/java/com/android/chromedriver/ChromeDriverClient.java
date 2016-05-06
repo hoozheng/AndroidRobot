@@ -21,7 +21,6 @@ private WebDriver driver = null;
     
     public void createDriver(String pkg_name, String sn) {
     	if(this.driver == null) {
-	    	System.out.println(sn + "================createDriver======================");
 	        ChromeOptions chromeOptions = new ChromeOptions();
 	        chromeOptions.setExperimentalOption("androidPackage", pkg_name);
 	//        chromeOptions.setExperimentalOption("androidActivity", "com.eg.android.AlipayGphone.AlipayLogin");
@@ -39,12 +38,6 @@ private WebDriver driver = null;
 //	        capabilities.setCapability(CapabilityType., value);
 	        if(ChromeService.getService() != null)
 	        	driver = new RobotRemoteWebDriver(ChromeService.getService().getUrl(), capabilities);
-	        
-	        int size = driver.getWindowHandles().size();
-	        System.out.println("size:" + size);
-	        for(int i=0;i<size;i++) {
-	        	System.out.println(driver.getWindowHandles().toString());
-	        }
     	}
     }
     

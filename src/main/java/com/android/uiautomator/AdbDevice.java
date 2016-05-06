@@ -20,10 +20,13 @@ public class AdbDevice {
 		
 		if ((bridge == null) || (!bridge.isConnected())) {
 			String adbLocation = System.getProperty("user.dir");
-			
-			if ((adbLocation != null) && (adbLocation.length() != 0))
+			System.out.println(adbLocation);
+			if ((adbLocation != null) && (adbLocation.length() != 0)) {
 				adbLocation = adbLocation + File.separator + "adb";
-			else{
+				File file= new File(adbLocation);
+				if(!file.exists())
+					adbLocation = "adb";
+			}else{
 				adbLocation = "adb";
 			}
 			bridge = AndroidDebugBridge.createBridge(adbLocation, false);

@@ -1,5 +1,7 @@
 package com.android.util;
 
+import org.apache.commons.lang.StringUtils;
+
 public class StringUtil {
 	public static synchronized String trim(String str) {
 		String temp = str.trim();
@@ -14,4 +16,8 @@ public class StringUtil {
 		
 		return temp.substring(index, temp.length());
 	}
+	
+	public static boolean isNullString(String str) {  
+        return (null == str || StringUtils.isBlank(str.trim()) || "null".equals(str.trim().toLowerCase())) ? true : false;  
+    } 
 }
